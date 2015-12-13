@@ -7,7 +7,7 @@
 	objects = {
 
 /* Begin PBXBuildFile section */
-		02935AD41C170E9C00C855F2 /* libsqlite3.0.dylib in Frameworks */ = {isa = PBXBuildFile; fileRef = 02935AD31C170E9C00C855F2 /* libsqlite3.0.dylib */; };
+		02910B901C1DD2E4001833C7 /* libsqlite3.dylib in Frameworks */ = {isa = PBXBuildFile; fileRef = 02910B8F1C1DD2E4001833C7 /* libsqlite3.dylib */; };
 		02935ADA1C17273F00C855F2 /* bhkFMDB.m in Sources */ = {isa = PBXBuildFile; fileRef = 02935AD91C17273F00C855F2 /* bhkFMDB.m */; };
 		3A06850C1C10766800591885 /* leftviewTableViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 3A06850B1C10766800591885 /* leftviewTableViewController.m */; };
 		3A06850F1C1079FF00591885 /* CustomcontrolViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 3A06850E1C1079FF00591885 /* CustomcontrolViewController.m */; };
