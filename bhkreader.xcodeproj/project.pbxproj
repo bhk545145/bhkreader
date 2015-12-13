@@ -45,7 +45,7 @@
 /* End PBXContainerItemProxy section */
 
 /* Begin PBXFileReference section */
-		02935AD31C170E9C00C855F2 /* libsqlite3.0.dylib */ = {isa = PBXFileReference; lastKnownFileType = "compiled.mach-o.dylib"; name = libsqlite3.0.dylib; path = usr/lib/libsqlite3.0.dylib; sourceTree = SDKROOT; };
+		02910B8F1C1DD2E4001833C7 /* libsqlite3.dylib */ = {isa = PBXFileReference; lastKnownFileType = "compiled.mach-o.dylib"; name = libsqlite3.dylib; path = ../libsqlite3.dylib; sourceTree = "<group>"; };
 		02935AD81C17273F00C855F2 /* bhkFMDB.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; name = bhkFMDB.h; path = 3rd/bhkFMDB.h; sourceTree = "<group>"; };
 		02935AD91C17273F00C855F2 /* bhkFMDB.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; name = bhkFMDB.m; path = 3rd/bhkFMDB.m; sourceTree = "<group>"; };
 		3A06850A1C10766800591885 /* leftviewTableViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; name = leftviewTableViewController.h; path = ../leftviewTableViewController.h; sourceTree = "<group>"; };
@@ -101,7 +101,7 @@
 			buildActionMask = 2147483647;
 			files = (
 				3AD807791C17D0B500AC0891 /* libsqlite3.0.tbd in Frameworks */,
-				02935AD41C170E9C00C855F2 /* libsqlite3.0.dylib in Frameworks */,
+				02910B901C1DD2E4001833C7 /* libsqlite3.dylib in Frameworks */,
 				3AEDC6BC1BF357A800868262 /* libBLNetwork.a in Frameworks */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
@@ -221,7 +221,7 @@
 			children = (
 				3AC06D751C1AF5F900068164 /* FMDB */,
 				3AD807781C17D0B500AC0891 /* libsqlite3.0.tbd */,
-				02935AD31C170E9C00C855F2 /* libsqlite3.0.dylib */,
+				02910B8F1C1DD2E4001833C7 /* libsqlite3.dylib */,
 				3A915E5F1BEB6134005375CE /* 3rd */,
 				3A0685131C1083B700591885 /* tool */,
 				3AE2FEFA1C0874A4009FBA2F /* getCurrentWiFiSSID */,
@@ -588,6 +588,7 @@
 					"$(inherited)",
 					"$(PROJECT_DIR)/bhkreader/lib",
 					"$(PROJECT_DIR)/bhkreader",
+					"$(PROJECT_DIR)",
 				);
 				PRODUCT_NAME = "$(TARGET_NAME)";
 				PROVISIONING_PROFILE = "";
@@ -608,6 +609,7 @@
 					"$(inherited)",
 					"$(PROJECT_DIR)/bhkreader/lib",
 					"$(PROJECT_DIR)/bhkreader",
+					"$(PROJECT_DIR)",
 				);
 				PRODUCT_NAME = "$(TARGET_NAME)";
 				PROVISIONING_PROFILE = "";
