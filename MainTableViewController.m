@@ -14,12 +14,14 @@
 #import "DeviceCell.h"
 #import "getCurrentWiFiSSID.h"
 #import "bhkFMDB.h"
+#import "Spbtn.h"
 
 @interface MainTableViewController (){
     dispatch_queue_t networkQueue;
     dispatch_queue_t queue;
     int cellhight;
     bhkFMDB *bhkfmdb;
+    Spbtn *_Spbtn;
 }
 
 @property (nonatomic, strong) NSMutableArray *deviceArray;
@@ -41,6 +43,7 @@
     _network = [[BLNetwork alloc] init];
     _deviceArray = [[NSMutableArray alloc] init];
     bhkfmdb = [[bhkFMDB alloc]init];
+    _Spbtn = [[Spbtn alloc]init];
     dispatch_async(queue, ^{
         //定时刷新
         [self startTimer];
@@ -97,24 +100,27 @@
 
 
 - (UITableViewCell *)tableView:(UITableView *)tableView cellForRowAtIndexPath:(NSIndexPath *)indexPath {
-    static NSString *SimleTableIdentifier = @"SimleTableIdentifier";
+    BLDeviceInfo *info = _deviceArray[indexPath.row];
+    NSString *SimleTableIdentifier = @"";
+    if ([info.type isEqualToString:@"SPMini"] || [info.type isEqualToString:@"SP2"]){
+        SimleTableIdentifier = [NSString stringWithFormat:@"CellSP"];
+    }else if([info.type isEqualToString:@"RM2"]){
+        SimleTableIdentifier = [NSString stringWithFormat:@"CellRM"];
+    }else{
+        SimleTableIdentifier = [NSString stringWithFormat:@"CellA1"];
+    }
+    
     DeviceCell *cell = [tableView dequeueReusableCellWithIdentifier:SimleTableIdentifier];
     if(cell == nil){
-        cell = [[DeviceCell alloc]initWithStyle:UITableViewCellStyleDefault reuseIdentifier:SimleTableIdentifier];
+        cell = [[DeviceCell alloc]initWithStyle:UITableViewCellStyleSubtitle reuseIdentifier:SimleTableIdentifier];
     }
-//    else{
-//        for (UIView *view in [cell.contentView subviews])
-//        {
-//            [view removeFromSuperview];
-//        }
-//    }
-    
-    BLDeviceInfo *info = _deviceArray[indexPath.row];
-    //status设备状态ip地址spstate开关状态
+    //status设备状态
     info.status = [self statetomac:info.mac];
+    //ip地址
     info.ip = [self iptomac:info.mac];
+    //spstate开关状态
     if ([info.type isEqualToString:@"SPMini"] || [info.type isEqualToString:@"SP2"]){
-        info.spstate = [self Sprefresh:info.mac];
+        info.spstate = [_Spbtn Sprefresh:info.mac];
     }else{
         info.spstate = nil;
     }
@@ -273,7 +279,7 @@
     }
     });
 }
-
+//查询数据库的设备信息
 - (void)getFMDBDeviceinfo{
     dispatch_async(networkQueue, ^{
         NSMutableArray *array = [[NSMutableArray alloc]init];
@@ -335,22 +341,7 @@
 return locaIP;
 }
 
--(int)Sprefresh:(NSString *)mac{
-    int spstate;
-    NSMutableDictionary *dic = [[NSMutableDictionary alloc] init];
-    [dic setObject:[NSNumber numberWithInt:71] forKey:@"api_id"];
-    [dic setObject:@"sp2_refresh" forKey:@"command"];
-    [dic setObject:mac forKey:@"mac"];
-    NSError *error;
-    NSData *requestData = [NSJSONSerialization dataWithJSONObject:dic options:NSJSONWritingPrettyPrinted error: &error];
-        NSData *responseData = [_network requestDispatch:requestData];
-        //NSLog(@"%@", [responseData objectFromJSONData]);
-        if ([[[responseData objectFromJSONData] objectForKey:@"code"] intValue] == 0)
-        {
-            spstate = [[[responseData objectFromJSONData] objectForKey:@"status"] intValue];
-        }
-    return spstate;
-}
+
 
 
 

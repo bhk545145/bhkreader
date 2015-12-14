@@ -152,6 +152,8 @@
 		3A0685131C1083B700591885 /* tool */ = {
 			isa = PBXGroup;
 			children = (
+				02935AD81C17273F00C855F2 /* bhkFMDB.h */,
+				02935AD91C17273F00C855F2 /* bhkFMDB.m */,
 			);
 			name = tool;
 			sourceTree = "<group>";
@@ -170,8 +172,6 @@
 			children = (
 				3AC2CBB71C033CB40029B2D5 /* DeviceCell.h */,
 				3AC2CBB81C033CB40029B2D5 /* DeviceCell.m */,
-				3AE2FEF71C085890009FBA2F /* Spbtn.h */,
-				3AE2FEF81C085890009FBA2F /* Spbtn.m */,
 			);
 			name = view;
 			sourceTree = "<group>";
@@ -181,6 +181,8 @@
 			children = (
 				3A9EF40B1BE8DCDE00F21DD2 /* MainTableViewController.h */,
 				3A9EF40C1BE8DCDE00F21DD2 /* MainTableViewController.m */,
+				3AE2FEF71C085890009FBA2F /* Spbtn.h */,
+				3AE2FEF81C085890009FBA2F /* Spbtn.m */,
 			);
 			name = controller;
 			sourceTree = "<group>";
@@ -210,8 +212,6 @@
 				3AC8185F1BE8917000D195F6 /* ViewController.m */,
 				3A06850A1C10766800591885 /* leftviewTableViewController.h */,
 				3A06850B1C10766800591885 /* leftviewTableViewController.m */,
-				02935AD81C17273F00C855F2 /* bhkFMDB.h */,
-				02935AD91C17273F00C855F2 /* bhkFMDB.m */,
 			);
 			name = leftview;
 			sourceTree = "<group>";

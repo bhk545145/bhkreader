@@ -94,6 +94,21 @@
     });
 }
 
-
+- (int)Sprefresh:(NSString *)mac{
+    int spstate;
+    NSMutableDictionary *dic = [[NSMutableDictionary alloc] init];
+    [dic setObject:[NSNumber numberWithInt:71] forKey:@"api_id"];
+    [dic setObject:@"sp2_refresh" forKey:@"command"];
+    [dic setObject:mac forKey:@"mac"];
+    NSError *error;
+    NSData *requestData = [NSJSONSerialization dataWithJSONObject:dic options:NSJSONWritingPrettyPrinted error: &error];
+    NSData *responseData = [_network requestDispatch:requestData];
+    //NSLog(@"%@", [responseData objectFromJSONData]);
+    if ([[[responseData objectFromJSONData] objectForKey:@"code"] intValue] == 0)
+    {
+        spstate = [[[responseData objectFromJSONData] objectForKey:@"status"] intValue];
+    }
+    return spstate;
+}
 
 @end
