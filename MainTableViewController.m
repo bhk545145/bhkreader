@@ -102,13 +102,20 @@
 - (UITableViewCell *)tableView:(UITableView *)tableView cellForRowAtIndexPath:(NSIndexPath *)indexPath {
     BLDeviceInfo *info = _deviceArray[indexPath.row];
     NSString *SimleTableIdentifier = @"";
-    if ([info.type isEqualToString:@"SPMini"] || [info.type isEqualToString:@"SP2"]){
+    if ([info.type isEqualToString:@"10016"] || [info.type isEqualToString:@"10001"] || [info.type isEqualToString:@"10024"]){
         SimleTableIdentifier = [NSString stringWithFormat:@"CellSP"];
-    }else if([info.type isEqualToString:@"RM2"]){
+    }else if([info.type isEqualToString:@"1002"]){
         SimleTableIdentifier = [NSString stringWithFormat:@"CellRM"];
-    }else{
+    }else if([info.type isEqualToString:@"1004"]){
         SimleTableIdentifier = [NSString stringWithFormat:@"CellA1"];
+    }else if ([info.type isEqualToString:@"10018"]){
+        SimleTableIdentifier = [NSString stringWithFormat:@"CellS1"];
+    }else if([info.type isEqualToString:@"10015"]){
+        SimleTableIdentifier = [NSString stringWithFormat:@"CellMS1"];
+    }else{
+        SimleTableIdentifier = [NSString stringWithFormat:@"Cell"];
     }
+               
     
     DeviceCell *cell = [tableView dequeueReusableCellWithIdentifier:SimleTableIdentifier];
     if(cell == nil){
@@ -119,7 +126,7 @@
     //ip地址
     info.ip = [self iptomac:info.mac];
     //spstate开关状态
-    if ([info.type isEqualToString:@"SPMini"] || [info.type isEqualToString:@"SP2"]){
+    if ([info.type isEqualToString:@"10016"] || [info.type isEqualToString:@"10001"] || [info.type isEqualToString:@"10024"]){
         info.spstate = [_Spbtn Sprefresh:info.mac];
     }else{
         info.spstate = nil;
@@ -260,7 +267,8 @@
     NSMutableDictionary *dic = [[NSMutableDictionary alloc] init];
     [dic setObject:[NSNumber numberWithInt:1] forKey:@"api_id"];
     [dic setObject:@"network_init" forKey:@"command"];
-    [dic setObject:@"LWNsu0Y3ipvC2lC+8j2Xxl7VJDNRjbMwA6EU36m359BaJVHpgpbTIooYf9nO1aQGu5ct6YfL3tfmtSS/pEOhxfnpLQ/EfpYLPB2d6HA7BsJP4lWlgLI=" forKey:@"license"];
+    [dic setObject:@"7mvxZWDF7sck1YTPC9N8KajJu4Ut5ozUaImQgoOA6o/V1YVmYbc0hmXxsE8je7AjrSaRvCRzgJvWCDQEN/lI2hBDnHxLJlkCizwFUF7y+CFkGQ7nNo0=" forKey:@"license"];
+    [dic setObject:@"gmAYRx925om219EQk0AQo4qooH3UgHYvkErGG+WPBki0Ic7s4LIEhPLn8dDcbYtJUSD+wi54ycsjciC1bOlFGi/WoY0VoOVSJlm4rAHnFzBwK+Xhbazbny1NM3+58+58" forKey:@"type_license"];
     NSError *error;
     NSData *requestData = [NSJSONSerialization dataWithJSONObject:dic options:NSJSONWritingPrettyPrinted error: &error];
     dispatch_async(networkQueue, ^{

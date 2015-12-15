@@ -14,7 +14,7 @@
 @property (nonatomic, strong) NSString *type;
 @property (nonatomic, strong) NSString *name;
 @property (nonatomic, assign) int lock;
-@property (nonatomic, assign) uint32_t password;
+@property (nonatomic, assign) int password;
 @property (nonatomic, assign) int terminal_id;
 @property (nonatomic, assign) int sub_device;
 @property (nonatomic, strong) NSString *key;
