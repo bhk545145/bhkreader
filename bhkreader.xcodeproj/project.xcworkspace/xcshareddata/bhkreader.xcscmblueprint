@@ -1,0 +1,30 @@
+{
+  "DVTSourceControlWorkspaceBlueprintPrimaryRemoteRepositoryKey" : "5A5F8AFBACA6526E167DBBCF8CE2F8FD50608A97",
+  "DVTSourceControlWorkspaceBlueprintWorkingCopyRepositoryLocationsKey" : {
+
+  },
+  "DVTSourceControlWorkspaceBlueprintWorkingCopyStatesKey" : {
+    "2A8CC76D0984F5186F869B6CBF35034B58A5ACD9" : 0,
+    "5A5F8AFBACA6526E167DBBCF8CE2F8FD50608A97" : 0
+  },
+  "DVTSourceControlWorkspaceBlueprintIdentifierKey" : "68AF3EEC-56F5-4A4A-8EB0-6DDDC5FE609B",
+  "DVTSourceControlWorkspaceBlueprintWorkingCopyPathsKey" : {
+    "2A8CC76D0984F5186F869B6CBF35034B58A5ACD9" : "bhkreader\/bhkreader\/3rd\/MJRefresh\/",
+    "5A5F8AFBACA6526E167DBBCF8CE2F8FD50608A97" : "bhkreader\/"
+  },
+  "DVTSourceControlWorkspaceBlueprintNameKey" : "bhkreader",
+  "DVTSourceControlWorkspaceBlueprintVersion" : 204,
+  "DVTSourceControlWorkspaceBlueprintRelativePathToProjectKey" : "bhkreader.xcodeproj",
+  "DVTSourceControlWorkspaceBlueprintRemoteRepositoriesKey" : [
+    {
+      "DVTSourceControlWorkspaceBlueprintRemoteRepositoryURLKey" : "https:\/\/github.com\/CoderMJLee\/MJRefresh.git",
+      "DVTSourceControlWorkspaceBlueprintRemoteRepositorySystemKey" : "com.apple.dt.Xcode.sourcecontrol.Git",
+      "DVTSourceControlWorkspaceBlueprintRemoteRepositoryIdentifierKey" : "2A8CC76D0984F5186F869B6CBF35034B58A5ACD9"
+    },
+    {
+      "DVTSourceControlWorkspaceBlueprintRemoteRepositoryURLKey" : "https:\/\/github.com\/bhk545145\/bhkreader.git",
+      "DVTSourceControlWorkspaceBlueprintRemoteRepositorySystemKey" : "com.apple.dt.Xcode.sourcecontrol.Git",
+      "DVTSourceControlWorkspaceBlueprintRemoteRepositoryIdentifierKey" : "5A5F8AFBACA6526E167DBBCF8CE2F8FD50608A97"
+    }
+  ]
+}

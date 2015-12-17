@@ -15,6 +15,8 @@
 #import "getCurrentWiFiSSID.h"
 #import "bhkFMDB.h"
 #import "Spbtn.h"
+#import "MJRefresh.h"
+
 
 @interface MainTableViewController (){
     dispatch_queue_t networkQueue;
@@ -48,6 +50,15 @@
         //定时刷新
         [self startTimer];
     });
+    
+    __weak typeof(self) weakSelf = self;
+    // 设置回调（一旦进入刷新状态就会调用这个refreshingBlock）
+    self.tableView.mj_header = [MJRefreshNormalHeader headerWithRefreshingBlock:^{
+        [weakSelf listRefresh];
+    }];
+    
+    // 马上进入刷新状态
+    [self.tableView.mj_header beginRefreshing];
     
     _siderbarBtn.tintColor = [UIColor colorWithWhite:0.96f alpha:0.2f];
     _siderbarBtn.target = self.revealViewController;
@@ -259,6 +270,7 @@
             [_deviceArray removeAllObjects];
             [_deviceArray addObjectsFromArray:array];
             [self refreshDeviceList];
+            [self.tableView.mj_header endRefreshing];
         }
     });
 }
