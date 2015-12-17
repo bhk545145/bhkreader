@@ -102,11 +102,13 @@
 - (UITableViewCell *)tableView:(UITableView *)tableView cellForRowAtIndexPath:(NSIndexPath *)indexPath {
     BLDeviceInfo *info = _deviceArray[indexPath.row];
     NSString *SimleTableIdentifier = @"";
-    if ([info.type isEqualToString:@"10016"] || [info.type isEqualToString:@"10001"] || [info.type isEqualToString:@"10024"]){
+    if ([info.type isEqualToString:@"10016"] || [info.type isEqualToString:@"10001"]){
         SimleTableIdentifier = [NSString stringWithFormat:@"CellSP"];
-    }else if([info.type isEqualToString:@"1002"]){
+    }else if([info.type isEqualToString:@"10024"]){
+        SimleTableIdentifier = [NSString stringWithFormat:@"CellSP30"];
+    }else if([info.type isEqualToString:@"10002"]){
         SimleTableIdentifier = [NSString stringWithFormat:@"CellRM"];
-    }else if([info.type isEqualToString:@"1004"]){
+    }else if([info.type isEqualToString:@"10004"]){
         SimleTableIdentifier = [NSString stringWithFormat:@"CellA1"];
     }else if ([info.type isEqualToString:@"10018"]){
         SimleTableIdentifier = [NSString stringWithFormat:@"CellS1"];

@@ -67,6 +67,7 @@
     }else if([BLDeviceinfo.type isEqualToString:@"10024"]){
         _deviceimage.image = [UIImage imageNamed:@"SPmin.jpg"];
         _type.text = BLDeviceinfo.type;
+        _type.textColor = [UIColor redColor];
     }else if([BLDeviceinfo.type isEqualToString:@"10001"]){
         _deviceimage.image = [UIImage imageNamed:@"SP2.jpg"];
         _type.text =@"SP2";
@@ -85,6 +86,7 @@
     }else{
         _deviceimage.image = [UIImage imageNamed:@"1024.jpg"];
         _type.text = BLDeviceinfo.type;
+        _type.textColor = [UIColor redColor];
     }
     
     _mac.text = BLDeviceinfo.mac;

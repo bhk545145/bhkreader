@@ -12,8 +12,9 @@
 #import "JSONKit.h"
 #import "getCurrentWiFiSSID.h"
 #import "bhkFMDB.h"
+#import "MBProgressHUD+MJ.h"
 
-@interface ViewController (){
+@interface ViewController ()<MBProgressHUDDelegate>{
     dispatch_queue_t networkQueue;
     bhkFMDB *bhkfmdb;
 }
@@ -35,6 +36,7 @@
     self.view.backgroundColor = [UIColor whiteColor];
     [self drawRect];
     bhkfmdb = [[bhkFMDB alloc]init];
+    [self btnClick1:nil];
 }
 
 - (void)didReceiveMemoryWarning {
@@ -54,9 +56,11 @@
     _configurebtn = [[UIButton alloc] init];
     _configurebtn.titleLabel.font = [UIFont systemFontOfSize: 20];
     _configurebtn.frame = CGRectMake(140, 200, 100, 60);
-    [_configurebtn addTarget:self action:@selector(startConfig:) forControlEvents:UIControlEventTouchUpInside];
+    [_configurebtn addTarget:self action:@selector(configButtonClicked:) forControlEvents:UIControlEventTouchUpInside];
     [_configurebtn setTitle:@"一键配置" forState:UIControlStateNormal];
+    [_configurebtn setTitle:@"取消配置" forState:UIControlStateSelected];
     [_configurebtn setTitleColor:[UIColor redColor] forState:UIControlStateNormal];
+    [_configurebtn setTitleColor:[UIColor blueColor] forState:UIControlStateSelected];
     [_configurebtn setTitleColor:[UIColor blackColor] forState:UIControlStateHighlighted];
     
     _wififield = [[UITextField alloc] init];
@@ -82,9 +86,26 @@
     _passwordfield.text = [bhkfmdb getwifi:_wififield.text];
 }
 
+- (void)configButtonClicked:(UIButton *)button
+{
+    [button setSelected:![button isSelected]];
+    if ([button isSelected])
+    {
+        [self startConfig:button];
+    }
+    else
+    {
+        [self cancelConfig:button];
+    }
+}
+
+//开始配置
 - (void)startConfig:(UIButton *)sender{
     NSString *wifi = _wififield.text;
     NSString *password = _passwordfield.text;
+    UIView *progressview = [[UIView alloc]initWithFrame:CGRectMake(60, 270, 200, 100)];
+    [self.view addSubview:progressview];
+    [MBProgressHUD showMessage:@"正在配置中....." toView:progressview];
     dispatch_async(dispatch_get_global_queue(DISPATCH_QUEUE_PRIORITY_DEFAULT, 0), ^{
         NSMutableDictionary *dic = [[NSMutableDictionary alloc] init];
         [dic setObject:[NSNumber numberWithInt:10000] forKey:@"api_id"];
@@ -93,16 +114,37 @@
         [dic setObject:password forKey:@"password"];
         NSError *error;
         NSData *requestData = [NSJSONSerialization dataWithJSONObject:dic options:NSJSONWritingPrettyPrinted error: &error];
-        
         NSData *responseData = [_network requestDispatch:requestData];
         NSLog(@"%@", [responseData objectFromJSONData]);
-        
         dispatch_async(dispatch_get_main_queue(), ^{
             [_configurebtn setSelected:NO];
-            UIAlertView *alertView = [[UIAlertView alloc] initWithTitle:nil message:[[responseData objectFromJSONData] objectForKey:@"msg"] delegate:nil cancelButtonTitle:@"OK" otherButtonTitles:nil, nil];
-            [alertView show];
+            // 移除HUD
+            [MBProgressHUD hideHUD];
+            [progressview removeFromSuperview];
+            UIView *progressview = [[UIView alloc]initWithFrame:CGRectMake(60, 270, 200, 100)];
+            [self.view addSubview:progressview];
+            if([[[responseData objectFromJSONData] objectForKey:@"code"] intValue] == 0){
+                [MBProgressHUD showMessage:@"配置成功" toView:progressview];
+            }else if ([[[responseData objectFromJSONData] objectForKey:@"code"] intValue] == 1){
+                [MBProgressHUD showError:@"配置失败" toView:progressview];
+            }else{
+                [MBProgressHUD showError:@"配置取消" toView:progressview];
+            }
         });
+        
     });
     [bhkfmdb insertOrUpdatewifi:wifi password:password];
+}
+
+//取消配置
+- (void)cancelConfig:(UIButton *)sender{
+        NSMutableDictionary *dic = [[NSMutableDictionary alloc] init];
+        [dic setObject:[NSNumber numberWithInt:10001] forKey:@"api_id"];
+        [dic setObject:@"cancel_easyconfig" forKey:@"command"];
+        NSError *error;
+        NSData *requestData = [NSJSONSerialization dataWithJSONObject:dic options:NSJSONWritingPrettyPrinted error: &error];
+        NSData *responseData = [_network requestDispatch:requestData];
+        NSLog(@"%@", [responseData objectFromJSONData]);
+        [_configurebtn setSelected:NO];
 }
 @end
