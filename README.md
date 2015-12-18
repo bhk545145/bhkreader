@@ -1,2 +1,2 @@
 # bhkreader
-broadlink SDK study using
+SDK study using
