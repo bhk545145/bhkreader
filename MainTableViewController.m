@@ -50,13 +50,16 @@
         //定时刷新
         [self startTimer];
     });
+    
     __weak typeof(self) weakSelf = self;
     // 设置回调（一旦进入刷新状态就会调用这个refreshingBlock）
     self.tableView.mj_header = [MJRefreshNormalHeader headerWithRefreshingBlock:^{
         [weakSelf listRefresh];
     }];
+    
     // 马上进入刷新状态
     [self.tableView.mj_header beginRefreshing];
+    
     _siderbarBtn.tintColor = [UIColor colorWithWhite:0.96f alpha:0.2f];
     _siderbarBtn.target = self.revealViewController;
     _siderbarBtn.action = @selector(revealToggle:);
@@ -68,7 +71,7 @@
 
 - (void)startTimer{
     //每1秒刷新一次
-    self.timer = [NSTimer scheduledTimerWithTimeInterval:5 target:self selector:@selector(refreshDeviceList) userInfo:nil repeats:YES];
+    self.timer = [NSTimer scheduledTimerWithTimeInterval:5 target:self selector:@selector(listRefresh) userInfo:nil repeats:YES];
     //[[NSRunLoop currentRunLoop] addTimer:self.timer forMode:NSRunLoopCommonModes];
     [[NSRunLoop currentRunLoop]run];
 }
@@ -190,7 +193,6 @@
     dispatch_async(dispatch_get_main_queue(), ^{
         [self.tableView reloadData];
         [self getCurrentWiFiSSID];
-        [NSTimer scheduledTimerWithTimeInterval:5 target:self selector:@selector(endRefreshing) userInfo:nil repeats:YES];
     });
 }
 
@@ -268,14 +270,11 @@
             [_deviceArray removeAllObjects];
             [_deviceArray addObjectsFromArray:array];
             [self refreshDeviceList];
-
+            [self.tableView.mj_header endRefreshing];
         }
     });
 }
 
-- (void)endRefreshing{
-    [self.tableView.mj_header endRefreshing];
-}
 
 - (void)networkInit
 {
