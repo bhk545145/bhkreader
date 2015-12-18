@@ -21,7 +21,7 @@
 @property (nonatomic, strong) NSString *key;
 @property (nonatomic, strong) NSString *status;
 @property (nonatomic, strong) NSString *ip;
-@property (nonatomic, assign) int *spstate;
+@property (nonatomic, assign) int spstate;
 @property (nonatomic, assign) float rmtemperature;
 @property (nonatomic, strong) A1listInfo *a1listInfo;
 

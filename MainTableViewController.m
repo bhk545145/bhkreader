@@ -142,8 +142,6 @@
     //spstate开关状态
     if ([info.type isEqualToString:@"10016"] || [info.type isEqualToString:@"10001"] || [info.type isEqualToString:@"10024"]){
         info.spstate = [_Spbtn Sprefresh:info.mac];
-    }else{
-        info.spstate = nil;
     }
     //rmtemperature RM温度
     if ([info.type isEqualToString:@"10002"] ) {
