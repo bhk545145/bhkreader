@@ -25,8 +25,7 @@
         
         _sub_device = [dict[@"subdevice"]intValue];
         _key = dict[@"key"];
-        _status = dict[@"status"];
-        _ip = dict[@"ip"];
+
     }
     return self;
 }

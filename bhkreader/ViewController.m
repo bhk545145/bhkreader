@@ -115,7 +115,7 @@
         NSError *error;
         NSData *requestData = [NSJSONSerialization dataWithJSONObject:dic options:NSJSONWritingPrettyPrinted error: &error];
         NSData *responseData = [_network requestDispatch:requestData];
-        NSLog(@"%@", [responseData objectFromJSONData]);
+        //NSLog(@"%@", [responseData objectFromJSONData]);
         dispatch_async(dispatch_get_main_queue(), ^{
             [_configurebtn setSelected:NO];
             // 移除HUD
@@ -144,7 +144,7 @@
         NSError *error;
         NSData *requestData = [NSJSONSerialization dataWithJSONObject:dic options:NSJSONWritingPrettyPrinted error: &error];
         NSData *responseData = [_network requestDispatch:requestData];
-        NSLog(@"%@", [responseData objectFromJSONData]);
+        //NSLog(@"%@", [responseData objectFromJSONData]);
         [_configurebtn setSelected:NO];
 }
 @end

@@ -10,6 +10,7 @@
 #import "SWRevealViewController.h"
 #import "BLNetwork.h"
 #import "BLDeviceInfo.h"
+#import "A1listInfo.h"
 #import "JSONKit.h"
 #import "DeviceCell.h"
 #import "getCurrentWiFiSSID.h"
@@ -71,7 +72,7 @@
 
 - (void)startTimer{
     //每1秒刷新一次
-    self.timer = [NSTimer scheduledTimerWithTimeInterval:5 target:self selector:@selector(listRefresh) userInfo:nil repeats:YES];
+    self.timer = [NSTimer scheduledTimerWithTimeInterval:5 target:self selector:@selector(refreshDeviceList) userInfo:nil repeats:YES];
     //[[NSRunLoop currentRunLoop] addTimer:self.timer forMode:NSRunLoopCommonModes];
     [[NSRunLoop currentRunLoop]run];
 }
@@ -144,6 +145,14 @@
     }else{
         info.spstate = nil;
     }
+    //rmtemperature RM温度
+    if ([info.type isEqualToString:@"10002"] ) {
+        info.rmtemperature = [self Rm2refresh:info.mac];
+    }
+    //a1temperature A1温度
+    if ([info.type isEqualToString:@"10004"] ) {
+        info.a1listInfo = [A1listInfo DeviceinfoWithDict:[self A1refresh:info.mac]];
+    }
     cell.BLDeviceinfo = info;
     cellhight = cell.cellHeight;
     return cell;
@@ -193,6 +202,7 @@
     dispatch_async(dispatch_get_main_queue(), ^{
         [self.tableView reloadData];
         [self getCurrentWiFiSSID];
+        [self.tableView.mj_header endRefreshing];
     });
 }
 
@@ -263,14 +273,14 @@
                     [array addObject:info];
                 }
                 [self deviceAdd:info];
-                [bhkfmdb insertOrUpdateinfo:info];
-                
+                if (![info.type isEqualToString:@"10015"]) {
+                    [bhkfmdb insertOrUpdateinfo:info];
+                }
             }
-            
             [_deviceArray removeAllObjects];
             [_deviceArray addObjectsFromArray:array];
             [self refreshDeviceList];
-            [self.tableView.mj_header endRefreshing];
+
         }
     });
 }
@@ -322,7 +332,7 @@
 }
 
 - (IBAction)Refresh:(id)sender {
-    [self listRefresh];
+
 }
 
 -(void)getCurrentWiFiSSID{
@@ -363,8 +373,47 @@
 return locaIP;
 }
 
+- (float)Rm2refresh:(NSString *)mac{
+    float rmtemperature = 0.0f;
+    NSMutableDictionary *dic = [[NSMutableDictionary alloc] init];
+    [dic setObject:[NSNumber numberWithInt:131] forKey:@"api_id"];
+    [dic setObject:@"rm2_refresh" forKey:@"command"];
+    [dic setObject:mac forKey:@"mac"];
+    NSError *error;
+    NSData *requestData = [NSJSONSerialization dataWithJSONObject:dic options:NSJSONWritingPrettyPrinted error: &error];
+    NSData *responseData = [_network requestDispatch:requestData];
+    //NSLog(@"%@", [responseData objectFromJSONData]);
+    if ([[[responseData objectFromJSONData] objectForKey:@"code"] intValue] == 0)
+    {
+        rmtemperature = [[[responseData objectFromJSONData] objectForKey:@"temperature"] floatValue];
+    }
+    return rmtemperature;
+}
 
-
-
+- (NSDictionary *)A1refresh:(NSString *)mac{
+    NSMutableDictionary *dic = [[NSMutableDictionary alloc] init];
+    NSMutableDictionary *a1list = [[NSMutableDictionary alloc] init];
+    [dic setObject:[NSNumber numberWithInt:161] forKey:@"api_id"];
+    [dic setObject:@"a1_refresh" forKey:@"command"];
+    [dic setObject:mac forKey:@"mac"];
+    NSError *error;
+    NSData *requestData = [NSJSONSerialization dataWithJSONObject:dic options:NSJSONWritingPrettyPrinted error: &error];
+    NSData *responseData = [_network requestDispatch:requestData];
+    //NSLog(@"%@", [responseData objectFromJSONData]);
+    if ([[[responseData objectFromJSONData] objectForKey:@"code"] intValue] == 0)
+    {
+        float a1temperature = [[[responseData objectFromJSONData] objectForKey:@"temperature"] floatValue];
+        float humidity = [[[responseData objectFromJSONData] objectForKey:@"humidity"] floatValue];
+        int light = [[[responseData objectFromJSONData] objectForKey:@"light"] intValue];
+        int air = [[[responseData objectFromJSONData] objectForKey:@"air"] intValue];
+        int noisy = [[[responseData objectFromJSONData] objectForKey:@"noisy"] intValue];
+        [a1list setObject:[NSString stringWithFormat:@"%0.1f",a1temperature] forKey:@"temperature"];
+        [a1list setObject:[NSString stringWithFormat:@"%0.1f",humidity] forKey:@"humidity"];
+        [a1list setObject:[NSString stringWithFormat:@"%d",light] forKey:@"light"];
+        [a1list setObject:[NSString stringWithFormat:@"%d",air] forKey:@"air"];
+        [a1list setObject:[NSString stringWithFormat:@"%d",noisy] forKey:@"noisy"];
+    }
+    return a1list;
+}
 
 @end

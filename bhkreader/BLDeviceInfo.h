@@ -7,6 +7,7 @@
 //
 
 #import <Foundation/Foundation.h>
+#import "A1listInfo.h"
 
 @interface BLDeviceInfo : NSObject
 
@@ -21,6 +22,8 @@
 @property (nonatomic, strong) NSString *status;
 @property (nonatomic, strong) NSString *ip;
 @property (nonatomic, assign) int *spstate;
+@property (nonatomic, assign) float rmtemperature;
+@property (nonatomic, strong) A1listInfo *a1listInfo;
 
 - (id)initWithDict:(NSDictionary *)dict;
 + (id)DeviceinfoWithDict:(NSDictionary *)dict;

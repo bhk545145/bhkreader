@@ -30,6 +30,8 @@
 		3AC818651BE8917000D195F6 /* Images.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = 3AC818641BE8917000D195F6 /* Images.xcassets */; };
 		3AC818681BE8917000D195F6 /* LaunchScreen.xib in Resources */ = {isa = PBXBuildFile; fileRef = 3AC818661BE8917000D195F6 /* LaunchScreen.xib */; };
 		3AC818741BE8917000D195F6 /* bhkreaderTests.m in Sources */ = {isa = PBXBuildFile; fileRef = 3AC818731BE8917000D195F6 /* bhkreaderTests.m */; };
+		3ACE127E1C23D0D1008B0CBD /* libBLNetwork.a in Frameworks */ = {isa = PBXBuildFile; fileRef = 3ACE127A1C23BB58008B0CBD /* libBLNetwork.a */; };
+		3ACE12811C241D0D008B0CBD /* A1listInfo.m in Sources */ = {isa = PBXBuildFile; fileRef = 3ACE12801C241D0D008B0CBD /* A1listInfo.m */; };
 		3AD807791C17D0B500AC0891 /* libsqlite3.0.tbd in Frameworks */ = {isa = PBXBuildFile; fileRef = 3AD807781C17D0B500AC0891 /* libsqlite3.0.tbd */; };
 		3ADAF43D1C231E5000F0CE80 /* MJRefreshAutoFooter.m in Sources */ = {isa = PBXBuildFile; fileRef = 3ADAF4131C231E5000F0CE80 /* MJRefreshAutoFooter.m */; };
 		3ADAF43E1C231E5000F0CE80 /* MJRefreshBackFooter.m in Sources */ = {isa = PBXBuildFile; fileRef = 3ADAF4151C231E5000F0CE80 /* MJRefreshBackFooter.m */; };
@@ -53,7 +55,6 @@
 		3AE2FEF91C085890009FBA2F /* Spbtn.m in Sources */ = {isa = PBXBuildFile; fileRef = 3AE2FEF81C085890009FBA2F /* Spbtn.m */; };
 		3AE2FEFD1C0874E0009FBA2F /* getCurrentWiFiSSID.m in Sources */ = {isa = PBXBuildFile; fileRef = 3AE2FEFC1C0874E0009FBA2F /* getCurrentWiFiSSID.m */; };
 		3AEDC6A21BF34F2200868262 /* JSONKit.m in Sources */ = {isa = PBXBuildFile; fileRef = 3AEDC6A11BF34F2200868262 /* JSONKit.m */; settings = {COMPILER_FLAGS = "-fno-objc-arc"; }; };
-		3AEDC6BC1BF357A800868262 /* libBLNetwork.a in Frameworks */ = {isa = PBXBuildFile; fileRef = 3AEDC6BB1BF357A800868262 /* libBLNetwork.a */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXContainerItemProxy section */
@@ -111,6 +112,9 @@
 		3AC8186D1BE8917000D195F6 /* bhkreaderTests.xctest */ = {isa = PBXFileReference; explicitFileType = wrapper.cfbundle; includeInIndex = 0; path = bhkreaderTests.xctest; sourceTree = BUILT_PRODUCTS_DIR; };
 		3AC818721BE8917000D195F6 /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
 		3AC818731BE8917000D195F6 /* bhkreaderTests.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = bhkreaderTests.m; sourceTree = "<group>"; };
+		3ACE127A1C23BB58008B0CBD /* libBLNetwork.a */ = {isa = PBXFileReference; lastKnownFileType = archive.ar; path = libBLNetwork.a; sourceTree = "<group>"; };
+		3ACE127F1C241D0D008B0CBD /* A1listInfo.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = A1listInfo.h; sourceTree = "<group>"; };
+		3ACE12801C241D0D008B0CBD /* A1listInfo.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = A1listInfo.m; sourceTree = "<group>"; };
 		3AD807781C17D0B500AC0891 /* libsqlite3.0.tbd */ = {isa = PBXFileReference; lastKnownFileType = "sourcecode.text-based-dylib-definition"; name = libsqlite3.0.tbd; path = usr/lib/libsqlite3.0.tbd; sourceTree = SDKROOT; };
 		3ADAF4121C231E5000F0CE80 /* MJRefreshAutoFooter.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = MJRefreshAutoFooter.h; sourceTree = "<group>"; };
 		3ADAF4131C231E5000F0CE80 /* MJRefreshAutoFooter.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = MJRefreshAutoFooter.m; sourceTree = "<group>"; };
@@ -157,7 +161,6 @@
 		3AEDC6A01BF34F2200868262 /* JSONKit.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = JSONKit.h; sourceTree = "<group>"; };
 		3AEDC6A11BF34F2200868262 /* JSONKit.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = JSONKit.m; sourceTree = "<group>"; };
 		3AEDC6BA1BF357A800868262 /* BLNetwork.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = BLNetwork.h; sourceTree = "<group>"; };
-		3AEDC6BB1BF357A800868262 /* libBLNetwork.a */ = {isa = PBXFileReference; lastKnownFileType = archive.ar; path = libBLNetwork.a; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -165,9 +168,9 @@
 			isa = PBXFrameworksBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				3ACE127E1C23D0D1008B0CBD /* libBLNetwork.a in Frameworks */,
 				3AD807791C17D0B500AC0891 /* libsqlite3.0.tbd in Frameworks */,
 				02910B901C1DD2E4001833C7 /* libsqlite3.dylib in Frameworks */,
-				3AEDC6BC1BF357A800868262 /* libBLNetwork.a in Frameworks */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -240,6 +243,8 @@
 			children = (
 				3A915E5C1BEB6102005375CE /* BLDeviceInfo.h */,
 				3A915E5D1BEB6102005375CE /* BLDeviceInfo.m */,
+				3ACE127F1C241D0D008B0CBD /* A1listInfo.h */,
+				3ACE12801C241D0D008B0CBD /* A1listInfo.m */,
 			);
 			name = model;
 			sourceTree = "<group>";
@@ -305,7 +310,7 @@
 				3A0685131C1083B700591885 /* tool */,
 				3AE2FEFA1C0874A4009FBA2F /* getCurrentWiFiSSID */,
 				3AEDC6BA1BF357A800868262 /* BLNetwork.h */,
-				3AEDC6BB1BF357A800868262 /* libBLNetwork.a */,
+				3ACE127A1C23BB58008B0CBD /* libBLNetwork.a */,
 				3A9EF4141BE8DE0F00F21DD2 /* SWRevealViewController */,
 			);
 			name = lib;
@@ -555,7 +560,7 @@
 		3AC8184C1BE8917000D195F6 /* Project object */ = {
 			isa = PBXProject;
 			attributes = {
-				LastUpgradeCheck = 0620;
+				LastUpgradeCheck = 0710;
 				ORGANIZATIONNAME = bai;
 				TargetAttributes = {
 					3AC818531BE8917000D195F6 = {
@@ -628,6 +633,7 @@
 				3A9EF4171BE8DE2500F21DD2 /* SWRevealViewController.m in Sources */,
 				3AC8185D1BE8917000D195F6 /* AppDelegate.m in Sources */,
 				3AC8185A1BE8917000D195F6 /* main.m in Sources */,
+				3ACE12811C241D0D008B0CBD /* A1listInfo.m in Sources */,
 				3ADAF44F1C231E5000F0CE80 /* UIView+MJExtension.m in Sources */,
 				3A06850F1C1079FF00591885 /* CustomcontrolViewController.m in Sources */,
 				3ADAF44A1C231E5000F0CE80 /* MJRefreshStateHeader.m in Sources */,
@@ -712,6 +718,7 @@
 				"CODE_SIGN_IDENTITY[sdk=iphoneos*]" = "iPhone Developer";
 				COPY_PHASE_STRIP = NO;
 				ENABLE_STRICT_OBJC_MSGSEND = YES;
+				ENABLE_TESTABILITY = YES;
 				GCC_C_LANGUAGE_STANDARD = gnu99;
 				GCC_DYNAMIC_NO_PIC = NO;
 				GCC_OPTIMIZATION_LEVEL = 0;
@@ -726,12 +733,12 @@
 				GCC_WARN_UNINITIALIZED_AUTOS = YES_AGGRESSIVE;
 				GCC_WARN_UNUSED_FUNCTION = YES;
 				GCC_WARN_UNUSED_VARIABLE = YES;
-				IPHONEOS_DEPLOYMENT_TARGET = 8.2;
+				IPHONEOS_DEPLOYMENT_TARGET = 8.4;
 				MTL_ENABLE_DEBUG_INFO = YES;
 				ONLY_ACTIVE_ARCH = YES;
 				SDKROOT = iphoneos;
 				TARGETED_DEVICE_FAMILY = "1,2";
-				VALID_ARCHS = "armv7 arm64";
+				VALID_ARCHS = "arm64 armv7 armv7s";
 			};
 			name = Debug;
 		};
@@ -763,12 +770,13 @@
 				GCC_WARN_UNINITIALIZED_AUTOS = YES_AGGRESSIVE;
 				GCC_WARN_UNUSED_FUNCTION = YES;
 				GCC_WARN_UNUSED_VARIABLE = YES;
-				IPHONEOS_DEPLOYMENT_TARGET = 8.2;
+				IPHONEOS_DEPLOYMENT_TARGET = 8.4;
 				MTL_ENABLE_DEBUG_INFO = NO;
+				ONLY_ACTIVE_ARCH = YES;
 				SDKROOT = iphoneos;
 				TARGETED_DEVICE_FAMILY = "1,2";
 				VALIDATE_PRODUCT = YES;
-				VALID_ARCHS = "armv7 arm64";
+				VALID_ARCHS = "arm64 armv7 armv7s";
 			};
 			name = Release;
 		};
@@ -776,8 +784,8 @@
 			isa = XCBuildConfiguration;
 			buildSettings = {
 				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
-				CODE_SIGN_IDENTITY = "iPhone Developer: Ruizhe Jian (5A863PFFW2)";
-				"CODE_SIGN_IDENTITY[sdk=iphoneos*]" = "iPhone Developer: Ruizhe Jian (5A863PFFW2)";
+				CODE_SIGN_IDENTITY = "iPhone Developer";
+				"CODE_SIGN_IDENTITY[sdk=iphoneos*]" = "iPhone Developer";
 				INFOPLIST_FILE = bhkreader/Info.plist;
 				IPHONEOS_DEPLOYMENT_TARGET = 8.2;
 				LD_RUNPATH_SEARCH_PATHS = "$(inherited) @executable_path/Frameworks";
@@ -787,9 +795,11 @@
 					"$(PROJECT_DIR)/bhkreader",
 					"$(PROJECT_DIR)",
 				);
+				PRODUCT_BUNDLE_IDENTIFIER = "baihk.$(PRODUCT_NAME:rfc1034identifier)";
 				PRODUCT_NAME = "$(TARGET_NAME)";
 				PROVISIONING_PROFILE = "";
 				TARGETED_DEVICE_FAMILY = 1;
+				VALID_ARCHS = "armv7 arm64 armv7s";
 			};
 			name = Debug;
 		};
@@ -797,8 +807,8 @@
 			isa = XCBuildConfiguration;
 			buildSettings = {
 				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
-				CODE_SIGN_IDENTITY = "iPhone Developer: Ruizhe Jian (5A863PFFW2)";
-				"CODE_SIGN_IDENTITY[sdk=iphoneos*]" = "iPhone Developer: Ruizhe Jian (5A863PFFW2)";
+				CODE_SIGN_IDENTITY = "iPhone Developer";
+				"CODE_SIGN_IDENTITY[sdk=iphoneos*]" = "iPhone Developer";
 				INFOPLIST_FILE = bhkreader/Info.plist;
 				IPHONEOS_DEPLOYMENT_TARGET = 8.2;
 				LD_RUNPATH_SEARCH_PATHS = "$(inherited) @executable_path/Frameworks";
@@ -808,9 +818,11 @@
 					"$(PROJECT_DIR)/bhkreader",
 					"$(PROJECT_DIR)",
 				);
+				PRODUCT_BUNDLE_IDENTIFIER = "baihk.$(PRODUCT_NAME:rfc1034identifier)";
 				PRODUCT_NAME = "$(TARGET_NAME)";
 				PROVISIONING_PROFILE = "";
 				TARGETED_DEVICE_FAMILY = 1;
+				VALID_ARCHS = "armv7 arm64 armv7s";
 			};
 			name = Release;
 		};
@@ -828,6 +840,7 @@
 				);
 				INFOPLIST_FILE = bhkreaderTests/Info.plist;
 				LD_RUNPATH_SEARCH_PATHS = "$(inherited) @executable_path/Frameworks @loader_path/Frameworks";
+				PRODUCT_BUNDLE_IDENTIFIER = "baihk.$(PRODUCT_NAME:rfc1034identifier)";
 				PRODUCT_NAME = "$(TARGET_NAME)";
 				TEST_HOST = "$(BUILT_PRODUCTS_DIR)/bhkreader.app/bhkreader";
 			};
@@ -843,6 +856,7 @@
 				);
 				INFOPLIST_FILE = bhkreaderTests/Info.plist;
 				LD_RUNPATH_SEARCH_PATHS = "$(inherited) @executable_path/Frameworks @loader_path/Frameworks";
+				PRODUCT_BUNDLE_IDENTIFIER = "baihk.$(PRODUCT_NAME:rfc1034identifier)";
 				PRODUCT_NAME = "$(TARGET_NAME)";
 				TEST_HOST = "$(BUILT_PRODUCTS_DIR)/bhkreader.app/bhkreader";
 			};
