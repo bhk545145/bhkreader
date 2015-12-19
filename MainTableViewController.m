@@ -17,6 +17,7 @@
 #import "bhkFMDB.h"
 #import "Spbtn.h"
 #import "MJRefresh.h"
+#import "BLSDKTool.h"
 
 
 @interface MainTableViewController (){
@@ -169,16 +170,9 @@
     if (editingStyle == UITableViewCellEditingStyleDelete)
     {
         BLDeviceInfo *info = [_deviceArray objectAtIndex:indexPath.row];
-            NSMutableDictionary *dic = [[NSMutableDictionary alloc] init];
-            [dic setObject:[NSNumber numberWithInt:14] forKey:@"api_id"];
-            [dic setObject:@"device_delete" forKey:@"command"];
-            [dic setObject:info.mac forKey:@"mac"];
-            NSError *error;
-            NSData *requestData = [NSJSONSerialization dataWithJSONObject:dic options:NSJSONWritingPrettyPrinted error: &error];
         dispatch_async(networkQueue, ^{
-            NSData *responseData = [_network requestDispatch:requestData];
-            //NSLog(@"%@", [responseData objectFromJSONData]);
-            if ([[[responseData objectFromJSONData] objectForKey:@"code"] intValue] == 0)
+            BLSDKTool *blsdktool = [BLSDKTool responseDatatoapiid:14 command:@"device_delete" mac:info.mac];
+            if (blsdktool.code == 0)
             {
                 dispatch_async(dispatch_get_main_queue(), ^{
                     [_deviceArray removeObjectAtIndex:indexPath.row];
@@ -340,71 +334,44 @@
 
 -(id)statetomac:(NSString *)mac{
     NSString *status = @"";
-    NSMutableDictionary *dic = [[NSMutableDictionary alloc] init];
-    [dic setObject:[NSNumber numberWithInt:16] forKey:@"api_id"];
-    [dic setObject:@"device_state" forKey:@"command"];
-    [dic setObject:mac forKey:@"mac"];
-    NSError *error;
-    NSData *requestData = [NSJSONSerialization dataWithJSONObject:dic options:NSJSONWritingPrettyPrinted error: &error];
-        NSData *responseData = [_network requestDispatch:requestData];
-        //NSLog(@"%@",[[responseData objectFromJSONData] objectForKey:@"status"]);
-        if ([[[responseData objectFromJSONData] objectForKey:@"code"] intValue] == 0)
+    BLSDKTool *blsdktool = [BLSDKTool responseDatatoapiid:16 command:@"device_state" mac:mac];
+        if (blsdktool.code == 0)
         {
-            status = [[responseData objectFromJSONData] objectForKey:@"status"];
+            status = blsdktool.state;
         }
     return status;
 }
 
 -(id)iptomac:(NSString *)mac{
     NSString *locaIP = @"";
-    NSMutableDictionary *dic = [[NSMutableDictionary alloc] init];
-    [dic setObject:[NSNumber numberWithInt:15] forKey:@"api_id"];
-    [dic setObject:@"device_lan_ip" forKey:@"command"];
-    [dic setObject:mac forKey:@"mac"];
-    NSError *error;
-    NSData *requestData = [NSJSONSerialization dataWithJSONObject:dic options:NSJSONWritingPrettyPrinted error: &error];
-        NSData *responseData  = [_network requestDispatch:requestData];
-        if ([[[responseData objectFromJSONData] objectForKey:@"code"] intValue] == 0)
+    BLSDKTool *blsdktool = [BLSDKTool responseDatatoapiid:15 command:@"device_lan_ip" mac:mac];
+        if (blsdktool.code == 0)
         {
-            locaIP = [[responseData objectFromJSONData] objectForKey:@"lan_ip"];
+            locaIP = blsdktool.locaIP;
         }
 return locaIP;
 }
 
 - (float)Rm2refresh:(NSString *)mac{
     float rmtemperature = 0.0f;
-    NSMutableDictionary *dic = [[NSMutableDictionary alloc] init];
-    [dic setObject:[NSNumber numberWithInt:131] forKey:@"api_id"];
-    [dic setObject:@"rm2_refresh" forKey:@"command"];
-    [dic setObject:mac forKey:@"mac"];
-    NSError *error;
-    NSData *requestData = [NSJSONSerialization dataWithJSONObject:dic options:NSJSONWritingPrettyPrinted error: &error];
-    NSData *responseData = [_network requestDispatch:requestData];
-    //NSLog(@"%@", [responseData objectFromJSONData]);
-    if ([[[responseData objectFromJSONData] objectForKey:@"code"] intValue] == 0)
+    BLSDKTool *blsdktool = [BLSDKTool responseDatatoapiid:131 command:@"rm2_refresh" mac:mac];
+    if (blsdktool.code == 0)
     {
-        rmtemperature = [[[responseData objectFromJSONData] objectForKey:@"temperature"] floatValue];
+        rmtemperature = blsdktool.rmtemperature;
     }
     return rmtemperature;
 }
 
 - (NSDictionary *)A1refresh:(NSString *)mac{
-    NSMutableDictionary *dic = [[NSMutableDictionary alloc] init];
     NSMutableDictionary *a1list = [[NSMutableDictionary alloc] init];
-    [dic setObject:[NSNumber numberWithInt:161] forKey:@"api_id"];
-    [dic setObject:@"a1_refresh" forKey:@"command"];
-    [dic setObject:mac forKey:@"mac"];
-    NSError *error;
-    NSData *requestData = [NSJSONSerialization dataWithJSONObject:dic options:NSJSONWritingPrettyPrinted error: &error];
-    NSData *responseData = [_network requestDispatch:requestData];
-    //NSLog(@"%@", [responseData objectFromJSONData]);
-    if ([[[responseData objectFromJSONData] objectForKey:@"code"] intValue] == 0)
+    BLSDKTool *blsdktool = [BLSDKTool responseDatatoapiid:161 command:@"a1_refresh" mac:mac];
+    if (blsdktool.code == 0)
     {
-        float a1temperature = [[[responseData objectFromJSONData] objectForKey:@"temperature"] floatValue];
-        float humidity = [[[responseData objectFromJSONData] objectForKey:@"humidity"] floatValue];
-        int light = [[[responseData objectFromJSONData] objectForKey:@"light"] intValue];
-        int air = [[[responseData objectFromJSONData] objectForKey:@"air"] intValue];
-        int noisy = [[[responseData objectFromJSONData] objectForKey:@"noisy"] intValue];
+        float a1temperature = blsdktool.a1temperature;
+        float humidity = blsdktool.humidity;
+        int light = blsdktool.light;
+        int air = blsdktool.air;
+        int noisy = blsdktool.noisy;
         [a1list setObject:[NSString stringWithFormat:@"%0.1f",a1temperature] forKey:@"temperature"];
         [a1list setObject:[NSString stringWithFormat:@"%0.1f",humidity] forKey:@"humidity"];
         [a1list setObject:[NSString stringWithFormat:@"%d",light] forKey:@"light"];

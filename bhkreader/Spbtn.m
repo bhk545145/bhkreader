@@ -9,13 +9,12 @@
 #import "Spbtn.h"
 #import "BLNetwork.h"
 #import "JSONKit.h"
+#import "BLSDKTool.h"
 
 @interface Spbtn ()
 {
     dispatch_queue_t networkQueue;
 }
-
-@property (nonatomic, strong) BLNetwork *network;
 @property (nonatomic, strong) NSString *mac;
 
 @end
@@ -26,7 +25,6 @@
     self = [super initWithFrame:frame];
     if (self) {
         networkQueue = dispatch_queue_create("BroadLinkSP2NetworkQueue", DISPATCH_QUEUE_SERIAL);
-        _network = [[BLNetwork alloc] init];
     }
     return self;
 }
@@ -61,15 +59,8 @@
         status = 1;
     }
     dispatch_async(networkQueue, ^{
-        NSMutableDictionary *dic = [[NSMutableDictionary alloc] init];
-        [dic setObject:[NSNumber numberWithInt:72] forKey:@"api_id"];
-        [dic setObject:@"sp2_control" forKey:@"command"];
-        [dic setObject:_mac forKey:@"mac"];
-        [dic setObject:[NSNumber numberWithInt:status] forKey:@"status"];
-        NSError *error;
-        NSData *requestData = [NSJSONSerialization dataWithJSONObject:dic options:NSJSONWritingPrettyPrinted error: &error];
-        NSData *responseData = [_network requestDispatch:requestData];
-        if ([[[responseData objectFromJSONData] objectForKey:@"code"] intValue] == 0)
+        BLSDKTool *blsdktool = [BLSDKTool responseDatatoapiid:72 command:@"sp2_control" mac:_mac status:status];
+        if (blsdktool.code == 0)
         {
             dispatch_async(dispatch_get_main_queue(), ^{
                 if (status)
@@ -79,7 +70,7 @@
                 }
             });
         }
-        else if ([[[responseData objectFromJSONData] objectForKey:@"code"] intValue] == -106)
+        else if (blsdktool.code == -106)
         {
             dispatch_async(dispatch_get_main_queue(), ^{
                 UIAlertView *alertView = [[UIAlertView alloc] initWithTitle:@"逗比" message:@"你操作的太快了" delegate:nil cancelButtonTitle:@"对不起" otherButtonTitles:nil, nil];
@@ -88,7 +79,7 @@
         }
         else
         {
-            NSLog(@"Set status failed!%d",[[[responseData objectFromJSONData] objectForKey:@"code"] intValue]);
+            NSLog(@"Set status failed!%d",blsdktool.code);
             //TODO;
         }
     });
@@ -96,17 +87,10 @@
 
 - (int)Sprefresh:(NSString *)mac{
     int spstate;
-    NSMutableDictionary *dic = [[NSMutableDictionary alloc] init];
-    [dic setObject:[NSNumber numberWithInt:71] forKey:@"api_id"];
-    [dic setObject:@"sp2_refresh" forKey:@"command"];
-    [dic setObject:mac forKey:@"mac"];
-    NSError *error;
-    NSData *requestData = [NSJSONSerialization dataWithJSONObject:dic options:NSJSONWritingPrettyPrinted error: &error];
-    NSData *responseData = [_network requestDispatch:requestData];
-    //NSLog(@"%@", [responseData objectFromJSONData]);
-    if ([[[responseData objectFromJSONData] objectForKey:@"code"] intValue] == 0)
+    BLSDKTool *blsdktool = [BLSDKTool responseDatatoapiid:71 command:@"sp2_refresh" mac:mac];
+    if (blsdktool.code == 0)
     {
-        spstate = [[[responseData objectFromJSONData] objectForKey:@"status"] intValue];
+        spstate = blsdktool.status;
     }
     return spstate;
 }
