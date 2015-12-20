@@ -18,6 +18,7 @@
 #import "Spbtn.h"
 #import "MJRefresh.h"
 #import "BLSDKTool.h"
+#import "bhkCommon.h"
 
 
 @interface MainTableViewController (){
@@ -61,7 +62,7 @@
     
     // 马上进入刷新状态
     [self.tableView.mj_header beginRefreshing];
-    
+    //侧拉页面
     _siderbarBtn.tintColor = [UIColor colorWithWhite:0.96f alpha:0.2f];
     _siderbarBtn.target = self.revealViewController;
     _siderbarBtn.action = @selector(revealToggle:);
@@ -115,17 +116,17 @@
 - (UITableViewCell *)tableView:(UITableView *)tableView cellForRowAtIndexPath:(NSIndexPath *)indexPath {
     BLDeviceInfo *info = _deviceArray[indexPath.row];
     NSString *SimleTableIdentifier = @"";
-    if ([info.type isEqualToString:@"10016"] || [info.type isEqualToString:@"10001"]){
+    if ([info.type isEqualToString:SPmini] || [info.type isEqualToString:SP2]){
         SimleTableIdentifier = [NSString stringWithFormat:@"CellSP"];
-    }else if([info.type isEqualToString:@"10024"]){
+    }else if([info.type isEqualToString:SPmini30]){
         SimleTableIdentifier = [NSString stringWithFormat:@"CellSP30"];
-    }else if([info.type isEqualToString:@"10002"]){
+    }else if([info.type isEqualToString:RM]){
         SimleTableIdentifier = [NSString stringWithFormat:@"CellRM"];
-    }else if([info.type isEqualToString:@"10004"]){
+    }else if([info.type isEqualToString:A1]){
         SimleTableIdentifier = [NSString stringWithFormat:@"CellA1"];
-    }else if ([info.type isEqualToString:@"10018"]){
+    }else if ([info.type isEqualToString:S1]){
         SimleTableIdentifier = [NSString stringWithFormat:@"CellS1"];
-    }else if([info.type isEqualToString:@"10015"]){
+    }else if([info.type isEqualToString:MS1]){
         SimleTableIdentifier = [NSString stringWithFormat:@"CellMS1"];
     }else{
         SimleTableIdentifier = [NSString stringWithFormat:@"Cell"];
@@ -141,15 +142,15 @@
     //ip地址
     info.ip = [self iptomac:info.mac];
     //spstate开关状态
-    if ([info.type isEqualToString:@"10016"] || [info.type isEqualToString:@"10001"] || [info.type isEqualToString:@"10024"]){
+    if ([info.type isEqualToString:SPmini] || [info.type isEqualToString:SP2] || [info.type isEqualToString:SPmini30]){
         info.spstate = [_Spbtn Sprefresh:info.mac];
     }
     //rmtemperature RM温度
-    if ([info.type isEqualToString:@"10002"] ) {
+    if ([info.type isEqualToString:RM] ) {
         info.rmtemperature = [self Rm2refresh:info.mac];
     }
     //a1temperature A1温度
-    if ([info.type isEqualToString:@"10004"] ) {
+    if ([info.type isEqualToString:A1] ) {
         info.a1listInfo = [A1listInfo DeviceinfoWithDict:[self A1refresh:info.mac]];
     }
     cell.BLDeviceinfo = info;
@@ -165,7 +166,7 @@
 {
     return YES;
 }
-
+//删除设备
 - (void)tableView:(UITableView *)tableView commitEditingStyle:(UITableViewCellEditingStyle)editingStyle forRowAtIndexPath:(NSIndexPath *)indexPath{
     if (editingStyle == UITableViewCellEditingStyleDelete)
     {
@@ -186,9 +187,7 @@
     {
     }
 }
-
-
-
+//刷新列表，WiFi名称，结束刷新状态
 - (void)refreshDeviceList
 {
     dispatch_async(dispatch_get_main_queue(), ^{
@@ -197,7 +196,7 @@
         [self.tableView.mj_header endRefreshing];
     });
 }
-
+//将设备添加到网络线程
 - (void)deviceAdd:(BLDeviceInfo *)info
 {
     NSMutableDictionary *dic = [[NSMutableDictionary alloc] init];
@@ -229,7 +228,7 @@
     });
     
 }
-
+//获取局域网设备信息
 - (void)listRefresh
 {
 
@@ -277,14 +276,14 @@
     });
 }
 
-
+//网络初始化
 - (void)networkInit
 {
     NSMutableDictionary *dic = [[NSMutableDictionary alloc] init];
     [dic setObject:[NSNumber numberWithInt:1] forKey:@"api_id"];
     [dic setObject:@"network_init" forKey:@"command"];
-    [dic setObject:@"7mvxZWDF7sck1YTPC9N8KajJu4Ut5ozUaImQgoOA6o/V1YVmYbc0hmXxsE8je7AjrSaRvCRzgJvWCDQEN/lI2hBDnHxLJlkCizwFUF7y+CFkGQ7nNo0=" forKey:@"license"];
-    [dic setObject:@"gmAYRx925om219EQk0AQo4qooH3UgHYvkErGG+WPBki0Ic7s4LIEhPLn8dDcbYtJUSD+wi54ycsjciC1bOlFGi/WoY0VoOVSJlm4rAHnFzBwK+Xhbazbny1NM3+58+58" forKey:@"type_license"];
+    [dic setObject:license forKey:@"license"];
+    [dic setObject:type_license forKey:@"type_license"];
     NSError *error;
     NSData *requestData = [NSJSONSerialization dataWithJSONObject:dic options:NSJSONWritingPrettyPrinted error: &error];
     dispatch_async(networkQueue, ^{
@@ -326,12 +325,12 @@
 - (IBAction)Refresh:(id)sender {
 
 }
-
+//查询WiFi名称
 -(void)getCurrentWiFiSSID{
     getCurrentWiFiSSID *ssid = [[getCurrentWiFiSSID alloc]init];
     self.navigationItem.title = [ssid getCurrentWiFiSSID];
 }
-
+//查询设备在线状态
 -(id)statetomac:(NSString *)mac{
     NSString *status = @"";
     BLSDKTool *blsdktool = [BLSDKTool responseDatatoapiid:16 command:@"device_state" mac:mac];
@@ -341,7 +340,7 @@
         }
     return status;
 }
-
+//查询设备在局域网IP
 -(id)iptomac:(NSString *)mac{
     NSString *locaIP = @"";
     BLSDKTool *blsdktool = [BLSDKTool responseDatatoapiid:15 command:@"device_lan_ip" mac:mac];
@@ -351,7 +350,7 @@
         }
 return locaIP;
 }
-
+//查询RM2温度
 - (float)Rm2refresh:(NSString *)mac{
     float rmtemperature = 0.0f;
     BLSDKTool *blsdktool = [BLSDKTool responseDatatoapiid:131 command:@"rm2_refresh" mac:mac];
@@ -361,7 +360,7 @@ return locaIP;
     }
     return rmtemperature;
 }
-
+//查询A1各参数
 - (NSDictionary *)A1refresh:(NSString *)mac{
     NSMutableDictionary *a1list = [[NSMutableDictionary alloc] init];
     BLSDKTool *blsdktool = [BLSDKTool responseDatatoapiid:161 command:@"a1_refresh" mac:mac];

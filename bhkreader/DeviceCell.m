@@ -9,6 +9,7 @@
 #import "DeviceCell.h"
 #import "BLDeviceInfo.h"
 #import "Spbtn.h"
+#import "bhkCommon.h"
 
 #define kCellBorder 10
 #define kimageW 40
@@ -80,24 +81,24 @@
 -(void)setBLDeviceinfo:(BLDeviceInfo *)BLDeviceinfo{
     _BLDeviceinfo = BLDeviceinfo;
 //设置数据
-    if ([BLDeviceinfo.type isEqualToString:@"10016"]) {
+    if ([BLDeviceinfo.type isEqualToString:SPmini]) {
         _deviceimage.image = [UIImage imageNamed:@"SPmin.jpg"];
         _type.text =@"SPmini";
         [_spbtn setTitle:(BLDeviceinfo.spstate) ? @"ON" : @"OFF" forState:UIControlStateNormal mac:BLDeviceinfo.mac];
-    }else if([BLDeviceinfo.type isEqualToString:@"10024"]){
+    }else if([BLDeviceinfo.type isEqualToString:SPmini30]){
         _deviceimage.image = [UIImage imageNamed:@"SPmin.jpg"];
         _type.text = BLDeviceinfo.type;
         _type.textColor = [UIColor redColor];
-    }else if([BLDeviceinfo.type isEqualToString:@"10001"]){
+    }else if([BLDeviceinfo.type isEqualToString:SP2]){
         _deviceimage.image = [UIImage imageNamed:@"SP2.jpg"];
         _type.text =@"SP2";
         [_spbtn setTitle:(BLDeviceinfo.spstate) ? @"ON" : @"OFF" forState:UIControlStateNormal mac:BLDeviceinfo.mac];
-    }else if ([BLDeviceinfo.type isEqualToString:@"10002"]){
+    }else if ([BLDeviceinfo.type isEqualToString:RM]){
         _deviceimage.image = [UIImage imageNamed:@"RMpro.jpg"];
         _type.text =@"RM";
         _rmtemperature.text =[NSString stringWithFormat:@"温度:%0.1f°",BLDeviceinfo.rmtemperature];
         _rmtemperature.textColor = [UIColor blackColor];
-    }else if ([BLDeviceinfo.type isEqualToString:@"10004"]){
+    }else if ([BLDeviceinfo.type isEqualToString:A1]){
         _deviceimage.image = [UIImage imageNamed:@"A1.jpg"];
         _type.text =@"A1";
         _a1temperature.text =[NSString stringWithFormat:@"温度:%@°",BLDeviceinfo.a1listInfo.temperature];
@@ -108,10 +109,10 @@
         _light.text =[NSString stringWithFormat:@"光照:%@",[self tolight:light]];
         _air.text =[NSString stringWithFormat:@"空气:%@",[self toair:air]];
         _noisy.text =[NSString stringWithFormat:@"噪声:%@",[self tonoisy:noisy]];
-    }else if ([BLDeviceinfo.type isEqualToString:@"10015"]){
+    }else if ([BLDeviceinfo.type isEqualToString:MS1]){
         _deviceimage.image = [UIImage imageNamed:@"MS1.png"];
         _type.text =@"MS1";
-    }else if ([BLDeviceinfo.type isEqualToString:@"10018"]){
+    }else if ([BLDeviceinfo.type isEqualToString:S1]){
         _deviceimage.image = [UIImage imageNamed:@"S1.jpg"];
         _type.text =@"S1";
     }else{
@@ -155,19 +156,19 @@
     CGFloat ipY = statusY + 20;
     _ip.frame = CGRectMake(ipX, ipY, 150, 21);
     
-    if ([BLDeviceinfo.type isEqual: @"10016"] ||[BLDeviceinfo.type isEqual: @"10001"] ||[BLDeviceinfo.type isEqual: @"10024"]) {
+    if ([BLDeviceinfo.type isEqual: SPmini] ||[BLDeviceinfo.type isEqual: SP2] ||[BLDeviceinfo.type isEqual: SPmini30]) {
         CGFloat spbtnX = lockX + 200;
         CGFloat spbtnY = lockY - 40;
         _spbtn.frame = CGRectMake(spbtnX, spbtnY, 100, 100);
     }
     
-    if ([BLDeviceinfo.type isEqual:@"10002" ]) {
+    if ([BLDeviceinfo.type isEqual:RM]) {
         CGFloat rmtemperatureX = lockX + 200;
         CGFloat rmtemperatureY = lockY;
         _rmtemperature.frame = CGRectMake(rmtemperatureX, rmtemperatureY, 150, 21);
     }
     
-    if ([BLDeviceinfo.type isEqual:@"10004" ]) {
+    if ([BLDeviceinfo.type isEqual:A1]) {
         CGFloat a1temperatureX = nameX + 200;
         CGFloat a1temperatureY = nameY + 10;
         _a1temperature.frame = CGRectMake(a1temperatureX, a1temperatureY, 150, 21);

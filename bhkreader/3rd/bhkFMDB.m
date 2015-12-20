@@ -31,7 +31,7 @@
         if ([db open]) {
             //4.创表
             [db executeUpdate:@"CREATE TABLE IF NOT EXISTS to_configure (id integer PRIMARY KEY AUTOINCREMENT, wifi text NOT NULL, password text NOT NULL);"];
-            [db executeUpdate:@"CREATE TABLE IF NOT EXISTS device_info (mac text, type text,name text, lock integer, password integer, terminal_id integer, sub_device integer,key text);"];
+            [db executeUpdate:@"CREATE TABLE IF NOT EXISTS device_info (mac text PRIMARY KEY, type text,name text, lock integer, password integer, terminal_id integer, sub_device integer,key text);"];
             [db close];
         }
     }
@@ -71,7 +71,8 @@
     if ([db open]) {
         FMResultSet *resultSet = [db executeQuery:@"SELECT * FROM device_info where mac = ?;",info.mac];
         NSLog(@"SELECT%d",[resultSet next]);
-        if ([resultSet next]) {
+        int number = [resultSet next];
+        if (number) {
             BOOL result = [db executeUpdate:@"UPDATE device_info SET type = ?, name = ?, lock = ?, password = ?, terminal_id = ?, sub_device = ?, key = ? WHERE mac = ?;",info.type, info.name, [NSNumber numberWithLong:info.lock], [NSNumber numberWithLong:info.password], [NSNumber numberWithLong:info.terminal_id], [NSNumber numberWithLong:info.sub_device], info.key, info.mac];
             NSLog(@"UPDATE%d",result);
         }else{

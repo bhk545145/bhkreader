@@ -74,6 +74,7 @@
 		02935AD91C17273F00C855F2 /* bhkFMDB.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; name = bhkFMDB.m; path = 3rd/bhkFMDB.m; sourceTree = "<group>"; };
 		02CAEEC21C25367600603CF4 /* BLSDKTool.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; name = BLSDKTool.h; path = lib/BLSDKTool.h; sourceTree = "<group>"; };
 		02CAEEC31C25367600603CF4 /* BLSDKTool.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; name = BLSDKTool.m; path = lib/BLSDKTool.m; sourceTree = "<group>"; };
+		02F614931C26B2010075F592 /* bhkCommon.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; name = bhkCommon.h; path = lib/bhkCommon.h; sourceTree = "<group>"; };
 		3A06850A1C10766800591885 /* leftviewTableViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; name = leftviewTableViewController.h; path = ../leftviewTableViewController.h; sourceTree = "<group>"; };
 		3A06850B1C10766800591885 /* leftviewTableViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; name = leftviewTableViewController.m; path = ../leftviewTableViewController.m; sourceTree = "<group>"; };
 		3A06850D1C1079FF00591885 /* CustomcontrolViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = CustomcontrolViewController.h; sourceTree = "<group>"; };
@@ -187,6 +188,24 @@
 /* End PBXFrameworksBuildPhase section */
 
 /* Begin PBXGroup section */
+		02F614911C26B1310075F592 /* SDKTool */ = {
+			isa = PBXGroup;
+			children = (
+				02CAEEC21C25367600603CF4 /* BLSDKTool.h */,
+				02CAEEC31C25367600603CF4 /* BLSDKTool.m */,
+			);
+			name = SDKTool;
+			sourceTree = "<group>";
+		};
+		02F614921C26B1400075F592 /* bhkFMDB */ = {
+			isa = PBXGroup;
+			children = (
+				02935AD81C17273F00C855F2 /* bhkFMDB.h */,
+				02935AD91C17273F00C855F2 /* bhkFMDB.m */,
+			);
+			name = bhkFMDB;
+			sourceTree = "<group>";
+		};
 		3A0685031C10739200591885 /* Customcontrol */ = {
 			isa = PBXGroup;
 			children = (
@@ -223,8 +242,10 @@
 		3A0685131C1083B700591885 /* tool */ = {
 			isa = PBXGroup;
 			children = (
-				02935AD81C17273F00C855F2 /* bhkFMDB.h */,
-				02935AD91C17273F00C855F2 /* bhkFMDB.m */,
+				3AE2FEFA1C0874A4009FBA2F /* getCurrentWiFiSSID */,
+				02F614911C26B1310075F592 /* SDKTool */,
+				02F614921C26B1400075F592 /* bhkFMDB */,
+				02F614931C26B2010075F592 /* bhkCommon.h */,
 			);
 			name = tool;
 			sourceTree = "<group>";
@@ -248,8 +269,6 @@
 				3A915E5D1BEB6102005375CE /* BLDeviceInfo.m */,
 				3ACE127F1C241D0D008B0CBD /* A1listInfo.h */,
 				3ACE12801C241D0D008B0CBD /* A1listInfo.m */,
-				02CAEEC21C25367600603CF4 /* BLSDKTool.h */,
-				02CAEEC31C25367600603CF4 /* BLSDKTool.m */,
 			);
 			name = model;
 			sourceTree = "<group>";
@@ -287,6 +306,10 @@
 		3A915E5F1BEB6134005375CE /* 3rd */ = {
 			isa = PBXGroup;
 			children = (
+				3A9EF4141BE8DE0F00F21DD2 /* SWRevealViewController */,
+				3AC06D751C1AF5F900068164 /* FMDB */,
+				3A1EC3161C21933E00F826F4 /* MBProgressHUD */,
+				3ADAF4101C231E5000F0CE80 /* MJRefresh */,
 				3AEDC6931BF31C6200868262 /* JSONKit */,
 			);
 			name = 3rd;
@@ -306,17 +329,12 @@
 		3A9EF4051BE8D50400F21DD2 /* lib */ = {
 			isa = PBXGroup;
 			children = (
-				3ADAF4101C231E5000F0CE80 /* MJRefresh */,
-				3A1EC3161C21933E00F826F4 /* MBProgressHUD */,
-				3AC06D751C1AF5F900068164 /* FMDB */,
-				3AD807781C17D0B500AC0891 /* libsqlite3.0.tbd */,
-				02910B8F1C1DD2E4001833C7 /* libsqlite3.dylib */,
 				3A915E5F1BEB6134005375CE /* 3rd */,
 				3A0685131C1083B700591885 /* tool */,
-				3AE2FEFA1C0874A4009FBA2F /* getCurrentWiFiSSID */,
+				3AD807781C17D0B500AC0891 /* libsqlite3.0.tbd */,
+				02910B8F1C1DD2E4001833C7 /* libsqlite3.dylib */,
 				3AEDC6BA1BF357A800868262 /* BLNetwork.h */,
 				3ACE127A1C23BB58008B0CBD /* libBLNetwork.a */,
-				3A9EF4141BE8DE0F00F21DD2 /* SWRevealViewController */,
 			);
 			name = lib;
 			sourceTree = "<group>";

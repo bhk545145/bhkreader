@@ -28,7 +28,7 @@
     }
     return self;
 }
-
+//SP开关样式
 - (void)setTitle:(NSString *)title forState:(UIControlState)state mac:(NSString *)mac
 {
     _mac = mac;
@@ -39,7 +39,7 @@
         [self setuptitle:@"OFF" titleColor:[UIColor redColor] NormalImage:@"OFF.png" HighlightedImage:@"OFF1.png"];
     [self addTarget:self action:@selector(stateButtonClicked:) forControlEvents:UIControlEventTouchUpInside];
 }
-
+//SP开关样式
 - (void)setuptitle:(NSString *)title titleColor:(UIColor *)titleColor NormalImage:(NSString *)NormalImage HighlightedImage:(NSString *)HighlightedImage{
     [self setTitle:title forState:UIControlStateNormal];
     [self setTitleColor:titleColor forState:UIControlStateNormal];
@@ -49,7 +49,7 @@
     [self setBackgroundImage:[UIImage imageNamed:HighlightedImage] forState:UIControlStateHighlighted];
 }
 
-
+//操作SP开关
 - (void)stateButtonClicked:(UIButton *)button
 {
     int status = !button.isSelected;
@@ -84,7 +84,7 @@
         }
     });
 }
-
+//获取SP开关状态
 - (int)Sprefresh:(NSString *)mac{
     int spstate;
     BLSDKTool *blsdktool = [BLSDKTool responseDatatoapiid:71 command:@"sp2_refresh" mac:mac];
