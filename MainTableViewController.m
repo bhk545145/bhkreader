@@ -53,7 +53,9 @@
         //定时刷新
         [self startTimer];
     });
-    
+    //隐藏tableView分割线
+    self.tableView.separatorStyle = UITableViewCellSeparatorStyleNone;
+    self.tableView.backgroundColor = IWColor(226, 226, 226);
     __weak typeof(self) weakSelf = self;
     // 设置回调（一旦进入刷新状态就会调用这个refreshingBlock）
     self.tableView.mj_header = [MJRefreshNormalHeader headerWithRefreshingBlock:^{
@@ -131,7 +133,7 @@
     }else{
         SimleTableIdentifier = [NSString stringWithFormat:@"Cell"];
     }
-               
+    
     
     DeviceCell *cell = [tableView dequeueReusableCellWithIdentifier:SimleTableIdentifier];
     if(cell == nil){

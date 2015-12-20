@@ -45,6 +45,8 @@
 -(id)initWithStyle:(UITableViewCellStyle)style reuseIdentifier:(NSString *)reuseIdentifier{
     self = [super initWithStyle:style reuseIdentifier:reuseIdentifier];
     if (self) {
+        self.selectedBackgroundView = [[UIView alloc] init];
+        self.backgroundColor = [UIColor clearColor];
         _backimage = [[UIImageView alloc]init];
         [self.contentView addSubview:_backimage];
         _deviceimage = [[UIImageView alloc]init];
@@ -82,17 +84,6 @@
     return self;
 }
 
-/**
- *  拦截frame的设置
- */
-- (void)setFrame:(CGRect)frame
-{
-    frame.origin.y += IWStatusTableBorder;
-    frame.origin.x = IWStatusTableBorder;
-    frame.size.width -= 2 * IWStatusTableBorder;
-    frame.size.height -= IWStatusTableBorder;
-    [super setFrame:frame];
-}
 
 -(void)setBLDeviceinfo:(BLDeviceInfo *)BLDeviceinfo{
     _BLDeviceinfo = BLDeviceinfo;
@@ -148,13 +139,6 @@
     _ip.text = BLDeviceinfo.ip;
 
 //设置位置
-    CGFloat cellW = [UIScreen mainScreen].bounds.size.width - 2 * IWStatusTableBorder;
-    CGFloat backimageX = 0;
-    CGFloat backimageY = 0;
-    CGFloat backimageW = cellW;
-    CGFloat backimageH = 141;
-    _backimage.frame = CGRectMake(backimageX, backimageY, backimageW, backimageH);
-    
     CGFloat deviceimageX = kCellBorder;
     CGFloat deviceimageY = kCellBorder;
     _deviceimage.frame = CGRectMake(deviceimageX, deviceimageY, kimageW ,kimageH);
@@ -218,6 +202,12 @@
     }
     
     _cellHeight = CGRectGetMaxY(_ip.frame) + 5;
+    CGFloat cellW = [UIScreen mainScreen].bounds.size.width - 2 * IWStatusTableBorder;
+    CGFloat backimageX = IWStatusTableBorder;
+    CGFloat backimageY = IWStatusTableBorder;
+    CGFloat backimageW = cellW;
+    CGFloat backimageH = CGRectGetMaxY(_ip.frame);
+    _backimage.frame = CGRectMake(backimageX, backimageY, backimageW, backimageH);
 }
 
 - (NSString *)tolight:(int)light{

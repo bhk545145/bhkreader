@@ -209,6 +209,15 @@
 			name = bhkFMDB;
 			sourceTree = "<group>";
 		};
+		02F614991C270B880075F592 /* UIImage */ = {
+			isa = PBXGroup;
+			children = (
+				02F614961C26F9D90075F592 /* UIImage+MJ.h */,
+				02F614971C26F9D90075F592 /* UIImage+MJ.m */,
+			);
+			name = UIImage;
+			sourceTree = "<group>";
+		};
 		3A0685031C10739200591885 /* Customcontrol */ = {
 			isa = PBXGroup;
 			children = (
@@ -245,12 +254,15 @@
 		3A0685131C1083B700591885 /* tool */ = {
 			isa = PBXGroup;
 			children = (
-				02F614961C26F9D90075F592 /* UIImage+MJ.h */,
-				02F614971C26F9D90075F592 /* UIImage+MJ.m */,
+				02F614931C26B2010075F592 /* bhkCommon.h */,
+				02F614991C270B880075F592 /* UIImage */,
 				3AE2FEFA1C0874A4009FBA2F /* getCurrentWiFiSSID */,
 				02F614911C26B1310075F592 /* SDKTool */,
 				02F614921C26B1400075F592 /* bhkFMDB */,
-				02F614931C26B2010075F592 /* bhkCommon.h */,
+				3AEDC6BA1BF357A800868262 /* BLNetwork.h */,
+				3ACE127A1C23BB58008B0CBD /* libBLNetwork.a */,
+				3AD807781C17D0B500AC0891 /* libsqlite3.0.tbd */,
+				02910B8F1C1DD2E4001833C7 /* libsqlite3.dylib */,
 			);
 			name = tool;
 			sourceTree = "<group>";
@@ -336,10 +348,6 @@
 			children = (
 				3A915E5F1BEB6134005375CE /* 3rd */,
 				3A0685131C1083B700591885 /* tool */,
-				3AD807781C17D0B500AC0891 /* libsqlite3.0.tbd */,
-				02910B8F1C1DD2E4001833C7 /* libsqlite3.dylib */,
-				3AEDC6BA1BF357A800868262 /* BLNetwork.h */,
-				3ACE127A1C23BB58008B0CBD /* libBLNetwork.a */,
 			);
 			name = lib;
 			sourceTree = "<group>";
