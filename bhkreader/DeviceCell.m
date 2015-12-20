@@ -10,11 +10,13 @@
 #import "BLDeviceInfo.h"
 #import "Spbtn.h"
 #import "bhkCommon.h"
+#import "UIImage+MJ.h"
 
 #define kCellBorder 10
 #define kimageW 40
 #define kimageH 40
 @interface DeviceCell(){
+    UIImageView *_backimage;
     UIImageView *_deviceimage;
     UILabel *_mac;
     UILabel *_type;
@@ -43,6 +45,8 @@
 -(id)initWithStyle:(UITableViewCellStyle)style reuseIdentifier:(NSString *)reuseIdentifier{
     self = [super initWithStyle:style reuseIdentifier:reuseIdentifier];
     if (self) {
+        _backimage = [[UIImageView alloc]init];
+        [self.contentView addSubview:_backimage];
         _deviceimage = [[UIImageView alloc]init];
         [self.contentView addSubview:_deviceimage];
         _mac = [[UILabel alloc]init];
@@ -78,9 +82,25 @@
     return self;
 }
 
+/**
+ *  拦截frame的设置
+ */
+- (void)setFrame:(CGRect)frame
+{
+    frame.origin.y += IWStatusTableBorder;
+    frame.origin.x = IWStatusTableBorder;
+    frame.size.width -= 2 * IWStatusTableBorder;
+    frame.size.height -= IWStatusTableBorder;
+    [super setFrame:frame];
+}
+
 -(void)setBLDeviceinfo:(BLDeviceInfo *)BLDeviceinfo{
     _BLDeviceinfo = BLDeviceinfo;
 //设置数据
+    _backimage.userInteractionEnabled = YES;
+    _backimage.image = [UIImage resizedImageWithName:@"timeline_card_top_background"];
+    _backimage.highlightedImage = [UIImage resizedImageWithName:@"timeline_card_top_background_highlighted"];
+    
     if ([BLDeviceinfo.type isEqualToString:SPmini]) {
         _deviceimage.image = [UIImage imageNamed:@"SPmin.jpg"];
         _type.text =@"SPmini";
@@ -128,6 +148,13 @@
     _ip.text = BLDeviceinfo.ip;
 
 //设置位置
+    CGFloat cellW = [UIScreen mainScreen].bounds.size.width - 2 * IWStatusTableBorder;
+    CGFloat backimageX = 0;
+    CGFloat backimageY = 0;
+    CGFloat backimageW = cellW;
+    CGFloat backimageH = 141;
+    _backimage.frame = CGRectMake(backimageX, backimageY, backimageW, backimageH);
+    
     CGFloat deviceimageX = kCellBorder;
     CGFloat deviceimageY = kCellBorder;
     _deviceimage.frame = CGRectMake(deviceimageX, deviceimageY, kimageW ,kimageH);

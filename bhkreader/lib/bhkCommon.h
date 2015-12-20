@@ -11,3 +11,9 @@
 #define A1 @"10004"
 #define MS1 @"10015"
 #define S1 @"10018"
+
+/** 表格的边框宽度 */
+#define IWStatusTableBorder 5
+
+/** cell的边框宽度 */
+#define IWStatusCellBorder 10
