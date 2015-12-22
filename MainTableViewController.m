@@ -140,7 +140,7 @@
     if(cell == nil){
         cell = [[DeviceCell alloc]initWithStyle:UITableViewCellStyleSubtitle reuseIdentifier:SimleTableIdentifier];
     }
-    dispatch_async(networkQueue, ^{
+//    dispatch_async(networkQueue, ^{
     //status设备状态
     info.status = [self statetomac:info.mac];
     //ip地址
@@ -157,7 +157,7 @@
     if ([info.type isEqualToString:A1] ) {
         info.a1listInfo = [A1listInfo DeviceinfoWithDict:[self A1refresh:info.mac]];
     }
-    });
+//    });
     cell.BLDeviceinfo = info;
     cellhight = cell.cellHeight;
     return cell;
@@ -332,7 +332,7 @@
 }
 
 - (IBAction)Refresh:(id)sender {
-
+    [self listRefresh];
 }
 //查询WiFi名称
 -(void)getCurrentWiFiSSID{

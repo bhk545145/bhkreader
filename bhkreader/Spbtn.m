@@ -60,6 +60,7 @@
     }
     dispatch_async(networkQueue, ^{
         BLSDKTool *blsdktool = [BLSDKTool responseDatatoapiid:72 command:@"sp2_control" mac:_mac status:status];
+        //NSLog(@"%d",blsdktool.code);
         if (blsdktool.code == 0)
         {
             dispatch_async(dispatch_get_main_queue(), ^{
