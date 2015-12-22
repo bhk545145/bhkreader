@@ -125,6 +125,7 @@
             [self.view addSubview:progressview];
             if([[[responseData objectFromJSONData] objectForKey:@"code"] intValue] == 0){
                 [MBProgressHUD showMessage:@"配置成功" toView:progressview];
+                [MBProgressHUD hideHUD];
             }else if ([[[responseData objectFromJSONData] objectForKey:@"code"] intValue] == 1){
                 [MBProgressHUD showError:@"配置失败" toView:progressview];
             }else{

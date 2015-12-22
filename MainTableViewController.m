@@ -19,6 +19,7 @@
 #import "MJRefresh.h"
 #import "BLSDKTool.h"
 #import "bhkCommon.h"
+#import "DetailspageimageView.h"
 
 
 @interface MainTableViewController (){
@@ -139,6 +140,7 @@
     if(cell == nil){
         cell = [[DeviceCell alloc]initWithStyle:UITableViewCellStyleSubtitle reuseIdentifier:SimleTableIdentifier];
     }
+    dispatch_async(networkQueue, ^{
     //status设备状态
     info.status = [self statetomac:info.mac];
     //ip地址
@@ -155,6 +157,7 @@
     if ([info.type isEqualToString:A1] ) {
         info.a1listInfo = [A1listInfo DeviceinfoWithDict:[self A1refresh:info.mac]];
     }
+    });
     cell.BLDeviceinfo = info;
     cellhight = cell.cellHeight;
     return cell;
@@ -167,6 +170,10 @@
 - (BOOL)tableView:(UITableView *)tableView canEditRowAtIndexPath:(NSIndexPath *)indexPath
 {
     return YES;
+}
+- (void)tableView:(UITableView *)tableView didSelectRowAtIndexPath:(NSIndexPath *)indexPath{
+    DetailspageimageView *detailspage = [[DetailspageimageView alloc]initWithFrame: CGRectMake(0, 0, [UIScreen mainScreen].bounds.size.width, [UIScreen mainScreen].bounds.size.height)];
+    [self.view addSubview:detailspage];
 }
 //删除设备
 - (void)tableView:(UITableView *)tableView commitEditingStyle:(UITableViewCellEditingStyle)editingStyle forRowAtIndexPath:(NSIndexPath *)indexPath{

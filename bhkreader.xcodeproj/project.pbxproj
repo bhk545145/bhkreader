@@ -13,6 +13,7 @@
 		02F614981C26F9D90075F592 /* UIImage+MJ.m in Sources */ = {isa = PBXBuildFile; fileRef = 02F614971C26F9D90075F592 /* UIImage+MJ.m */; };
 		3A06850C1C10766800591885 /* leftviewTableViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 3A06850B1C10766800591885 /* leftviewTableViewController.m */; };
 		3A06850F1C1079FF00591885 /* CustomcontrolViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 3A06850E1C1079FF00591885 /* CustomcontrolViewController.m */; };
+		3A148ED71C282DBB009CA1BB /* DetailspageimageView.m in Sources */ = {isa = PBXBuildFile; fileRef = 3A148ED61C282DBB009CA1BB /* DetailspageimageView.m */; };
 		3A1EC3151C21930800F826F4 /* MBProgressHUD.m in Sources */ = {isa = PBXBuildFile; fileRef = 3A1EC3141C21930800F826F4 /* MBProgressHUD.m */; };
 		3A1EC31A1C219BA100F826F4 /* MBProgressHUD.bundle in Resources */ = {isa = PBXBuildFile; fileRef = 3A1EC3171C219BA100F826F4 /* MBProgressHUD.bundle */; };
 		3A1EC31B1C219BA100F826F4 /* MBProgressHUD+MJ.m in Sources */ = {isa = PBXBuildFile; fileRef = 3A1EC3191C219BA100F826F4 /* MBProgressHUD+MJ.m */; };
@@ -30,7 +31,6 @@
 		3AC818601BE8917000D195F6 /* ViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 3AC8185F1BE8917000D195F6 /* ViewController.m */; };
 		3AC818631BE8917000D195F6 /* Main.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 3AC818611BE8917000D195F6 /* Main.storyboard */; };
 		3AC818651BE8917000D195F6 /* Images.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = 3AC818641BE8917000D195F6 /* Images.xcassets */; };
-		3AC818681BE8917000D195F6 /* LaunchScreen.xib in Resources */ = {isa = PBXBuildFile; fileRef = 3AC818661BE8917000D195F6 /* LaunchScreen.xib */; };
 		3AC818741BE8917000D195F6 /* bhkreaderTests.m in Sources */ = {isa = PBXBuildFile; fileRef = 3AC818731BE8917000D195F6 /* bhkreaderTests.m */; };
 		3ACE127E1C23D0D1008B0CBD /* libBLNetwork.a in Frameworks */ = {isa = PBXBuildFile; fileRef = 3ACE127A1C23BB58008B0CBD /* libBLNetwork.a */; };
 		3ACE12811C241D0D008B0CBD /* A1listInfo.m in Sources */ = {isa = PBXBuildFile; fileRef = 3ACE12801C241D0D008B0CBD /* A1listInfo.m */; };
@@ -82,6 +82,8 @@
 		3A06850B1C10766800591885 /* leftviewTableViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; name = leftviewTableViewController.m; path = ../leftviewTableViewController.m; sourceTree = "<group>"; };
 		3A06850D1C1079FF00591885 /* CustomcontrolViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = CustomcontrolViewController.h; sourceTree = "<group>"; };
 		3A06850E1C1079FF00591885 /* CustomcontrolViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = CustomcontrolViewController.m; sourceTree = "<group>"; };
+		3A148ED51C282DBB009CA1BB /* DetailspageimageView.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = DetailspageimageView.h; sourceTree = "<group>"; };
+		3A148ED61C282DBB009CA1BB /* DetailspageimageView.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = DetailspageimageView.m; sourceTree = "<group>"; };
 		3A1EC3131C21930800F826F4 /* MBProgressHUD.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; name = MBProgressHUD.h; path = 3rd/MBProgressHUD/MBProgressHUD.h; sourceTree = "<group>"; };
 		3A1EC3141C21930800F826F4 /* MBProgressHUD.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; name = MBProgressHUD.m; path = 3rd/MBProgressHUD/MBProgressHUD.m; sourceTree = "<group>"; };
 		3A1EC3171C219BA100F826F4 /* MBProgressHUD.bundle */ = {isa = PBXFileReference; lastKnownFileType = "wrapper.plug-in"; name = MBProgressHUD.bundle; path = 3rd/MBProgressHUD/MBProgressHUD.bundle; sourceTree = "<group>"; };
@@ -115,7 +117,6 @@
 		3AC8185F1BE8917000D195F6 /* ViewController.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = ViewController.m; sourceTree = "<group>"; };
 		3AC818621BE8917000D195F6 /* Base */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; name = Base; path = Base.lproj/Main.storyboard; sourceTree = "<group>"; };
 		3AC818641BE8917000D195F6 /* Images.xcassets */ = {isa = PBXFileReference; lastKnownFileType = folder.assetcatalog; path = Images.xcassets; sourceTree = "<group>"; };
-		3AC818671BE8917000D195F6 /* Base */ = {isa = PBXFileReference; lastKnownFileType = file.xib; name = Base; path = Base.lproj/LaunchScreen.xib; sourceTree = "<group>"; };
 		3AC8186D1BE8917000D195F6 /* bhkreaderTests.xctest */ = {isa = PBXFileReference; explicitFileType = wrapper.cfbundle; includeInIndex = 0; path = bhkreaderTests.xctest; sourceTree = BUILT_PRODUCTS_DIR; };
 		3AC818721BE8917000D195F6 /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
 		3AC818731BE8917000D195F6 /* bhkreaderTests.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = bhkreaderTests.m; sourceTree = "<group>"; };
@@ -295,6 +296,8 @@
 			children = (
 				3AC2CBB71C033CB40029B2D5 /* DeviceCell.h */,
 				3AC2CBB81C033CB40029B2D5 /* DeviceCell.m */,
+				3A148ED51C282DBB009CA1BB /* DetailspageimageView.h */,
+				3A148ED61C282DBB009CA1BB /* DetailspageimageView.m */,
 			);
 			name = view;
 			sourceTree = "<group>";
@@ -407,7 +410,6 @@
 				3A0685031C10739200591885 /* Customcontrol */,
 				3AC818611BE8917000D195F6 /* Main.storyboard */,
 				3AC818641BE8917000D195F6 /* Images.xcassets */,
-				3AC818661BE8917000D195F6 /* LaunchScreen.xib */,
 				3A9EF4051BE8D50400F21DD2 /* lib */,
 				3AC818571BE8917000D195F6 /* Supporting Files */,
 			);
@@ -634,7 +636,6 @@
 			files = (
 				3AC818631BE8917000D195F6 /* Main.storyboard in Resources */,
 				3A1EC31A1C219BA100F826F4 /* MBProgressHUD.bundle in Resources */,
-				3AC818681BE8917000D195F6 /* LaunchScreen.xib in Resources */,
 				3ADAF44B1C231E5000F0CE80 /* MJRefresh.bundle in Resources */,
 				3AC818651BE8917000D195F6 /* Images.xcassets in Resources */,
 			);
@@ -656,6 +657,7 @@
 			files = (
 				3ADAF44D1C231E5000F0CE80 /* UIScrollView+MJExtension.m in Sources */,
 				02935ADA1C17273F00C855F2 /* bhkFMDB.m in Sources */,
+				3A148ED71C282DBB009CA1BB /* DetailspageimageView.m in Sources */,
 				3ADAF43D1C231E5000F0CE80 /* MJRefreshAutoFooter.m in Sources */,
 				3AE2FEF91C085890009FBA2F /* Spbtn.m in Sources */,
 				3A06850C1C10766800591885 /* leftviewTableViewController.m in Sources */,
@@ -723,14 +725,6 @@
 				3AC818621BE8917000D195F6 /* Base */,
 			);
 			name = Main.storyboard;
-			sourceTree = "<group>";
-		};
-		3AC818661BE8917000D195F6 /* LaunchScreen.xib */ = {
-			isa = PBXVariantGroup;
-			children = (
-				3AC818671BE8917000D195F6 /* Base */,
-			);
-			name = LaunchScreen.xib;
 			sourceTree = "<group>";
 		};
 /* End PBXVariantGroup section */
@@ -822,6 +816,7 @@
 			isa = XCBuildConfiguration;
 			buildSettings = {
 				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
+				ASSETCATALOG_COMPILER_LAUNCHIMAGE_NAME = LaunchImage;
 				CODE_SIGN_IDENTITY = "iPhone Developer";
 				"CODE_SIGN_IDENTITY[sdk=iphoneos*]" = "iPhone Developer";
 				INFOPLIST_FILE = bhkreader/Info.plist;
@@ -845,6 +840,7 @@
 			isa = XCBuildConfiguration;
 			buildSettings = {
 				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
+				ASSETCATALOG_COMPILER_LAUNCHIMAGE_NAME = LaunchImage;
 				CODE_SIGN_IDENTITY = "iPhone Developer";
 				"CODE_SIGN_IDENTITY[sdk=iphoneos*]" = "iPhone Developer";
 				INFOPLIST_FILE = bhkreader/Info.plist;
