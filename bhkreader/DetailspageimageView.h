@@ -7,7 +7,8 @@
 //
 
 #import <UIKit/UIKit.h>
-
+@class BLDeviceInfo;
 @interface DetailspageimageView : UIImageView <UIGestureRecognizerDelegate>
 
+@property (strong,nonatomic) BLDeviceInfo *BLDeviceinfo;
 @end

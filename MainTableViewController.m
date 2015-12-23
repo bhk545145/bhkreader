@@ -173,6 +173,8 @@
 }
 - (void)tableView:(UITableView *)tableView didSelectRowAtIndexPath:(NSIndexPath *)indexPath{
     DetailspageimageView *detailspage = [[DetailspageimageView alloc]initWithFrame: CGRectMake(0, 0, [UIScreen mainScreen].bounds.size.width, [UIScreen mainScreen].bounds.size.height)];
+    BLDeviceInfo *info = _deviceArray[indexPath.row];
+    detailspage.BLDeviceinfo = info;
     [self.view addSubview:detailspage];
 }
 //删除设备
@@ -249,10 +251,10 @@
     dispatch_async(networkQueue, ^{
         NSMutableArray *array = [[NSMutableArray alloc] initWithArray:_deviceArray];
         NSData *responseData = [_network requestDispatch:requestData];
+        NSLog(@"%@",[[responseData objectFromJSONData] objectForKey:@"list"]);
         if ([[[responseData objectFromJSONData] objectForKey:@"code"] intValue] == 0)
         {
             int i;
-            //NSLog(@"%@",[[responseData objectFromJSONData] objectForKey:@"list"]);
             NSArray *list = [[responseData objectFromJSONData] objectForKey:@"list"];
             for (NSMutableDictionary *dict in list)
             {
