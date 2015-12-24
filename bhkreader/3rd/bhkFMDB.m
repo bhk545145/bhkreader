@@ -70,7 +70,7 @@
 - (void)insertOrUpdateinfo:(BLDeviceInfo *)info{
     if ([db open]) {
         FMResultSet *resultSet = [db executeQuery:@"SELECT * FROM device_info where mac = ?;",info.mac];
-        NSLog(@"SELECT%d",[resultSet next]);
+        //NSLog(@"SELECT%d",[resultSet next]);
         int number = [resultSet next];
         if (number) {
             BOOL result = [db executeUpdate:@"UPDATE device_info SET type = ?, name = ?, lock = ?, password = ?, terminal_id = ?, sub_device = ?, key = ? WHERE mac = ?;",info.type, info.name, [NSNumber numberWithLong:info.lock], [NSNumber numberWithLong:info.password], [NSNumber numberWithLong:info.terminal_id], [NSNumber numberWithLong:info.sub_device], info.key, info.mac];

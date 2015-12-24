@@ -255,7 +255,7 @@
         if ([[[responseData objectFromJSONData] objectForKey:@"code"] intValue] == 0)
         {
             int i;
-            NSArray *list = [[responseData objectFromJSONData] objectForKey:@"list"];
+            NSMutableArray *list = [[responseData objectFromJSONData] objectForKey:@"list"];
             for (NSMutableDictionary *dict in list)
             {
                 BLDeviceInfo *info = [[BLDeviceInfo alloc] init];
@@ -274,10 +274,12 @@
                 {
                     [array addObject:info];
                 }
-                [self deviceAdd:info];
                 if (![info.type isEqualToString:@"10015"]) {
                     [bhkfmdb insertOrUpdateinfo:info];
                 }
+            }
+            for (BLDeviceInfo *info in array) {
+                [self deviceAdd:info];
             }
             [_deviceArray removeAllObjects];
             [_deviceArray addObjectsFromArray:array];
@@ -326,7 +328,7 @@
                 BLDeviceInfo *info = [[BLDeviceInfo alloc] init];
                 info = [info initWithDict:dict];
                 [array addObject:info];
-                [self deviceAdd:info];
+                //[self deviceAdd:info];
             }
         }
         [_deviceArray addObjectsFromArray:array];
