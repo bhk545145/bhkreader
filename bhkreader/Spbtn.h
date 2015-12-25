@@ -11,5 +11,5 @@
 @interface Spbtn : UIButton
 
 - (void)setTitle:(NSString *)title forState:(UIControlState)state mac:(NSString *)mac;
-- (int)Sprefresh:(NSString *)mac;
+- (NSDictionary *)Sprefresh:(NSString *)mac;
 @end

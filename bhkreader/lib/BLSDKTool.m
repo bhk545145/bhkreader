@@ -43,6 +43,8 @@
         _code = [[[responseData objectFromJSONData] objectForKey:@"code"] intValue];
         if (status == 2){
             _status = [[[responseData objectFromJSONData] objectForKey:@"status"] intValue];
+            _name = [[responseData objectFromJSONData] objectForKey:@"name"];
+            _lock = [[[responseData objectFromJSONData] objectForKey:@"lock"] intValue];
             _state =  [[responseData objectFromJSONData] objectForKey:@"status"];
             _locaIP = [[responseData objectFromJSONData] objectForKey:@"lan_ip"];
             _rmtemperature = [[[responseData objectFromJSONData] objectForKey:@"temperature"] floatValue];

@@ -124,8 +124,7 @@
             UIView *progressview = [[UIView alloc]initWithFrame:CGRectMake(60, 270, 200, 100)];
             [self.view addSubview:progressview];
             if([[[responseData objectFromJSONData] objectForKey:@"code"] intValue] == 0){
-                [MBProgressHUD showMessage:@"配置成功" toView:progressview];
-                [MBProgressHUD hideHUD];
+                [MBProgressHUD showSuccess:@"配置成功" toView:progressview];
             }else if ([[[responseData objectFromJSONData] objectForKey:@"code"] intValue] == 1){
                 [MBProgressHUD showError:@"配置失败" toView:progressview];
             }else{

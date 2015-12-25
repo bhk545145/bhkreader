@@ -1,24 +1,19 @@
 //
-//  A1listInfo.m
+//  SplistInfo.m
 //  bhkreader
 //
-//  Created by bai on 15/12/18.
+//  Created by bai on 15/12/25.
 //  Copyright © 2015年 bai. All rights reserved.
 //
 
-#import "A1listInfo.h"
+#import "SplistInfo.h"
 
-@implementation A1listInfo
-
+@implementation SplistInfo
 - (id)initWithDict:(NSDictionary *)dict{
     if (self = [super init]) {
+        _status = [dict[@"status"]intValue];
         _name = dict[@"name"];
         _lock = [dict[@"lock"]intValue];
-        _temperature = dict[@"temperature"];
-        _humidity = dict[@"humidity"];
-        _light = [dict[@"light"]intValue];
-        _air= [dict[@"air"]intValue];
-        _noisy = [dict[@"noisy"]intValue];
     }
     return self;
 }

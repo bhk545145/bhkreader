@@ -9,13 +9,14 @@
 #import "DetailspageimageView.h"
 #import "bhkCommon.h"
 #import "BLDeviceInfo.h"
+#import "Detailbtn.h"
 
 @interface DetailspageimageView(){
     UIView *backgroundView;
     UIView *topview;
     UILabel *namelab;
     UISwitch *lockswitch;
-    UIButton *updatebtn;
+    Detailbtn *updatebtn;
 }
 
 @end
@@ -54,10 +55,9 @@
         
         [topview addSubview:lockswitch];
         //update按钮
-        updatebtn = [UIButton buttonWithType:UIButtonTypeRoundedRect];
+        updatebtn = [Detailbtn buttonWithType:UIButtonTypeRoundedRect];
         updatebtn.frame = CGRectMake(200, 30, 60, 60);
-        [updatebtn setTitle:@"更新" forState:UIControlStateNormal];
-        [updatebtn setTitleColor:[UIColor redColor] forState:UIControlStateNormal];
+        
         [topview addSubview:updatebtn];
     }
     return self;
@@ -67,8 +67,16 @@
     _BLDeviceinfo = BLDeviceinfo;
     
     //设置数据
-    namelab.text = BLDeviceinfo.name;
-    [lockswitch setOn:(BLDeviceinfo.lock) ? YES : NO animated:YES];
+    namelab.text = _BLDeviceinfo.name;
+    [lockswitch setOn:(_BLDeviceinfo.lock) ? YES : NO animated:YES];
+    
+    [updatebtn setTitle:@"更新" forState:UIControlStateNormal];
+    [updatebtn setTitleColor:[UIColor redColor] forState:UIControlStateNormal];
+    [updatebtn addTarget:self action:@selector(stateButtonClicked:) forControlEvents:UIControlEventTouchUpInside];
+}
+
+- (void)stateButtonClicked:(UIButton *)button{
+    [updatebtn setmac:_BLDeviceinfo.mac name:namelab.text lock:lockswitch.on];
 }
 
 

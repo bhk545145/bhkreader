@@ -10,6 +10,8 @@
 
 @interface A1listInfo : NSObject
 
+@property (nonatomic, strong) NSString *name;
+@property (nonatomic, assign) int lock;
 @property (nonatomic, strong) NSString *temperature;
 @property (nonatomic, strong) NSString *humidity;
 @property (nonatomic, assign) int light;

@@ -11,6 +11,8 @@
 @interface BLSDKTool : NSObject
 @property (nonatomic, assign) int code;
 @property (nonatomic, assign) int status;
+@property (nonatomic, strong) NSString *name;
+@property (nonatomic, assign) int lock;
 @property (nonatomic, strong) NSString *state;
 @property (nonatomic, strong) NSString *locaIP;
 @property (nonatomic, assign) float rmtemperature;

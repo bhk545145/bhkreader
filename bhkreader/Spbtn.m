@@ -86,14 +86,19 @@
     });
 }
 //获取SP开关状态
-- (int)Sprefresh:(NSString *)mac{
-    int spstate;
+- (NSDictionary *)Sprefresh:(NSString *)mac{
+    NSMutableDictionary *splist = [[NSMutableDictionary alloc] init];
     BLSDKTool *blsdktool = [BLSDKTool responseDatatoapiid:71 command:@"sp2_refresh" mac:mac];
     if (blsdktool.code == 0)
     {
-        spstate = blsdktool.status;
+        int spstate = blsdktool.status;
+        NSString *name = blsdktool.name;
+        int lock = blsdktool.lock;
+        [splist setObject:[NSString stringWithFormat:@"%d",spstate] forKey:@"status"];
+        [splist setObject:[NSString stringWithFormat:@"%@",name] forKey:@"name"];
+        [splist setObject:[NSString stringWithFormat:@"%d",lock] forKey:@"lock"];
     }
-    return spstate;
+    return splist;
 }
 
 

@@ -17,6 +17,8 @@
 		3A1EC3151C21930800F826F4 /* MBProgressHUD.m in Sources */ = {isa = PBXBuildFile; fileRef = 3A1EC3141C21930800F826F4 /* MBProgressHUD.m */; };
 		3A1EC31A1C219BA100F826F4 /* MBProgressHUD.bundle in Resources */ = {isa = PBXBuildFile; fileRef = 3A1EC3171C219BA100F826F4 /* MBProgressHUD.bundle */; };
 		3A1EC31B1C219BA100F826F4 /* MBProgressHUD+MJ.m in Sources */ = {isa = PBXBuildFile; fileRef = 3A1EC3191C219BA100F826F4 /* MBProgressHUD+MJ.m */; };
+		3A64FBAA1C2D2911000524D7 /* SplistInfo.m in Sources */ = {isa = PBXBuildFile; fileRef = 3A64FBA91C2D2911000524D7 /* SplistInfo.m */; };
+		3A64FBAD1C2D4EC8000524D7 /* Detailbtn.m in Sources */ = {isa = PBXBuildFile; fileRef = 3A64FBAC1C2D4EC8000524D7 /* Detailbtn.m */; };
 		3A915E5E1BEB6102005375CE /* BLDeviceInfo.m in Sources */ = {isa = PBXBuildFile; fileRef = 3A915E5D1BEB6102005375CE /* BLDeviceInfo.m */; };
 		3A9EF40D1BE8DCDE00F21DD2 /* MainTableViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 3A9EF40C1BE8DCDE00F21DD2 /* MainTableViewController.m */; };
 		3A9EF4171BE8DE2500F21DD2 /* SWRevealViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 3A9EF4161BE8DE2500F21DD2 /* SWRevealViewController.m */; };
@@ -89,6 +91,10 @@
 		3A1EC3171C219BA100F826F4 /* MBProgressHUD.bundle */ = {isa = PBXFileReference; lastKnownFileType = "wrapper.plug-in"; name = MBProgressHUD.bundle; path = 3rd/MBProgressHUD/MBProgressHUD.bundle; sourceTree = "<group>"; };
 		3A1EC3181C219BA100F826F4 /* MBProgressHUD+MJ.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; name = "MBProgressHUD+MJ.h"; path = "3rd/MBProgressHUD/MBProgressHUD+MJ.h"; sourceTree = "<group>"; };
 		3A1EC3191C219BA100F826F4 /* MBProgressHUD+MJ.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; name = "MBProgressHUD+MJ.m"; path = "3rd/MBProgressHUD/MBProgressHUD+MJ.m"; sourceTree = "<group>"; };
+		3A64FBA81C2D2911000524D7 /* SplistInfo.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = SplistInfo.h; sourceTree = "<group>"; };
+		3A64FBA91C2D2911000524D7 /* SplistInfo.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = SplistInfo.m; sourceTree = "<group>"; };
+		3A64FBAB1C2D4EC8000524D7 /* Detailbtn.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = Detailbtn.h; sourceTree = "<group>"; };
+		3A64FBAC1C2D4EC8000524D7 /* Detailbtn.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = Detailbtn.m; sourceTree = "<group>"; };
 		3A915E5C1BEB6102005375CE /* BLDeviceInfo.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = BLDeviceInfo.h; sourceTree = "<group>"; };
 		3A915E5D1BEB6102005375CE /* BLDeviceInfo.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = BLDeviceInfo.m; sourceTree = "<group>"; };
 		3A9EF40B1BE8DCDE00F21DD2 /* MainTableViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; name = MainTableViewController.h; path = ../MainTableViewController.h; sourceTree = "<group>"; };
@@ -287,6 +293,8 @@
 				3A915E5D1BEB6102005375CE /* BLDeviceInfo.m */,
 				3ACE127F1C241D0D008B0CBD /* A1listInfo.h */,
 				3ACE12801C241D0D008B0CBD /* A1listInfo.m */,
+				3A64FBA81C2D2911000524D7 /* SplistInfo.h */,
+				3A64FBA91C2D2911000524D7 /* SplistInfo.m */,
 			);
 			name = model;
 			sourceTree = "<group>";
@@ -309,6 +317,8 @@
 				3A9EF40C1BE8DCDE00F21DD2 /* MainTableViewController.m */,
 				3AE2FEF71C085890009FBA2F /* Spbtn.h */,
 				3AE2FEF81C085890009FBA2F /* Spbtn.m */,
+				3A64FBAB1C2D4EC8000524D7 /* Detailbtn.h */,
+				3A64FBAC1C2D4EC8000524D7 /* Detailbtn.m */,
 			);
 			name = controller;
 			sourceTree = "<group>";
@@ -664,6 +674,7 @@
 				3AC06D811C1AF60B00068164 /* FMDatabase.m in Sources */,
 				3A9EF40D1BE8DCDE00F21DD2 /* MainTableViewController.m in Sources */,
 				3AC818601BE8917000D195F6 /* ViewController.m in Sources */,
+				3A64FBAD1C2D4EC8000524D7 /* Detailbtn.m in Sources */,
 				3AC06D851C1AF60B00068164 /* FMResultSet.m in Sources */,
 				3ADAF43F1C231E5000F0CE80 /* MJRefreshComponent.m in Sources */,
 				3A1EC3151C21930800F826F4 /* MBProgressHUD.m in Sources */,
@@ -682,6 +693,7 @@
 				3AEDC6A21BF34F2200868262 /* JSONKit.m in Sources */,
 				3ADAF4491C231E5000F0CE80 /* MJRefreshNormalHeader.m in Sources */,
 				3ADAF4441C231E5000F0CE80 /* MJRefreshAutoStateFooter.m in Sources */,
+				3A64FBAA1C2D2911000524D7 /* SplistInfo.m in Sources */,
 				02F614981C26F9D90075F592 /* UIImage+MJ.m in Sources */,
 				3ADAF43E1C231E5000F0CE80 /* MJRefreshBackFooter.m in Sources */,
 				3ADAF4481C231E5000F0CE80 /* MJRefreshGifHeader.m in Sources */,

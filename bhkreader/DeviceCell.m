@@ -11,6 +11,7 @@
 #import "Spbtn.h"
 #import "bhkCommon.h"
 #import "UIImage+MJ.h"
+#import "SplistInfo.h"
 
 #define kCellBorder 10
 #define kimageW 40

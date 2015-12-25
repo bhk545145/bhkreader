@@ -11,6 +11,7 @@
 #import "BLNetwork.h"
 #import "BLDeviceInfo.h"
 #import "A1listInfo.h"
+#import "SplistInfo.h"
 #import "JSONKit.h"
 #import "DeviceCell.h"
 #import "getCurrentWiFiSSID.h"
@@ -134,31 +135,11 @@
     }else{
         SimleTableIdentifier = [NSString stringWithFormat:@"Cell"];
     }
-    
-    
     DeviceCell *cell = [tableView dequeueReusableCellWithIdentifier:SimleTableIdentifier];
     if(cell == nil){
         cell = [[DeviceCell alloc]initWithStyle:UITableViewCellStyleSubtitle reuseIdentifier:SimleTableIdentifier];
     }
-//    dispatch_async(networkQueue, ^{
-    //status设备状态
-    info.status = [self statetomac:info.mac];
-    //ip地址
-    info.ip = [self iptomac:info.mac];
-    //spstate开关状态
-    if ([info.type isEqualToString:SPmini] || [info.type isEqualToString:SP2] || [info.type isEqualToString:SPmini30]){
-        info.spstate = [_Spbtn Sprefresh:info.mac];
-    }
-    //rmtemperature RM温度
-    if ([info.type isEqualToString:RM] ) {
-        info.rmtemperature = [self Rm2refresh:info.mac];
-    }
-    //a1temperature A1温度
-    if ([info.type isEqualToString:A1] ) {
-        info.a1listInfo = [A1listInfo DeviceinfoWithDict:[self A1refresh:info.mac]];
-    }
-//    });
-    cell.BLDeviceinfo = info;
+    cell.BLDeviceinfo = [self infoUpdate:info];
     cellhight = cell.cellHeight;
     return cell;
 }
@@ -197,6 +178,35 @@
     else if (editingStyle == UITableViewCellEditingStyleInsert)
     {
     }
+}
+
+- (id)infoUpdate:(BLDeviceInfo *)info{
+    //status设备状态
+    info.status = [self statetomac:info.mac];
+    //ip地址
+    info.ip = [self iptomac:info.mac];
+    //spstate开关状态
+    if ([info.type isEqualToString:SPmini] || [info.type isEqualToString:SP2] || [info.type isEqualToString:SPmini30]){
+        info.splistInfo = [SplistInfo DeviceinfoWithDict:[_Spbtn Sprefresh:info.mac]];
+        if (info.splistInfo.name != NULL) {
+            info.spstate = info.splistInfo.status;
+            info.name = info.splistInfo.name;
+            info.lock = info.splistInfo.lock;
+        }
+    }
+    //rmtemperature RM温度
+    if ([info.type isEqualToString:RM] ) {
+        info.rmtemperature = [self Rm2refresh:info.mac];
+    }
+    //a1temperature A1温度
+    if ([info.type isEqualToString:A1] ) {
+        info.a1listInfo = [A1listInfo DeviceinfoWithDict:[self A1refresh:info.mac]];
+        if (info.a1listInfo.name != NULL) {
+            info.name = info.a1listInfo.name;
+            info.lock = info.a1listInfo.lock;
+        }
+    }
+    return info;
 }
 //刷新列表，WiFi名称，结束刷新状态
 - (void)refreshDeviceList
@@ -251,7 +261,7 @@
     dispatch_async(networkQueue, ^{
         NSMutableArray *array = [[NSMutableArray alloc] initWithArray:_deviceArray];
         NSData *responseData = [_network requestDispatch:requestData];
-        NSLog(@"%@",[[responseData objectFromJSONData] objectForKey:@"list"]);
+        //NSLog(@"%@",[[responseData objectFromJSONData] objectForKey:@"list"]);
         if ([[[responseData objectFromJSONData] objectForKey:@"code"] intValue] == 0)
         {
             int i;
@@ -384,11 +394,15 @@ return locaIP;
         int light = blsdktool.light;
         int air = blsdktool.air;
         int noisy = blsdktool.noisy;
+        NSString *name = blsdktool.name;
+        int lock = blsdktool.lock;
         [a1list setObject:[NSString stringWithFormat:@"%0.1f",a1temperature] forKey:@"temperature"];
         [a1list setObject:[NSString stringWithFormat:@"%0.1f",humidity] forKey:@"humidity"];
         [a1list setObject:[NSString stringWithFormat:@"%d",light] forKey:@"light"];
         [a1list setObject:[NSString stringWithFormat:@"%d",air] forKey:@"air"];
         [a1list setObject:[NSString stringWithFormat:@"%d",noisy] forKey:@"noisy"];
+        [a1list setObject:[NSString stringWithFormat:@"%@",name] forKey:@"name"];
+        [a1list setObject:[NSString stringWithFormat:@"%d",lock] forKey:@"lock"];
     }
     return a1list;
 }
