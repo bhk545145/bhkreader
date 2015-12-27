@@ -14,7 +14,7 @@
 @interface DetailspageimageView(){
     UIView *backgroundView;
     UIView *topview;
-    UILabel *namelab;
+    UITextField *namelab;
     UISwitch *lockswitch;
     Detailbtn *updatebtn;
 }
@@ -44,20 +44,18 @@
         topview.backgroundColor = IWColor(255, 255, 255);
         [window addSubview:topview];
         //name的UILabel框
-        namelab = [[UILabel alloc]init];
-        namelab.frame = CGRectMake(30, 10, 250, 30);
+        namelab = [[UITextField alloc]init];
+        namelab.frame = CGRectMake(30, 10, 150, 30);
         namelab.font = [UIFont fontWithName:@"Arial" size:22.0f];
-        
+        namelab.borderStyle = UITextBorderStyleRoundedRect;
         [topview addSubview:namelab];
         //lock的uiswitch选择按钮
         lockswitch = [[UISwitch alloc]init];
         lockswitch.frame = CGRectMake(30, 50, 10, 10);
-        
         [topview addSubview:lockswitch];
         //update按钮
         updatebtn = [Detailbtn buttonWithType:UIButtonTypeRoundedRect];
         updatebtn.frame = CGRectMake(200, 30, 60, 60);
-        
         [topview addSubview:updatebtn];
     }
     return self;
@@ -69,7 +67,6 @@
     //设置数据
     namelab.text = _BLDeviceinfo.name;
     [lockswitch setOn:(_BLDeviceinfo.lock) ? YES : NO animated:YES];
-    
     [updatebtn setTitle:@"更新" forState:UIControlStateNormal];
     [updatebtn setTitleColor:[UIColor redColor] forState:UIControlStateNormal];
     [updatebtn addTarget:self action:@selector(stateButtonClicked:) forControlEvents:UIControlEventTouchUpInside];
