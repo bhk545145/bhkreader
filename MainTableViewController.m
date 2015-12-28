@@ -153,10 +153,12 @@
     return YES;
 }
 - (void)tableView:(UITableView *)tableView didSelectRowAtIndexPath:(NSIndexPath *)indexPath{
-    DetailspageimageView *detailspage = [[DetailspageimageView alloc]initWithFrame: CGRectMake(0, 0, [UIScreen mainScreen].bounds.size.width, [UIScreen mainScreen].bounds.size.height)];
-    BLDeviceInfo *info = _deviceArray[indexPath.row];
-    detailspage.BLDeviceinfo = info;
-    [self.view addSubview:detailspage];
+    [UIView animateWithDuration:0.3 animations:^{
+        DetailspageimageView *detailspage = [[DetailspageimageView alloc]initWithFrame: CGRectMake(0, 0, [UIScreen mainScreen].bounds.size.width, [UIScreen mainScreen].bounds.size.height)];
+        BLDeviceInfo *info = _deviceArray[indexPath.row];
+        detailspage.BLDeviceinfo = info;
+        [self.view addSubview:detailspage];
+    } completion:^(BOOL finished) {}];
 }
 //删除设备
 - (void)tableView:(UITableView *)tableView commitEditingStyle:(UITableViewCellEditingStyle)editingStyle forRowAtIndexPath:(NSIndexPath *)indexPath{

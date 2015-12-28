@@ -14,7 +14,7 @@
 #import "bhkFMDB.h"
 #import "MBProgressHUD+MJ.h"
 
-@interface ViewController ()<MBProgressHUDDelegate>{
+@interface ViewController ()<MBProgressHUDDelegate,UITextFieldDelegate>{
     dispatch_queue_t networkQueue;
     bhkFMDB *bhkfmdb;
 }
@@ -72,12 +72,17 @@
     _passwordfield.frame = CGRectMake(50, 150, 180, 30);
     _passwordfield.backgroundColor = [UIColor grayColor];
     _passwordfield.font = [UIFont systemFontOfSize:20];
+    _passwordfield.delegate = self;
 
     [self.view addSubview:_wifibtn];
     [self.view addSubview:_configurebtn];
     [self.view addSubview:_wififield];
     [self.view addSubview:_passwordfield];
+}
 
+- (BOOL)textFieldShouldReturn:(UITextField *)textField{
+    [self.passwordfield resignFirstResponder];
+    return YES;
 }
 
 - (void)btnClick1:(UIButton *)sender{
