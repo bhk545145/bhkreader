@@ -140,6 +140,7 @@
         cell = [[DeviceCell alloc]initWithStyle:UITableViewCellStyleSubtitle reuseIdentifier:SimleTableIdentifier];
     }
     cell.BLDeviceinfo = [self infoUpdate:info];
+    [bhkfmdb insertOrUpdateinfo:info];
     cellhight = cell.cellHeight;
     return cell;
 }

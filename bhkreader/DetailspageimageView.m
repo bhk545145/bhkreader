@@ -10,10 +10,12 @@
 #import "bhkCommon.h"
 #import "BLDeviceInfo.h"
 #import "Detailbtn.h"
+#import "UIImage+MJ.h"
 
 @interface DetailspageimageView()<UITextFieldDelegate>{
     UIView *backgroundView;
     UIView *topview;
+    UIImageView *imageview;
     UITextField *namelab;
     UISwitch *lockswitch;
     Detailbtn *updatebtn;
@@ -42,8 +44,14 @@
         //白色底View
         topview = [[UIView alloc]init];
         topview.frame = CGRectMake(frame.origin.x + 50, frame.origin.y + 150, frame.size.width - 100, frame.size.height - 300);
-        topview.backgroundColor = IWColor(255, 255, 255);
+        topview.backgroundColor = [UIColor colorWithRed:0 green:0 blue:0 alpha:0.0];
         [window addSubview:topview];
+        //imageview
+        imageview = [[UIImageView alloc]init];
+        imageview.frame = CGRectMake(0, 0, topview.frame.size.width, topview.frame.size.height);
+        imageview.image = [UIImage resizedImageWithName:@"timeline_card_top_background"];
+        imageview.highlightedImage = [UIImage resizedImageWithName:@"timeline_card_top_background_highlighted"];
+        [topview addSubview:imageview];
         //name的UILabel框
         namelab = [[UITextField alloc]init];
         namelab.frame = CGRectMake(30, 10, 150, 30);
@@ -80,7 +88,7 @@
 
 - (void)SinleTap:(UITapGestureRecognizer *)recognizer{
     [UIView animateWithDuration:0.3 animations:^{
-        topview.frame = CGRectMake(topview.bounds.origin.x+topview.frame.size.width*0.6,topview.bounds.origin.y+topview.frame.size.height*0.6, 0, 0);
+        imageview.frame = CGRectMake(imageview.bounds.origin.x+imageview.frame.size.width*0.5,imageview.bounds.origin.y+imageview.frame.size.height*0.5, 0, 0);
         [namelab removeFromSuperview];
         [updatebtn removeFromSuperview];
         [lockswitch removeFromSuperview];
