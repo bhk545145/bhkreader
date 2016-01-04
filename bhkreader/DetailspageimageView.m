@@ -49,8 +49,7 @@
         //imageview
         imageview = [[UIImageView alloc]init];
         imageview.frame = CGRectMake(0, 0, topview.frame.size.width, topview.frame.size.height);
-        imageview.image = [UIImage resizedImageWithName:@"timeline_card_top_background"];
-        imageview.highlightedImage = [UIImage resizedImageWithName:@"timeline_card_top_background_highlighted"];
+        imageview.image = [UIImage resizedImageWithName:@"timeline"];
         [topview addSubview:imageview];
         //name的UILabel框
         namelab = [[UITextField alloc]init];
