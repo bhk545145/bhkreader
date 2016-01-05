@@ -49,7 +49,7 @@
         //imageview
         imageview = [[UIImageView alloc]init];
         imageview.frame = CGRectMake(0, 0, topview.frame.size.width, topview.frame.size.height);
-        imageview.image = [UIImage resizedImageWithName:@"timeline"];
+        imageview.image = [UIImage imageNamed:@"timeline"];
         [topview addSubview:imageview];
         //name的UILabel框
         namelab = [[UITextField alloc]init];
