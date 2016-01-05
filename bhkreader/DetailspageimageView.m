@@ -53,7 +53,7 @@
         [topview addSubview:imageview];
         //name的UILabel框
         namelab = [[UITextField alloc]init];
-        namelab.frame = CGRectMake(30, 10, 150, 30);
+        namelab.frame = CGRectMake(30, 10, 210, 30);
         namelab.font = [UIFont fontWithName:@"Arial" size:22.0f];
         namelab.borderStyle = UITextBorderStyleRoundedRect;
         namelab.delegate = self;
