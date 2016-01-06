@@ -83,18 +83,18 @@
     [lockswitch setOn:(_BLDeviceinfo.lock) ? YES : NO animated:YES];
     [updatebtn setTitle:@"更新" forState:UIControlStateNormal];
     [updatebtn setTitleColor:[UIColor redColor] forState:UIControlStateNormal];
-    [updatebtn addTarget:self action:@selector(stateButtonClicked:) forControlEvents:UIControlEventTouchUpInside];
+    [updatebtn addTarget:self action:@selector(upButtonClicked:) forControlEvents:UIControlEventTouchUpInside];
     [rm2btn setBackgroundImage:[UIImage imageNamed:@"rm2btn"] forState:UIControlStateNormal];
     [rm2btn addTarget:self action:@selector(rm2ButtonClicked:) forControlEvents:UIControlEventTouchUpInside];
 }
 
-- (void)rm2ButtonClicked:(UIButton *)button{
-    [rm2btn studysetmac:@"b4:43:0d:38:a1:97"];
-}
-
-- (void)stateButtonClicked:(UIButton *)button{
+- (void)upButtonClicked:(UIButton *)button{
     [updatebtn setmac:_BLDeviceinfo.mac name:namelab.text lock:lockswitch.on];
     [namelab resignFirstResponder];
+}
+
+- (void)rm2ButtonClicked:(UIButton *)button{
+    [rm2btn studysetmac:_BLDeviceinfo.mac];
 }
 
 - (void)SinleTap:(UITapGestureRecognizer *)recognizer{

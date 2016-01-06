@@ -17,6 +17,7 @@
     dispatch_queue_t networkQueue;
 }
 @property (nonatomic,strong) BLNetwork *network;
+@property (nonatomic, strong) NSString *mac;
 
 @end
 
