@@ -53,6 +53,7 @@
             _light = [[[responseData objectFromJSONData] objectForKey:@"light"] intValue];
             _air = [[[responseData objectFromJSONData] objectForKey:@"air"] intValue];
             _noisy = [[[responseData objectFromJSONData] objectForKey:@"noisy"] intValue];
+            _data = [[responseData objectFromJSONData] objectForKey:@"data"];
         }
         
         //NSLog(@"%@", [responseData objectFromJSONData]);

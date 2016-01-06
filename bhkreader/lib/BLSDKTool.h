@@ -21,6 +21,7 @@
 @property (nonatomic, assign) int light;
 @property (nonatomic, assign) int air;
 @property (nonatomic, assign) int noisy;
+@property (nonatomic, strong) NSString *data;
 
 
 

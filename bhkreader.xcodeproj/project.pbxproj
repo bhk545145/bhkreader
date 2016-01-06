@@ -13,6 +13,7 @@
 		02F614981C26F9D90075F592 /* UIImage+MJ.m in Sources */ = {isa = PBXBuildFile; fileRef = 02F614971C26F9D90075F592 /* UIImage+MJ.m */; };
 		3A06850C1C10766800591885 /* leftviewTableViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 3A06850B1C10766800591885 /* leftviewTableViewController.m */; };
 		3A06850F1C1079FF00591885 /* CustomcontrolViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 3A06850E1C1079FF00591885 /* CustomcontrolViewController.m */; };
+		3A06AE6E1C3D37E000C544BF /* Rm2btn.m in Sources */ = {isa = PBXBuildFile; fileRef = 3A06AE6D1C3D37E000C544BF /* Rm2btn.m */; };
 		3A148ED71C282DBB009CA1BB /* DetailspageimageView.m in Sources */ = {isa = PBXBuildFile; fileRef = 3A148ED61C282DBB009CA1BB /* DetailspageimageView.m */; };
 		3A1EC3151C21930800F826F4 /* MBProgressHUD.m in Sources */ = {isa = PBXBuildFile; fileRef = 3A1EC3141C21930800F826F4 /* MBProgressHUD.m */; };
 		3A1EC31A1C219BA100F826F4 /* MBProgressHUD.bundle in Resources */ = {isa = PBXBuildFile; fileRef = 3A1EC3171C219BA100F826F4 /* MBProgressHUD.bundle */; };
@@ -84,6 +85,8 @@
 		3A06850B1C10766800591885 /* leftviewTableViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; name = leftviewTableViewController.m; path = ../leftviewTableViewController.m; sourceTree = "<group>"; };
 		3A06850D1C1079FF00591885 /* CustomcontrolViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = CustomcontrolViewController.h; sourceTree = "<group>"; };
 		3A06850E1C1079FF00591885 /* CustomcontrolViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = CustomcontrolViewController.m; sourceTree = "<group>"; };
+		3A06AE6C1C3D37E000C544BF /* Rm2btn.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = Rm2btn.h; sourceTree = "<group>"; };
+		3A06AE6D1C3D37E000C544BF /* Rm2btn.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = Rm2btn.m; sourceTree = "<group>"; };
 		3A148ED51C282DBB009CA1BB /* DetailspageimageView.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = DetailspageimageView.h; sourceTree = "<group>"; };
 		3A148ED61C282DBB009CA1BB /* DetailspageimageView.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = DetailspageimageView.m; sourceTree = "<group>"; };
 		3A1EC3131C21930800F826F4 /* MBProgressHUD.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; name = MBProgressHUD.h; path = 3rd/MBProgressHUD/MBProgressHUD.h; sourceTree = "<group>"; };
@@ -319,6 +322,8 @@
 				3AE2FEF81C085890009FBA2F /* Spbtn.m */,
 				3A64FBAB1C2D4EC8000524D7 /* Detailbtn.h */,
 				3A64FBAC1C2D4EC8000524D7 /* Detailbtn.m */,
+				3A06AE6C1C3D37E000C544BF /* Rm2btn.h */,
+				3A06AE6D1C3D37E000C544BF /* Rm2btn.m */,
 			);
 			name = controller;
 			sourceTree = "<group>";
@@ -682,6 +687,7 @@
 				3A9EF4171BE8DE2500F21DD2 /* SWRevealViewController.m in Sources */,
 				3AC8185D1BE8917000D195F6 /* AppDelegate.m in Sources */,
 				3AC8185A1BE8917000D195F6 /* main.m in Sources */,
+				3A06AE6E1C3D37E000C544BF /* Rm2btn.m in Sources */,
 				3ACE12811C241D0D008B0CBD /* A1listInfo.m in Sources */,
 				3ADAF44F1C231E5000F0CE80 /* UIView+MJExtension.m in Sources */,
 				3A06850F1C1079FF00591885 /* CustomcontrolViewController.m in Sources */,

@@ -11,6 +11,7 @@
 #import "BLDeviceInfo.h"
 #import "Detailbtn.h"
 #import "UIImage+MJ.h"
+#import "Rm2btn.h"
 
 @interface DetailspageimageView()<UITextFieldDelegate>{
     UIView *backgroundView;
@@ -20,6 +21,7 @@
     UISwitch *lockswitch;
     Detailbtn *updatebtn;
     CGRect topviewframe;
+    Rm2btn *rm2btn;
 }
 
 @end
@@ -66,6 +68,10 @@
         updatebtn = [Detailbtn buttonWithType:UIButtonTypeRoundedRect];
         updatebtn.frame = CGRectMake(200, 30, 60, 60);
         [topview addSubview:updatebtn];
+        //rm2按钮
+        rm2btn = [Rm2btn buttonWithType:UIButtonTypeRoundedRect];
+        rm2btn.frame = CGRectMake(30, 100, 60, 60);
+        [topview addSubview:rm2btn];
     }
     return self;
 }
@@ -78,6 +84,12 @@
     [updatebtn setTitle:@"更新" forState:UIControlStateNormal];
     [updatebtn setTitleColor:[UIColor redColor] forState:UIControlStateNormal];
     [updatebtn addTarget:self action:@selector(stateButtonClicked:) forControlEvents:UIControlEventTouchUpInside];
+    [rm2btn setBackgroundImage:[UIImage imageNamed:@"rm2btn"] forState:UIControlStateNormal];
+    [rm2btn addTarget:self action:@selector(rm2ButtonClicked:) forControlEvents:UIControlEventTouchUpInside];
+}
+
+- (void)rm2ButtonClicked:(UIButton *)button{
+    [rm2btn studysetmac:@"b4:43:0d:38:a1:97"];
 }
 
 - (void)stateButtonClicked:(UIButton *)button{

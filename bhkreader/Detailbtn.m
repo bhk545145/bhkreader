@@ -8,7 +8,6 @@
 
 #import "Detailbtn.h"
 #import "BLNetwork.h"
-#import "BLSDKTool.h"
 #import "JSONKit.h"
 #import "MBProgressHUD+MJ.h"
 @interface Detailbtn ()
@@ -20,7 +19,7 @@
 @end
 @implementation Detailbtn
 
--(id)initWithFrame:(CGRect)frame{
+- (id)initWithFrame:(CGRect)frame{
     self = [super initWithFrame:frame];
     if (self) {
         _network = [[BLNetwork alloc] init];
