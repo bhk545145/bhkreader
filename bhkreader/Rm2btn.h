@@ -10,5 +10,5 @@
 
 @interface Rm2btn : UIButton
 
-- (NSString *)studysetmac:(NSString *)mac;
+- (void)setBackgroundImage:(NSString *)image forState:(UIControlState)state mac:(NSString *)mac;
 @end

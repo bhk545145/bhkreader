@@ -84,8 +84,7 @@
     [updatebtn setTitle:@"更新" forState:UIControlStateNormal];
     [updatebtn setTitleColor:[UIColor redColor] forState:UIControlStateNormal];
     [updatebtn addTarget:self action:@selector(upButtonClicked:) forControlEvents:UIControlEventTouchUpInside];
-    [rm2btn setBackgroundImage:[UIImage imageNamed:@"rm2btn"] forState:UIControlStateNormal];
-    [rm2btn addTarget:self action:@selector(rm2ButtonClicked:) forControlEvents:UIControlEventTouchUpInside];
+    [rm2btn setBackgroundImage:(1)?@"rm2btn" : @"1024" forState:UIControlStateNormal mac:_BLDeviceinfo.mac];
 }
 
 - (void)upButtonClicked:(UIButton *)button{
@@ -93,9 +92,6 @@
     [namelab resignFirstResponder];
 }
 
-- (void)rm2ButtonClicked:(UIButton *)button{
-    [rm2btn studysetmac:_BLDeviceinfo.mac];
-}
 
 - (void)SinleTap:(UITapGestureRecognizer *)recognizer{
     [UIView animateWithDuration:0.3 animations:^{

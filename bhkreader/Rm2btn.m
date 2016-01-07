@@ -18,6 +18,9 @@
 }
 @property (nonatomic,strong) BLNetwork *network;
 @property (nonatomic, strong) NSString *mac;
+@property (nonatomic, strong) NSString *image;
+@property (nonatomic, strong) NSString *data;
+
 
 @end
 
@@ -32,14 +35,40 @@
     return self;
 }
 
-- (NSString *)studysetmac:(NSString *)mac{
-    NSString *data;
+- (void)setBackgroundImage:(NSString *)image forState:(UIControlState)state mac:(NSString *)mac{
+    _mac = mac;
+    _image = image;
+    [super setBackgroundImage:[UIImage imageNamed:image] forState:state];
+    if ([image isEqualToString:@"rm2btn"]) {
+        [self setBackgroundImage:[UIImage imageNamed:@"rm2btn"] forState:state];
+    }else{
+        [self setBackgroundImage:[UIImage imageNamed:@"1024"] forState:state];
+    }
+    [self addTarget:self action:@selector(rm2ButtonClicked:) forControlEvents:UIControlEventTouchUpInside];
+}
+
+- (void)rm2ButtonClicked:(UIButton *)button{
+    if ([_image  isEqual:@"rm2btn"]) {
+        [self studysetmac:_mac];
+    }else{
+        [self sendsetmac:_mac data:_data];
+    }
+}
+
+- (void)studysetmac:(NSString *)mac{
         BLSDKTool *sdktool = [BLSDKTool responseDatatoapiid:132 command:@"rm2_study" mac:mac];
             if (sdktool.code == 0) {
-                [MBProgressHUD showMessage:@"按键学习"];
-                 data = [self codesetmac:mac];
+                dispatch_async(dispatch_get_main_queue(), ^{
+                    [MBProgressHUD showMessage:@"按键学习"];
+                });
+                dispatch_async(networkQueue, ^{
+                    NSString *data = @"";
+                    while ([data  isEqual: @""]) {
+                        data = [self codesetmac:mac];
+                    }
+                });
             }
-    return data;
+    _data = [self codesetmac:mac];
 }
 
 - (NSString *)codesetmac:(NSString *)mac{
@@ -47,9 +76,12 @@
     BLSDKTool *sdktool = [BLSDKTool responseDatatoapiid:133 command:@"rm2_code" mac:mac];
     if (sdktool.code == 0) {
         data = sdktool.data;
-        [MBProgressHUD hideHUD];
+        dispatch_async(dispatch_get_main_queue(), ^{
+            [MBProgressHUD hideHUD];
+        });
     }else{
-        NSLog(@"check data filed");
+        //NSLog(@"check data filed");
+        data = @"";
     }
     return data;
 }
