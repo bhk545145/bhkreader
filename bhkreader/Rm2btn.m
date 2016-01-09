@@ -56,19 +56,20 @@
 }
 
 - (void)studysetmac:(NSString *)mac{
-        BLSDKTool *sdktool = [BLSDKTool responseDatatoapiid:132 command:@"rm2_study" mac:mac];
-            if (sdktool.code == 0) {
-                dispatch_async(dispatch_get_main_queue(), ^{
-                    [MBProgressHUD showMessage:@"按键学习"];
-                });
-                dispatch_async(networkQueue, ^{
-                    NSString *data = @"";
-                    while ([data  isEqual: @""]) {
-                        data = [self codesetmac:mac];
-                    }
-                });
-            }
-    _data = [self codesetmac:mac];
+    BLSDKTool *sdktool = [BLSDKTool responseDatatoapiid:132 command:@"rm2_study" mac:mac];
+        if (sdktool.code == 0) {
+            dispatch_async(dispatch_get_main_queue(), ^{
+                [MBProgressHUD showMessage:@"按键学习"];
+            });
+            dispatch_async(networkQueue, ^{
+                NSString *data = @"";
+                _data = data;
+                while ([_data  isEqual: @""]) {
+                    _data = [self codesetmac:mac];
+                    NSLog(@"%@",_data);
+                }
+            });
+        }
 }
 
 - (NSString *)codesetmac:(NSString *)mac{

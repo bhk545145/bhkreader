@@ -32,6 +32,7 @@
             //4.创表
             [db executeUpdate:@"CREATE TABLE IF NOT EXISTS to_configure (id integer PRIMARY KEY AUTOINCREMENT, wifi text NOT NULL, password text NOT NULL);"];
             [db executeUpdate:@"CREATE TABLE IF NOT EXISTS device_info (mac text PRIMARY KEY, type text,name text, lock integer, password integer, terminal_id integer, sub_device integer,key text);"];
+            [db executeUpdate:@"CREATE TABLE IF NOT EXISTS rm_data (mac text NOT NULL, number integer NOT NULL, data text);"];
             [db close];
         }
     }
@@ -86,6 +87,7 @@
         BOOL result = [db executeUpdate:@"DELETE FROM device_info WHERE mac = ?;",info.mac];
         NSLog(@"DELETE%d",result);
     }
+    [db close];
 }
 //获取数据库设备信息
 - (NSArray *)getInfoWhithMac{
@@ -116,5 +118,13 @@
     }
     [db close];
     return infoArray;
+}
+
+//新增RMdata数据
+- (void)RmdatainsertOrUpdateinfo:(BLDeviceInfo *)info number:(int)number{
+    if ([db open]) {
+        [db executeUpdate:@"UPDATE rm_data SET mac = ?, data = ? where number = ?;",info.mac, info.RmlistInfo.data, number];
+        [db close];
+    }
 }
 @end
