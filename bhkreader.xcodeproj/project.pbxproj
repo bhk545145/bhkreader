@@ -18,6 +18,7 @@
 		3A1EC3151C21930800F826F4 /* MBProgressHUD.m in Sources */ = {isa = PBXBuildFile; fileRef = 3A1EC3141C21930800F826F4 /* MBProgressHUD.m */; };
 		3A1EC31A1C219BA100F826F4 /* MBProgressHUD.bundle in Resources */ = {isa = PBXBuildFile; fileRef = 3A1EC3171C219BA100F826F4 /* MBProgressHUD.bundle */; };
 		3A1EC31B1C219BA100F826F4 /* MBProgressHUD+MJ.m in Sources */ = {isa = PBXBuildFile; fileRef = 3A1EC3191C219BA100F826F4 /* MBProgressHUD+MJ.m */; };
+		3A2756771C4579AE002075D6 /* RmlistInfo.m in Sources */ = {isa = PBXBuildFile; fileRef = 3A2756761C4579AE002075D6 /* RmlistInfo.m */; };
 		3A64FBAA1C2D2911000524D7 /* SplistInfo.m in Sources */ = {isa = PBXBuildFile; fileRef = 3A64FBA91C2D2911000524D7 /* SplistInfo.m */; };
 		3A64FBAD1C2D4EC8000524D7 /* Detailbtn.m in Sources */ = {isa = PBXBuildFile; fileRef = 3A64FBAC1C2D4EC8000524D7 /* Detailbtn.m */; };
 		3A915E5E1BEB6102005375CE /* BLDeviceInfo.m in Sources */ = {isa = PBXBuildFile; fileRef = 3A915E5D1BEB6102005375CE /* BLDeviceInfo.m */; };
@@ -94,6 +95,8 @@
 		3A1EC3171C219BA100F826F4 /* MBProgressHUD.bundle */ = {isa = PBXFileReference; lastKnownFileType = "wrapper.plug-in"; name = MBProgressHUD.bundle; path = 3rd/MBProgressHUD/MBProgressHUD.bundle; sourceTree = "<group>"; };
 		3A1EC3181C219BA100F826F4 /* MBProgressHUD+MJ.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; name = "MBProgressHUD+MJ.h"; path = "3rd/MBProgressHUD/MBProgressHUD+MJ.h"; sourceTree = "<group>"; };
 		3A1EC3191C219BA100F826F4 /* MBProgressHUD+MJ.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; name = "MBProgressHUD+MJ.m"; path = "3rd/MBProgressHUD/MBProgressHUD+MJ.m"; sourceTree = "<group>"; };
+		3A2756751C4579AE002075D6 /* RmlistInfo.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = RmlistInfo.h; sourceTree = "<group>"; };
+		3A2756761C4579AE002075D6 /* RmlistInfo.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = RmlistInfo.m; sourceTree = "<group>"; };
 		3A64FBA81C2D2911000524D7 /* SplistInfo.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = SplistInfo.h; sourceTree = "<group>"; };
 		3A64FBA91C2D2911000524D7 /* SplistInfo.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = SplistInfo.m; sourceTree = "<group>"; };
 		3A64FBAB1C2D4EC8000524D7 /* Detailbtn.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = Detailbtn.h; sourceTree = "<group>"; };
@@ -298,6 +301,8 @@
 				3ACE12801C241D0D008B0CBD /* A1listInfo.m */,
 				3A64FBA81C2D2911000524D7 /* SplistInfo.h */,
 				3A64FBA91C2D2911000524D7 /* SplistInfo.m */,
+				3A2756751C4579AE002075D6 /* RmlistInfo.h */,
+				3A2756761C4579AE002075D6 /* RmlistInfo.m */,
 			);
 			name = model;
 			sourceTree = "<group>";
@@ -690,6 +695,7 @@
 				3A06AE6E1C3D37E000C544BF /* Rm2btn.m in Sources */,
 				3ACE12811C241D0D008B0CBD /* A1listInfo.m in Sources */,
 				3ADAF44F1C231E5000F0CE80 /* UIView+MJExtension.m in Sources */,
+				3A2756771C4579AE002075D6 /* RmlistInfo.m in Sources */,
 				3A06850F1C1079FF00591885 /* CustomcontrolViewController.m in Sources */,
 				3ADAF44A1C231E5000F0CE80 /* MJRefreshStateHeader.m in Sources */,
 				3ADAF4461C231E5000F0CE80 /* MJRefreshBackNormalFooter.m in Sources */,

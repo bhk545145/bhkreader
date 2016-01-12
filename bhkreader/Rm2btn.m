@@ -11,10 +11,12 @@
 #import "BLSDKTool.h"
 #import "JSONKit.h"
 #import "MBProgressHUD+MJ.h"
+#import "bhkFMDB.h"
 
 @interface Rm2btn ()
 {
     dispatch_queue_t networkQueue;
+    bhkFMDB *bhkfmdb;
 }
 @property (nonatomic,strong) BLNetwork *network;
 @property (nonatomic, strong) NSString *mac;
@@ -66,9 +68,10 @@
                 _data = data;
                 while ([_data  isEqual: @""]) {
                     _data = [self codesetmac:mac];
-                    NSLog(@"%@",_data);
+                    [bhkfmdb RmdatainsertOrUpdateinfo:_data mac:mac number:1];
                 }
             });
+            [self codesetmac:mac];
         }
 }
 

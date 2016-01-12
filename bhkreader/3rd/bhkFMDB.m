@@ -32,7 +32,7 @@
             //4.创表
             [db executeUpdate:@"CREATE TABLE IF NOT EXISTS to_configure (id integer PRIMARY KEY AUTOINCREMENT, wifi text NOT NULL, password text NOT NULL);"];
             [db executeUpdate:@"CREATE TABLE IF NOT EXISTS device_info (mac text PRIMARY KEY, type text,name text, lock integer, password integer, terminal_id integer, sub_device integer,key text);"];
-            [db executeUpdate:@"CREATE TABLE IF NOT EXISTS rm_data (mac text NOT NULL, number integer NOT NULL, data text);"];
+            [db executeUpdate:@"CREATE TABLE IF NOT EXISTS rm_data (number integer PRIMARY KEY AUTOINCREMENT, mac text NOT NULL, data text, dataid integer);"];
             [db close];
         }
     }
@@ -121,10 +121,16 @@
 }
 
 //新增RMdata数据
-- (void)RmdatainsertOrUpdateinfo:(BLDeviceInfo *)info number:(int)number{
+- (void)RmdatainsertOrUpdateinfo:(NSString *)data mac:(NSString *)mac number:(int)number{
     if ([db open]) {
-        [db executeUpdate:@"UPDATE rm_data SET mac = ?, data = ? where number = ?;",info.mac, info.RmlistInfo.data, number];
-        [db close];
+        FMResultSet *resultSet = [db executeQuery:@"SELECT * FROM rm_data where mac = ?;",mac];
+        int num = [resultSet next];
+        if (num) {
+            [db executeUpdate:@"UPDATE rm_data SET mac = ?, data = ? where number = ?;",mac, data, number];
+        }else{
+            [db executeUpdate:@"INSERT INTO rm_data (mac, data, dataid)VALUES(?, ? ,?);",mac, data, 1];
+            [db close];
+        }
     }
 }
 @end

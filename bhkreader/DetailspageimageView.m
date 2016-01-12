@@ -84,7 +84,7 @@
     [updatebtn setTitle:@"更新" forState:UIControlStateNormal];
     [updatebtn setTitleColor:[UIColor redColor] forState:UIControlStateNormal];
     [updatebtn addTarget:self action:@selector(upButtonClicked:) forControlEvents:UIControlEventTouchUpInside];
-    [rm2btn setBackgroundImage:(1)?@"rm2btn" : @"1024" forState:UIControlStateNormal mac:_BLDeviceinfo.mac];
+    [rm2btn setBackgroundImage:(_BLDeviceinfo.rmlistInfo.dataid)?@"1024" : @"rm2btn" forState:UIControlStateNormal mac:_BLDeviceinfo.mac];
 }
 
 - (void)upButtonClicked:(UIButton *)button{
