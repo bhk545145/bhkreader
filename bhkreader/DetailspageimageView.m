@@ -85,7 +85,13 @@
     [updatebtn setTitleColor:[UIColor redColor] forState:UIControlStateNormal];
     [updatebtn addTarget:self action:@selector(upButtonClicked:) forControlEvents:UIControlEventTouchUpInside];
     if ([BLDeviceinfo.type isEqualToString:RM]) {
-        [rm2btn setBackgroundImage:(_BLDeviceinfo.rmlistInfo.dataid)?@"1024" : @"rm2btn" forState:UIControlStateNormal mac:_BLDeviceinfo.mac];
+        int datanum = 1;
+        if ([_BLDeviceinfo.rmlistInfo.data isEqual:@""]) {
+            datanum = 1;
+        }else{
+            datanum = 0;
+        }
+        [rm2btn setBackgroundImage:(datanum)?@"1024" : @"rm2btn" forState:UIControlStateNormal mac:_BLDeviceinfo.mac];
     }
 }
 

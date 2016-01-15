@@ -70,7 +70,9 @@
                 _data = data;
                 while ([_data  isEqual: @""]) {
                     _data = [self codesetmac:mac];
-                    [bhkfmdb RmdatainsertOrUpdateinfo:_data mac:mac number:1];
+                    if (![_data isEqual:@""]) {
+                        [bhkfmdb RmdatainsertOrUpdateinfo:_data mac:mac number:1];
+                    }
                 }
             });
             [self codesetmac:mac];

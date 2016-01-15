@@ -133,8 +133,8 @@
             [db executeUpdate:@"UPDATE rm_data SET mac = ?, data = ? where number = ?;",mac, data, number];
         }else{
             [db executeUpdate:@"INSERT INTO rm_data (mac, data)VALUES(?, ?);",mac, data];
-            [db close];
         }
+        [db close];
     }
 }
 
