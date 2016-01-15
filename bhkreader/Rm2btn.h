@@ -9,6 +9,5 @@
 #import <UIKit/UIKit.h>
 
 @interface Rm2btn : UIButton
-@property (strong,nonatomic) BLDeviceInfo *BLDeviceinfo;
 - (void)setBackgroundImage:(NSString *)image forState:(UIControlState)state mac:(NSString *)mac;
 @end

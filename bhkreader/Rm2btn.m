@@ -12,6 +12,7 @@
 #import "JSONKit.h"
 #import "MBProgressHUD+MJ.h"
 #import "bhkFMDB.h"
+#import "BLDeviceInfo.h"
 
 @interface Rm2btn ()
 {
@@ -32,6 +33,7 @@
     self = [super initWithFrame:frame];
     if (self) {
         _network = [[BLNetwork alloc] init];
+        bhkfmdb = [[bhkFMDB alloc]init];
         networkQueue = dispatch_queue_create("BroadLinkDetailNetworkQueue", DISPATCH_QUEUE_SERIAL);
     }
     return self;

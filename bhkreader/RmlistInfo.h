@@ -11,4 +11,7 @@
 @interface RmlistInfo : NSObject
 @property (nonatomic, strong) NSString *data;
 @property (nonatomic, assign) int dataid;
+
+- (id)initWithDict:(NSDictionary *)dict;
++ (id)DeviceinfoWithDict:(NSDictionary *)dict;
 @end

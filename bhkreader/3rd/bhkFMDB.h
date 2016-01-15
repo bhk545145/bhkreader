@@ -17,4 +17,5 @@
 - (void)deleteWithinfo:(BLDeviceInfo *)info;
 - (NSArray *)getInfoWhithMac;
 - (void)RmdatainsertOrUpdateinfo:(NSString *)data mac:(NSString *)mac number:(int)number;
+- (NSString *)Selectdataidtomac:(NSString *)mac number:(int)number;
 @end

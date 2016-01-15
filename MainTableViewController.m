@@ -153,10 +153,14 @@
 {
     return YES;
 }
+//选择设备
 - (void)tableView:(UITableView *)tableView didSelectRowAtIndexPath:(NSIndexPath *)indexPath{
     [UIView animateWithDuration:0.3 animations:^{
         DetailspageimageView *detailspage = [[DetailspageimageView alloc]initWithFrame: CGRectMake(0, 0, [UIScreen mainScreen].bounds.size.width, [UIScreen mainScreen].bounds.size.height)];
         BLDeviceInfo *info = _deviceArray[indexPath.row];
+        if ([info.type isEqualToString:RM]) {
+            info.rmlistInfo.data = [bhkfmdb Selectdataidtomac:info.mac number:1];
+        }
         detailspage.BLDeviceinfo = info;
         [self.view addSubview:detailspage];
     } completion:^(BOOL finished) {}];

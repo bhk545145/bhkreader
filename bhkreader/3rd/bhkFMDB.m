@@ -9,6 +9,7 @@
 #import "bhkFMDB.h"
 #import "FMDB.h"
 #import "BLDeviceInfo.h"
+#import "bhkCommon.h"
 
 @interface bhkFMDB ()
 {
@@ -32,7 +33,7 @@
             //4.创表
             [db executeUpdate:@"CREATE TABLE IF NOT EXISTS to_configure (id integer PRIMARY KEY AUTOINCREMENT, wifi text NOT NULL, password text NOT NULL);"];
             [db executeUpdate:@"CREATE TABLE IF NOT EXISTS device_info (mac text PRIMARY KEY, type text,name text, lock integer, password integer, terminal_id integer, sub_device integer,key text);"];
-            [db executeUpdate:@"CREATE TABLE IF NOT EXISTS rm_data (number integer PRIMARY KEY AUTOINCREMENT, mac text NOT NULL, data text, dataid integer);"];
+            [db executeUpdate:@"CREATE TABLE IF NOT EXISTS rm_data (number integer PRIMARY KEY AUTOINCREMENT, mac text NOT NULL, data text);"];
             [db close];
         }
     }
@@ -76,6 +77,9 @@
             [db executeUpdate:@"UPDATE device_info SET type = ?, name = ?, lock = ?, password = ?, terminal_id = ?, sub_device = ?, key = ? WHERE mac = ?;",info.type, info.name, [NSNumber numberWithLong:info.lock], [NSNumber numberWithLong:info.password], [NSNumber numberWithLong:info.terminal_id], [NSNumber numberWithLong:info.sub_device], info.key, info.mac];
         }else{
             [db executeUpdate:@"INSERT INTO device_info (mac, type , name, lock, password, terminal_id, sub_device, key) VALUES (?, ?, ?, ?, ?, ?, ?, ?);",info.mac, info.type, info.name, [NSNumber numberWithLong:info.lock], [NSNumber numberWithLong:info.password], [NSNumber numberWithLong:info.terminal_id], [NSNumber numberWithLong:info.sub_device], info.key];
+            if ([info.type isEqualToString:RM]) {
+                [db executeUpdate:@"INSERT INTO rm_data (mac, data)VALUES(?, ?);",info.mac, @""];
+            }
         }
 
         [db close];
@@ -128,9 +132,23 @@
         if (num) {
             [db executeUpdate:@"UPDATE rm_data SET mac = ?, data = ? where number = ?;",mac, data, number];
         }else{
-            [db executeUpdate:@"INSERT INTO rm_data (mac, data, dataid)VALUES(?, ? ,?);",mac, data, 1];
+            [db executeUpdate:@"INSERT INTO rm_data (mac, data)VALUES(?, ?);",mac, data];
             [db close];
         }
     }
+}
+
+//查找dataid和data,是否存在数据
+- (NSString *)Selectdataidtomac:(NSString *)mac number:(int)number{
+    NSString *data = @"";
+    if ([db open]) {
+        FMResultSet *resultSet = [db executeQuery:@"SELECT * FROM rm_data where mac = ? ;",mac];
+        int num = [resultSet next];
+            if (num) {
+                data = [resultSet stringForColumn:@"data"];
+            }
+        }
+    [db close];
+    return data;
 }
 @end

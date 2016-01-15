@@ -9,5 +9,15 @@
 #import "RmlistInfo.h"
 
 @implementation RmlistInfo
+- (id)initWithDict:(NSDictionary *)dict{
+    if (self = [super init]) {
+        _data = dict[@"data"];
+        _dataid = [dict[@"dataid"]intValue];
+    }
+    return self;
+}
 
++ (id)DeviceinfoWithDict:(NSDictionary *)dict{
+    return [[self alloc] initWithDict:dict];
+}
 @end
