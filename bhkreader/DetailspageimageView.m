@@ -86,10 +86,10 @@
     [updatebtn addTarget:self action:@selector(upButtonClicked:) forControlEvents:UIControlEventTouchUpInside];
     if ([BLDeviceinfo.type isEqualToString:RM]) {
         int datanum = 1;
-        if ([_BLDeviceinfo.rmlistInfo.data isEqual:@""]) {
-            datanum = 1;
-        }else{
+        if ([_BLDeviceinfo.rmlistInfodata isEqual:@""]) {
             datanum = 0;
+        }else{
+            datanum = 1;
         }
         [rm2btn setBackgroundImage:(datanum)?@"1024" : @"rm2btn" forState:UIControlStateNormal mac:_BLDeviceinfo.mac];
     }

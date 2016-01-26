@@ -130,7 +130,7 @@
         FMResultSet *resultSet = [db executeQuery:@"SELECT * FROM rm_data where mac = ?;",mac];
         int num = [resultSet next];
         if (num) {
-            [db executeUpdate:@"UPDATE rm_data SET mac = ?, data = ? where number = ?;",mac, data, number];
+            [db executeUpdate:@"UPDATE rm_data SET mac = ?, data = ? WHERE number = ?;",mac, data, [NSNumber numberWithLong:number]];
         }else{
             [db executeUpdate:@"INSERT INTO rm_data (mac, data)VALUES(?, ?);",mac, data];
         }

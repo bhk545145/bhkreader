@@ -42,6 +42,7 @@
 - (void)setBackgroundImage:(NSString *)image forState:(UIControlState)state mac:(NSString *)mac{
     _mac = mac;
     _image = image;
+    _data = [bhkfmdb Selectdataidtomac:_mac number:1];
     [super setBackgroundImage:[UIImage imageNamed:image] forState:state];
     if ([image isEqualToString:@"rm2btn"]) {
         [self setBackgroundImage:[UIImage imageNamed:@"rm2btn"] forState:state];
@@ -70,6 +71,7 @@
                 _data = data;
                 while ([_data  isEqual: @""]) {
                     _data = [self codesetmac:mac];
+                    //NSLog(@"%@",_data);
                     if (![_data isEqual:@""]) {
                         [bhkfmdb RmdatainsertOrUpdateinfo:_data mac:mac number:1];
                     }

@@ -159,7 +159,8 @@
         DetailspageimageView *detailspage = [[DetailspageimageView alloc]initWithFrame: CGRectMake(0, 0, [UIScreen mainScreen].bounds.size.width, [UIScreen mainScreen].bounds.size.height)];
         BLDeviceInfo *info = _deviceArray[indexPath.row];
         if ([info.type isEqualToString:RM]) {
-            info.rmlistInfo.data = [bhkfmdb Selectdataidtomac:info.mac number:1];
+            NSString *data = [bhkfmdb Selectdataidtomac:info.mac number:1];
+            info.rmlistInfodata = data;
         }
         detailspage.BLDeviceinfo = info;
         [self.view addSubview:detailspage];

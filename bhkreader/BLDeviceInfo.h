@@ -9,7 +9,6 @@
 #import <Foundation/Foundation.h>
 #import "A1listInfo.h"
 #import "SplistInfo.h"
-#import "RmlistInfo.h"
 
 @interface BLDeviceInfo : NSObject
 
@@ -27,7 +26,7 @@
 @property (nonatomic, assign) float rmtemperature;
 @property (nonatomic, strong) A1listInfo *a1listInfo;
 @property (nonatomic, strong) SplistInfo *splistInfo;
-@property (nonatomic, strong) RmlistInfo *rmlistInfo;
+@property (nonatomic, strong) NSString  *rmlistInfodata;
 
 - (id)initWithDict:(NSDictionary *)dict;
 + (id)DeviceinfoWithDict:(NSDictionary *)dict;
