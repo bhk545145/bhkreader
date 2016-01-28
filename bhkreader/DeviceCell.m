@@ -99,8 +99,8 @@
         [_spbtn setTitle:(BLDeviceinfo.spstate) ? @"ON" : @"OFF" forState:UIControlStateNormal mac:BLDeviceinfo.mac];
     }else if([BLDeviceinfo.type isEqualToString:SPmini30]){
         _deviceimage.image = [UIImage imageNamed:@"SPmin.jpg"];
-        _type.text = BLDeviceinfo.type;
-        _type.textColor = [UIColor redColor];
+        _type.text =@"SPminiv2";
+        [_spbtn setTitle:(BLDeviceinfo.spstate) ? @"ON" : @"OFF" forState:UIControlStateNormal mac:BLDeviceinfo.mac];
     }else if([BLDeviceinfo.type isEqualToString:SP2]){
         _deviceimage.image = [UIImage imageNamed:@"SP2.jpg"];
         _type.text =@"SP2";

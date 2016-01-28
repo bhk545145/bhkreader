@@ -194,8 +194,15 @@
     //ip地址
     info.ip = [self iptomac:info.mac];
     //spstate开关状态
-    if ([info.type isEqualToString:SPmini] || [info.type isEqualToString:SP2] || [info.type isEqualToString:SPmini30]){
-        info.splistInfo = [SplistInfo DeviceinfoWithDict:[_Spbtn Sprefresh:info.mac]];
+    if ([info.type isEqualToString:SPmini] || [info.type isEqualToString:SP2]){
+        info.splistInfo = [SplistInfo DeviceinfoWithDict:[_Spbtn Sprefresh:info.mac apiid:71]];
+        if (info.splistInfo.name != NULL) {
+            info.spstate = info.splistInfo.status;
+            info.name = info.splistInfo.name;
+            info.lock = info.splistInfo.lock;
+        }
+    }else if([info.type isEqualToString:SPmini30]){
+        info.splistInfo = [SplistInfo DeviceinfoWithDict:[_Spbtn Sprefresh:info.mac apiid:82]];
         if (info.splistInfo.name != NULL) {
             info.spstate = info.splistInfo.status;
             info.name = info.splistInfo.name;
@@ -203,11 +210,11 @@
         }
     }
     //rmtemperature RM温度
-    if ([info.type isEqualToString:RM] ) {
+    else if ([info.type isEqualToString:RM] ) {
         info.rmtemperature = [self Rm2refresh:info.mac];
     }
     //a1temperature A1温度
-    if ([info.type isEqualToString:A1] ) {
+    else if ([info.type isEqualToString:A1] ) {
         info.a1listInfo = [A1listInfo DeviceinfoWithDict:[self A1refresh:info.mac]];
         if (info.a1listInfo.name != NULL) {
             info.name = info.a1listInfo.name;

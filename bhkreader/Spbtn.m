@@ -86,9 +86,9 @@
     });
 }
 //获取SP开关状态
-- (NSDictionary *)Sprefresh:(NSString *)mac{
+- (NSDictionary *)Sprefresh:(NSString *)mac apiid:(int)apiid{
     NSMutableDictionary *splist = [[NSMutableDictionary alloc] init];
-    BLSDKTool *blsdktool = [BLSDKTool responseDatatoapiid:71 command:@"sp2_refresh" mac:mac];
+    BLSDKTool *blsdktool = [BLSDKTool responseDatatoapiid:apiid command:@"sp2_refresh" mac:mac];
     if (blsdktool.code == 0)
     {
         int spstate = blsdktool.status;
