@@ -73,7 +73,7 @@
                     _data = [self codesetmac:mac];
                     //NSLog(@"%@",_data);
                     if (![_data isEqual:@""]) {
-                        [bhkfmdb RmdatainsertOrUpdateinfo:@"123" mac:mac number:1];
+                        [bhkfmdb RmdatainsertOrUpdateinfo:_data mac:mac number:1];
                     }
                 }
             });
