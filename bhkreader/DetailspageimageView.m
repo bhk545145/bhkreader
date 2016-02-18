@@ -12,8 +12,10 @@
 #import "Detailbtn.h"
 #import "UIImage+MJ.h"
 #import "Rm2btn.h"
+#import "bhkFMDB.h"
 
 @interface DetailspageimageView()<UITextFieldDelegate>{
+    bhkFMDB *bhkfmdb;
     UIView *backgroundView;
     UIView *topview;
     UIImageView *imageview;
@@ -22,6 +24,8 @@
     Detailbtn *updatebtn;
     CGRect topviewframe;
     Rm2btn *rm2btn;
+    Rm2btn *rm2sendbtn;
+    UITextField *datalab;
 }
 
 @end
@@ -35,6 +39,7 @@
     self = [super initWithFrame:frame];
     if (self) {
         [self drawRect:frame];
+        bhkfmdb = [[bhkFMDB alloc]init];
         UIWindow *window = [[UIApplication sharedApplication].windows lastObject];
         //半透明背景
         backgroundView = [[UIView alloc]initWithFrame:frame];
@@ -68,10 +73,19 @@
         updatebtn = [Detailbtn buttonWithType:UIButtonTypeRoundedRect];
         updatebtn.frame = CGRectMake(200, 30, 60, 60);
         [topview addSubview:updatebtn];
-        //rm2按钮
+        //rm2学习按钮
         rm2btn = [Rm2btn buttonWithType:UIButtonTypeRoundedRect];
         rm2btn.frame = CGRectMake(30, 100, 60, 60);
         [topview addSubview:rm2btn];
+        //rm2发射按钮
+        rm2sendbtn = [Rm2btn buttonWithType:UIButtonTypeRoundedRect];
+        rm2sendbtn.frame = CGRectMake(180, 100, 60, 60);
+        [topview addSubview:rm2sendbtn];
+        //data数据框
+        datalab = [[UITextField alloc]init];
+        datalab.borderStyle = UITextBorderStyleRoundedRect;
+        datalab.delegate = self;
+        [topview addSubview:datalab];
     }
     return self;
 }
@@ -85,13 +99,11 @@
     [updatebtn setTitleColor:[UIColor redColor] forState:UIControlStateNormal];
     [updatebtn addTarget:self action:@selector(upButtonClicked:) forControlEvents:UIControlEventTouchUpInside];
     if ([BLDeviceinfo.type isEqualToString:RM]) {
-        int datanum = 1;
-        if ([_BLDeviceinfo.rmlistInfodata isEqual:@""]) {
-            datanum = 0;
-        }else{
-            datanum = 1;
-        }
-        [rm2btn setBackgroundImage:(datanum)?@"1024" : @"rm2btn" forState:UIControlStateNormal mac:_BLDeviceinfo.mac];
+        [rm2btn setBackgroundImage:@"rm2btn" forState:UIControlStateNormal mac:_BLDeviceinfo.mac];
+        [rm2sendbtn setBackgroundImage:@"1024" forState:UIControlStateNormal mac:_BLDeviceinfo.mac];
+        datalab.frame = CGRectMake(30, 170, 210, 180);
+        datalab.text = [bhkfmdb Selectdataidtomac:_BLDeviceinfo.mac number:1];
+        
     }
 }
 
@@ -107,6 +119,9 @@
         [namelab removeFromSuperview];
         [updatebtn removeFromSuperview];
         [lockswitch removeFromSuperview];
+        [rm2btn removeFromSuperview];
+        [rm2sendbtn removeFromSuperview];
+        [datalab removeFromSuperview];
     } completion:^(BOOL finished) {
         [topview removeFromSuperview];
         [backgroundView removeFromSuperview];
@@ -115,6 +130,7 @@
 //当用户按下return键或者按回车键，keyboard消失
 - (BOOL)textFieldShouldReturn:(UITextField *)textField{
     [namelab resignFirstResponder];
+    [datalab resignFirstResponder];
     return YES;
 }
 //开始编辑输入框的时候，软键盘出现，执行此事件
