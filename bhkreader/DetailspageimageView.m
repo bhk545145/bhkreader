@@ -13,6 +13,7 @@
 #import "UIImage+MJ.h"
 #import "Rm2btn.h"
 #import "bhkFMDB.h"
+#import "Rm2data.h"
 
 @interface DetailspageimageView()<UITextFieldDelegate>{
     bhkFMDB *bhkfmdb;
@@ -25,7 +26,8 @@
     CGRect topviewframe;
     Rm2btn *rm2btn;
     Rm2btn *rm2sendbtn;
-    UITextField *datalab;
+    Rm2data *rm2data;
+    UILabel *datalab;
 }
 
 @end
@@ -40,6 +42,7 @@
     if (self) {
         [self drawRect:frame];
         bhkfmdb = [[bhkFMDB alloc]init];
+        rm2data = [[Rm2data alloc]init];
         UIWindow *window = [[UIApplication sharedApplication].windows lastObject];
         //半透明背景
         backgroundView = [[UIView alloc]initWithFrame:frame];
@@ -82,9 +85,7 @@
         rm2sendbtn.frame = CGRectMake(180, 100, 60, 60);
         [topview addSubview:rm2sendbtn];
         //data数据框
-        datalab = [[UITextField alloc]init];
-        datalab.borderStyle = UITextBorderStyleRoundedRect;
-        datalab.delegate = self;
+        datalab = [[UILabel alloc]init];
         [topview addSubview:datalab];
     }
     return self;
@@ -101,9 +102,8 @@
     if ([BLDeviceinfo.type isEqualToString:RM]) {
         [rm2btn setBackgroundImage:@"rm2btn" forState:UIControlStateNormal mac:_BLDeviceinfo.mac];
         [rm2sendbtn setBackgroundImage:@"1024" forState:UIControlStateNormal mac:_BLDeviceinfo.mac];
-        datalab.frame = CGRectMake(30, 170, 210, 180);
-        datalab.text = [bhkfmdb Selectdataidtomac:_BLDeviceinfo.mac number:1];
-        
+        datalab.frame = CGRectMake(30, 150, 200, 60);
+        datalab.text = [rm2data codesetmac:_BLDeviceinfo.mac];        
     }
 }
 

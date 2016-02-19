@@ -9,6 +9,7 @@
 /* Begin PBXBuildFile section */
 		02910B901C1DD2E4001833C7 /* libsqlite3.dylib in Frameworks */ = {isa = PBXBuildFile; fileRef = 02910B8F1C1DD2E4001833C7 /* libsqlite3.dylib */; };
 		02935ADA1C17273F00C855F2 /* bhkFMDB.m in Sources */ = {isa = PBXBuildFile; fileRef = 02935AD91C17273F00C855F2 /* bhkFMDB.m */; };
+		029CBF521C7750010012E442 /* Rm2data.m in Sources */ = {isa = PBXBuildFile; fileRef = 029CBF511C7750010012E442 /* Rm2data.m */; };
 		02CAEEC41C25367600603CF4 /* BLSDKTool.m in Sources */ = {isa = PBXBuildFile; fileRef = 02CAEEC31C25367600603CF4 /* BLSDKTool.m */; };
 		02F614981C26F9D90075F592 /* UIImage+MJ.m in Sources */ = {isa = PBXBuildFile; fileRef = 02F614971C26F9D90075F592 /* UIImage+MJ.m */; };
 		3A06850C1C10766800591885 /* leftviewTableViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 3A06850B1C10766800591885 /* leftviewTableViewController.m */; };
@@ -77,6 +78,8 @@
 		02910B8F1C1DD2E4001833C7 /* libsqlite3.dylib */ = {isa = PBXFileReference; lastKnownFileType = "compiled.mach-o.dylib"; name = libsqlite3.dylib; path = ../libsqlite3.dylib; sourceTree = "<group>"; };
 		02935AD81C17273F00C855F2 /* bhkFMDB.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; name = bhkFMDB.h; path = 3rd/bhkFMDB.h; sourceTree = "<group>"; };
 		02935AD91C17273F00C855F2 /* bhkFMDB.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; name = bhkFMDB.m; path = 3rd/bhkFMDB.m; sourceTree = "<group>"; };
+		029CBF501C7750010012E442 /* Rm2data.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = Rm2data.h; sourceTree = "<group>"; };
+		029CBF511C7750010012E442 /* Rm2data.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = Rm2data.m; sourceTree = "<group>"; };
 		02CAEEC21C25367600603CF4 /* BLSDKTool.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; name = BLSDKTool.h; path = lib/BLSDKTool.h; sourceTree = "<group>"; };
 		02CAEEC31C25367600603CF4 /* BLSDKTool.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; name = BLSDKTool.m; path = lib/BLSDKTool.m; sourceTree = "<group>"; };
 		02F614931C26B2010075F592 /* bhkCommon.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; name = bhkCommon.h; path = lib/bhkCommon.h; sourceTree = "<group>"; };
@@ -303,6 +306,8 @@
 				3A64FBA91C2D2911000524D7 /* SplistInfo.m */,
 				3A2756751C4579AE002075D6 /* RmlistInfo.h */,
 				3A2756761C4579AE002075D6 /* RmlistInfo.m */,
+				029CBF501C7750010012E442 /* Rm2data.h */,
+				029CBF511C7750010012E442 /* Rm2data.m */,
 			);
 			name = model;
 			sourceTree = "<group>";
@@ -712,6 +717,7 @@
 				3A915E5E1BEB6102005375CE /* BLDeviceInfo.m in Sources */,
 				3ADAF44C1C231E5000F0CE80 /* MJRefreshConst.m in Sources */,
 				3ADAF4421C231E5000F0CE80 /* MJRefreshAutoGifFooter.m in Sources */,
+				029CBF521C7750010012E442 /* Rm2data.m in Sources */,
 				3ADAF4401C231E5000F0CE80 /* MJRefreshFooter.m in Sources */,
 				3AE2FEFD1C0874E0009FBA2F /* getCurrentWiFiSSID.m in Sources */,
 				3ADAF4471C231E5000F0CE80 /* MJRefreshBackStateFooter.m in Sources */,

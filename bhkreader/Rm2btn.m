@@ -13,11 +13,13 @@
 #import "MBProgressHUD+MJ.h"
 #import "bhkFMDB.h"
 #import "BLDeviceInfo.h"
+#import "Rm2data.h"
 
 @interface Rm2btn ()
 {
     dispatch_queue_t networkQueue;
     bhkFMDB *bhkfmdb;
+    Rm2data *rm2data;
 }
 @property (nonatomic,strong) BLNetwork *network;
 @property (nonatomic, strong) NSString *mac;
@@ -33,6 +35,7 @@
     if (self) {
         _network = [[BLNetwork alloc] init];
         bhkfmdb = [[bhkFMDB alloc]init];
+        rm2data = [[Rm2data alloc]init];
         networkQueue = dispatch_queue_create("BroadLinkDetailNetworkQueue", DISPATCH_QUEUE_SERIAL);
     }
     return self;
@@ -52,61 +55,18 @@
 
 - (void)rm2ButtonClicked:(UIButton *)button{
     if ([_image  isEqual:@"rm2btn"]) {
-        [self studysetmac:_mac];
-    }else{
-        NSString *data = [self codesetmac:_mac];
-        [self sendsetmac:_mac data:data];
-    }
-}
-
-- (void)studysetmac:(NSString *)mac{
-    BLSDKTool *sdktool = [BLSDKTool responseDatatoapiid:132 command:@"rm2_study" mac:mac];
-        if (sdktool.code == 0) {
-            dispatch_async(dispatch_get_main_queue(), ^{
-                [MBProgressHUD showMessage:@"按键学习"];
-            });
-            dispatch_async(networkQueue, ^{
-                NSString *data = @"";
-                while ([data  isEqual: @""]) {
-                    data = [self codesetmac:mac];
-                    //NSLog(@"%@",data);
-                    if (![data isEqual:@""]) {
-                        [bhkfmdb RmdatainsertOrUpdateinfo:data mac:mac number:1];
-                    }
-                }
-            });
-
-        }
-}
-
-- (NSString *)codesetmac:(NSString *)mac{
-    NSString *data;
-    BLSDKTool *sdktool = [BLSDKTool responseDatatoapiid:133 command:@"rm2_code" mac:mac];
-    if (sdktool.code == 0) {
-        data = sdktool.data;
         dispatch_async(dispatch_get_main_queue(), ^{
-            [MBProgressHUD hideHUD];
+            [MBProgressHUD showMessage:@"按键学习"];
+        });
+        dispatch_async(networkQueue, ^{
+            [rm2data studysetmac:_mac];
         });
     }else{
-        //NSLog(@"check data filed");
-        data = @"";
+        dispatch_async(networkQueue, ^{
+            NSString *data = [rm2data codesetmac:_mac];
+            [rm2data sendsetmac:_mac data:data];
+        });
     }
-    return data;
 }
 
-- (void)sendsetmac:(NSString *)mac data:(NSString *)data{
-    dispatch_async(networkQueue, ^{
-        NSMutableDictionary *dic = [[NSMutableDictionary alloc] init];
-        [dic setObject:[NSNumber numberWithInt:134] forKey:@"api_id"];
-        [dic setObject:@"rm2_send" forKey:@"command"];
-        [dic setObject:mac forKey:@"mac"];
-        [dic setObject:data forKey:@"data"];
-        NSError *error;
-        NSData *requestData = [NSJSONSerialization dataWithJSONObject:dic options:NSJSONWritingPrettyPrinted error: &error];
-        NSData *responseData = [_network requestDispatch:requestData];
-        if ([[[responseData objectFromJSONData] objectForKey:@"code"] intValue] == 0) {
-            NSLog(@"send data success");
-        }
-    });
-}
 @end
