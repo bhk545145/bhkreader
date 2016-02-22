@@ -102,16 +102,9 @@
     if ([BLDeviceinfo.type isEqualToString:RM]) {
         [rm2btn setBackgroundImage:@"rm2btn" forState:UIControlStateNormal mac:_BLDeviceinfo.mac];
         [rm2sendbtn setBackgroundImage:@"1024" forState:UIControlStateNormal mac:_BLDeviceinfo.mac];
-        datalab.frame = CGRectMake(30, 150, 200, 200);
-        datalab.text = [rm2data codesetmac:_BLDeviceinfo.mac];
-        datalab.lineBreakMode = NSLineBreakByTruncatingMiddle;
-        datalab.numberOfLines = 0;
-        [[NSNotificationCenter defaultCenter] addObserver:self selector:@selector(datalabcode:) name:@"datalab" object:nil];
+        datalab.frame = CGRectMake(30, 150, 200, 60);
+        datalab.text = [rm2data codesetmac:_BLDeviceinfo.mac];        
     }
-}
-
-- (void)datalabcode:(NSNotification *)notification{
-    datalab.text = [rm2data codesetmac:_BLDeviceinfo.mac];
 }
 
 - (void)upButtonClicked:(UIButton *)button{
@@ -154,10 +147,5 @@
         backgroundView.frame =CGRectMake(0, 0, self.frame.size.width, self.frame.size.height);
         topview.frame = CGRectMake(50, 150, self.frame.size.width - 100, self.frame.size.height - 300);
     } completion:^(BOOL finished) {}];
-}
-
-- (void)dealloc{
-    [[NSNotificationCenter defaultCenter]removeObserver:self name:@"datalab"  object:nil];
-    NSLog(@"dealloc");
 }
 @end

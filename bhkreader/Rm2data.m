@@ -33,24 +33,14 @@
     BLSDKTool *sdktool = [BLSDKTool responseDatatoapiid:132 command:@"rm2_study" mac:mac];
     if (sdktool.code == 0) {
             NSString *data = @"";
-            int time = 300;
             while ([data  isEqual: @""]) {
-                time = time - 1;
-                if (time < 0) {
-                    dispatch_async(dispatch_get_main_queue(), ^{
-                        [MBProgressHUD hideHUD];
-                    });
-                    break;
-                }
                 data = [self codesetmac:mac];
             }
         UIPasteboard *pboard = [UIPasteboard generalPasteboard];
         pboard.string = [self codesetmac:mac];
         dispatch_async(dispatch_get_main_queue(), ^{
-            [[NSNotificationCenter defaultCenter]postNotificationName:@"datalab" object:nil];
-            //[MBProgressHUD showSuccess:pboard.string];
+            [MBProgressHUD showSuccess:pboard.string];
         });
-        
     }
 }
 
@@ -79,7 +69,7 @@
         NSData *requestData = [NSJSONSerialization dataWithJSONObject:dic options:NSJSONWritingPrettyPrinted error: &error];
         NSData *responseData = [self.network requestDispatch:requestData];
         if ([[[responseData objectFromJSONData] objectForKey:@"code"] intValue] == 0) {
-            //NSLog(@"send data success");
+            NSLog(@"send data success");
         }
 }
 @end
