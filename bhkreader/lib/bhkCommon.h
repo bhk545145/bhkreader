@@ -1,6 +1,6 @@
 // 0.账号相关
-#define license @"7mvxZWDF7sck1YTPC9N8KajJu4Ut5ozUaImQgoOA6o/V1YVmYbc0hmXxsE8je7AjrSaRvCRzgJvWCDQEN/lI2hBDnHxLJlkCizwFUF7y+CFkGQ7nNo0="
-#define type_license @"gmAYRx925om219EQk0AQo4qooH3UgHYvkErGG+WPBki0Ic7s4LIEhPLn8dDcbYtJUSD+wi54ycsjciC1bOlFGi/WoY0VoOVSJlm4rAHnFzBwK+Xhbazbny1NM3+58+58"
+#define license @"OjwDA0ZYG/RwRVMTEIFLoMIl7o1XpuMuJH2J6RPeve85rRD1gq/pwtRo6ywCx7DEjoHqjhQFwJInurAvYhNtJ7TPmhM62LXI6ZCQEI7sl6k6f03rSgw="
+#define type_license @"7sCS17VhUPBUzf0Qtcs/ZOjGJiRuGrr1lrRbNTgSRMi1bOMY6QninCB5rXeci1vUAbeynEyVnQ4+H1fslNGffQ=="
 // 1.获得RGB颜色
 #define IWColor(r, g, b) [UIColor colorWithRed:(r)/255.0 green:(g)/255.0 blue:(b)/255.0 alpha:1.0]
 // 2.设备代号
@@ -11,7 +11,8 @@
 #define A1 @"10004"
 #define MS1 @"10015"
 #define S1 @"10018"
-
+#define RMpro @"10026"
+#define RMmini  @"10039"
 /** 表格的边框宽度 */
 #define IWStatusTableBorder 5
 
