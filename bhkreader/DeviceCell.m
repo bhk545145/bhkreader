@@ -110,6 +110,15 @@
         _type.text =@"RM";
         _rmtemperature.text =[NSString stringWithFormat:@"温度:%0.1f°",BLDeviceinfo.rmtemperature];
         _rmtemperature.textColor = [UIColor blackColor];
+    }else if ([BLDeviceinfo.type isEqualToString:RMplus]){
+        _deviceimage.image = [UIImage imageNamed:@"RMpro.jpg"];
+        _type.text =@"RM+";
+        _rmtemperature.text =[NSString stringWithFormat:@"温度:%0.1f°",BLDeviceinfo.rmtemperature];
+        _rmtemperature.textColor = [UIColor blackColor];
+    }else if ([BLDeviceinfo.type isEqualToString:RM3mini]){
+        _deviceimage.image = [UIImage imageNamed:@"RMpro.jpg"];
+        _type.text =@"RM3mini";
+        _rmtemperature.textColor = [UIColor blackColor];
     }else if ([BLDeviceinfo.type isEqualToString:A1]){
         _deviceimage.image = [UIImage imageNamed:@"A1.jpg"];
         _type.text =@"A1";

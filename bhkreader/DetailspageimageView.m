@@ -99,9 +99,9 @@
     [updatebtn setTitle:@"更新" forState:UIControlStateNormal];
     [updatebtn setTitleColor:[UIColor redColor] forState:UIControlStateNormal];
     [updatebtn addTarget:self action:@selector(upButtonClicked:) forControlEvents:UIControlEventTouchUpInside];
-    if ([BLDeviceinfo.type isEqualToString:RM]) {
+    if ([BLDeviceinfo.type isEqualToString:RM] || [BLDeviceinfo.type isEqualToString:RM3mini] || [BLDeviceinfo.type isEqualToString:RMplus]) {
         [rm2btn setBackgroundImage:@"rm2btn" forState:UIControlStateNormal mac:_BLDeviceinfo.mac];
-        [rm2sendbtn setBackgroundImage:@"1024" forState:UIControlStateNormal mac:_BLDeviceinfo.mac];
+        [rm2sendbtn setBackgroundImage:@"rm2sendbtn" forState:UIControlStateNormal mac:_BLDeviceinfo.mac];
         datalab.frame = CGRectMake(30, 150, 200, 200);
         datalab.text = [rm2data codesetmac:_BLDeviceinfo.mac];
         datalab.lineBreakMode = NSLineBreakByTruncatingMiddle;

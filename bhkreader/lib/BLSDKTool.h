@@ -10,6 +10,7 @@
 
 @interface BLSDKTool : NSObject
 @property (nonatomic, assign) int code;
+@property (nonatomic, strong) NSString *msg;
 @property (nonatomic, assign) int status;
 @property (nonatomic, strong) NSString *name;
 @property (nonatomic, assign) int lock;

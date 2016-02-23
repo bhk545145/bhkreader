@@ -41,6 +41,7 @@
         NSData *requestData = [NSJSONSerialization dataWithJSONObject:dic options:NSJSONWritingPrettyPrinted error: &error];
         NSData *responseData = [self.network requestDispatch:requestData];
         _code = [[[responseData objectFromJSONData] objectForKey:@"code"] intValue];
+        _msg = [[responseData objectFromJSONData] objectForKey:@"msg"];
         if (status == 2){
             _status = [[[responseData objectFromJSONData] objectForKey:@"status"] intValue];
             _name = [[responseData objectFromJSONData] objectForKey:@"name"];

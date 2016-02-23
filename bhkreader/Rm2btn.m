@@ -48,7 +48,7 @@
     if ([image isEqualToString:@"rm2btn"]) {
         [self setBackgroundImage:[UIImage imageNamed:@"rm2btn"] forState:state];
     }else{
-        [self setBackgroundImage:[UIImage imageNamed:@"1024"] forState:state];
+        [self setBackgroundImage:[UIImage imageNamed:@"rm2sendbtn"] forState:state];
     }
     [self addTarget:self action:@selector(rm2ButtonClicked:) forControlEvents:UIControlEventTouchUpInside];
 }
