@@ -97,7 +97,7 @@
         _deviceimage.image = [UIImage imageNamed:@"SPmin.jpg"];
         _type.text =@"SPmini";
         [_spbtn setTitle:(BLDeviceinfo.spstate) ? @"ON" : @"OFF" forState:UIControlStateNormal mac:BLDeviceinfo.mac];
-    }else if([BLDeviceinfo.type isEqualToString:SPmini30]){
+    }else if([BLDeviceinfo.type isEqualToString:SPminiv2]){
         _deviceimage.image = [UIImage imageNamed:@"SPmin.jpg"];
         _type.text =@"SPminiv2";
         [_spbtn setTitle:(BLDeviceinfo.spstate) ? @"ON" : @"OFF" forState:UIControlStateNormal mac:BLDeviceinfo.mac];
@@ -177,7 +177,7 @@
     CGFloat ipY = statusY + 20;
     _ip.frame = CGRectMake(ipX, ipY, 150, 21);
     
-    if ([BLDeviceinfo.type isEqual: SPmini] ||[BLDeviceinfo.type isEqual: SP2] ||[BLDeviceinfo.type isEqual: SPmini30]) {
+    if ([BLDeviceinfo.type isEqual: SPmini] ||[BLDeviceinfo.type isEqual: SP2] ||[BLDeviceinfo.type isEqual: SPminiv2]) {
         CGFloat spbtnX = lockX + 200;
         CGFloat spbtnY = lockY - 40;
         _spbtn.frame = CGRectMake(spbtnX, spbtnY, 100, 100);

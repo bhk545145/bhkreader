@@ -50,7 +50,10 @@
             [[NSNotificationCenter defaultCenter]postNotificationName:@"datalab" object:nil];
             //[MBProgressHUD showSuccess:pboard.string];
         });
-        
+    }else{
+        dispatch_async(dispatch_get_main_queue(), ^{
+            [MBProgressHUD hideHUD];
+        });
     }
 }
 
@@ -70,15 +73,8 @@
 }
 
 - (void)sendsetmac:(NSString *)mac data:(NSString *)data{
-        NSMutableDictionary *dic = [[NSMutableDictionary alloc] init];
-        [dic setObject:[NSNumber numberWithInt:134] forKey:@"api_id"];
-        [dic setObject:@"rm2_send" forKey:@"command"];
-        [dic setObject:mac forKey:@"mac"];
-        [dic setObject:data forKey:@"data"];
-        NSError *error;
-        NSData *requestData = [NSJSONSerialization dataWithJSONObject:dic options:NSJSONWritingPrettyPrinted error: &error];
-        NSData *responseData = [self.network requestDispatch:requestData];
-        if ([[[responseData objectFromJSONData] objectForKey:@"code"] intValue] == 0) {
+    BLSDKTool *sdktool = [BLSDKTool responseDatatoapiid:134 command:@"rm2_send" mac:mac data:data];
+        if (sdktool.code == 0) {
             //NSLog(@"send data success");
         }
 }
