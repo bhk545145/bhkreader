@@ -47,6 +47,7 @@
         _air = [[[responseData objectFromJSONData] objectForKey:@"air"] intValue];
         _noisy = [[[responseData objectFromJSONData] objectForKey:@"noisy"] intValue];
         _data = [[responseData objectFromJSONData] objectForKey:@"data"];
+        _blsdkdata = [responseData objectFromJSONData];
     }
     return  self;
 }

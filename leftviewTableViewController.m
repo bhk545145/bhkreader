@@ -8,6 +8,7 @@
 
 #import "leftviewTableViewController.h"
 #import "ViewController.h"
+#import "CustomcontrolViewController.h"
 
 
 @interface leftviewTableViewController (){
@@ -53,7 +54,8 @@
         ViewController *vc = [[ViewController alloc] init];
         [self.navigationController pushViewController:vc animated:YES];
     }else{
-        NSLog(@"Customcontrol");
+        CustomcontrolViewController *customvc = [[CustomcontrolViewController alloc]init];
+        [self.navigationController pushViewController:customvc animated:YES];
     }
 }
 

@@ -9,5 +9,4 @@
 #import <UIKit/UIKit.h>
 
 @interface CustomcontrolViewController : UIViewController
-@property (weak, nonatomic) IBOutlet UIBarButtonItem *siderbarBtn;
 @end
