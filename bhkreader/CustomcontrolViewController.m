@@ -10,7 +10,7 @@
 #import "BLNetwork.h"
 #import "BLSDKTool.h"
 
-@interface CustomcontrolViewController (){
+@interface CustomcontrolViewController ()<UITextFieldDelegate>{
     dispatch_queue_t networkQueue;
 }
 
@@ -19,6 +19,7 @@
 @property(nonatomic,retain)UITextField *mac;
 @property(nonatomic,retain)UIButton *input;
 @property(nonatomic,retain)UITextView *blsdkdata;
+@property(nonatomic,retain)UITextField *status;
 @property (nonatomic,strong) BLNetwork *network;
 
 @end
@@ -58,15 +59,23 @@
     _blsdkdata.frame = CGRectMake(50, 280, 180, 300);
     _blsdkdata.backgroundColor = [UIColor grayColor];
     
+    _status = [[UITextField alloc]init];
+    _status.frame = CGRectMake(50, 250, 80, 30);
+    _status.backgroundColor = [UIColor grayColor];
+    
     _apiid.text = @"71";
     _command.text = @"sp2_refresh";
     _mac.text = @"b4:43:0d:11:c1:d0";
+    _apiid.delegate = self;
+    _command.delegate = self;
+    _mac.delegate = self;
     
     [self.view addSubview:_apiid];
     [self.view addSubview:_command];
     [self.view addSubview:_mac];
     [self.view addSubview:_input];
     [self.view addSubview:_blsdkdata];
+    //[self.view addSubview:_status];
 }
 
 -(void)inputbtn:(UIButton *)sender{
@@ -77,5 +86,12 @@
     NSData *jsonData = [NSJSONSerialization dataWithJSONObject:blsdktool.blsdkdata options:NSJSONWritingPrettyPrinted error:nil];
     NSString *str =[[ NSString alloc] initWithData:jsonData encoding:NSUTF8StringEncoding];
     _blsdkdata.text = str;
+}
+
+- (BOOL)textFieldShouldReturn:(UITextField *)textField{
+    [self.apiid resignFirstResponder];
+    [self.command resignFirstResponder];
+    [self.mac resignFirstResponder];
+    return YES;
 }
 @end
