@@ -64,6 +64,7 @@
         NSData *responseData = [self.network requestDispatch:requestData];
         _code = [[[responseData objectFromJSONData] objectForKey:@"code"] intValue];
         _msg = [[responseData objectFromJSONData] objectForKey:@"msg"];
+        _blsdkdata = [responseData objectFromJSONData];
     }
     return  self;
 }
