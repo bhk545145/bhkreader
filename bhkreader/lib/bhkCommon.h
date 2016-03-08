@@ -1,6 +1,6 @@
 // 0.账号相关
-#define license @"R38L3EJEOZ+ui9TUfTD3ksKY4iSh9dnbV4Fq22PFE3/DBhwa9QtS+RQbMfAYj/c+hLipioPNkTJgwRkKQ8VfNcdOane/Q6nyLQK35nYPmdDuC25MbI4="
-#define type_license @"jmW7aW2bgbDWGpeEP9m8g9bSBtN3E86HGuqhOzbhKT9n960mUOCoeLgrAtVKzSe33R8Alls8SrcmmYgBIMXStqZhduLsNwdYcqz9ujRjYlFfoD12VGfQ6ffSujCoUjjA"
+#define license @"lsdTCINcZsgXjzFWUzBoH801O1rm2zM7VsDbXCiYROq3OmaOYRNcEYAgJ+TVzZdUqwUqTMuYs1RrLqb16tiepkqIYsz0xeddrZnzb2Q9gg3uY2G5G5w="
+#define type_license @"JJemvFRwdmR9Qeok+z7UaRoZYl0zN1LC/yUTg0I2zAL+mJBFZZGHloEZwyV+Luxk3mmlCaoVGZwYVl5iWHFViEmZOOHZbWQQJyMcI35d2JkFHW1DiVQ+fm9JCUNtA8vv1hnFBcB6Xbd/z6ZIHvC6OA=="
 // 1.获得RGB颜色
 #define IWColor(r, g, b) [UIColor colorWithRed:(r)/255.0 green:(g)/255.0 blue:(b)/255.0 alpha:1.0]
 // 2.设备代号

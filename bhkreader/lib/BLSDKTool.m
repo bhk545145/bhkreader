@@ -81,8 +81,33 @@
         NSData *responseData = [self.network requestDispatch:requestData];
         _code = [[[responseData objectFromJSONData] objectForKey:@"code"] intValue];
         _msg = [[responseData objectFromJSONData] objectForKey:@"msg"];
+        _blsdkdata = [responseData objectFromJSONData];
     }
     return  self;
+}
+
+- (id)responseDatatoapiid:(int)apiid command:(NSString *)command mac:(NSString *)mac sdkparameter:(NSString *)sdkparameter parametertext:(NSString *)parametertext{
+    if (self) {
+        NSMutableDictionary *dic = [[NSMutableDictionary alloc] init];
+        [dic setObject:[NSNumber numberWithInt:apiid] forKey:@"api_id"];
+        [dic setObject:command forKey:@"command"];
+        [dic setObject:mac forKey:@"mac"];
+        if([parametertext isEqual:@"ipaddr"]){
+            [dic setObject:sdkparameter forKey:@"ipaddr"];
+        }else if([parametertext isEqual:@"name"]){
+            [dic setObject:sdkparameter forKey:@"name"];
+        }else if([parametertext isEqual:@"lock"]){
+            [dic setObject:sdkparameter forKey:@"lock"];
+        }else{
+        }
+        NSError *error;
+        NSData *requestData = [NSJSONSerialization dataWithJSONObject:dic options:NSJSONWritingPrettyPrinted error: &error];
+        NSData *responseData = [self.network requestDispatch:requestData];
+        _code = [[[responseData objectFromJSONData] objectForKey:@"code"] intValue];
+        _msg = [[responseData objectFromJSONData] objectForKey:@"msg"];
+        _blsdkdata = [responseData objectFromJSONData];
+    }
+    return self;
 }
 
 + (id)responseDatatoapiid:(int)apiid command:(NSString *)command mac:(NSString *)mac{
@@ -95,5 +120,9 @@
 
 + (id)responseDatatoapiid:(int)apiid command:(NSString *)command mac:(NSString *)mac data:(NSString *)data{
     return [[self alloc] responseDatatoapiid:apiid command:command mac:mac data:data];
+}
+
++ (id)responseDatatoapiid:(int)apiid command:(NSString *)command mac:(NSString *)mac sdkparameter:(NSString *)sdkparameter parametertext:(NSString *)parametertext{
+    return [[self alloc] responseDatatoapiid:apiid command:command mac:mac sdkparameter:sdkparameter parametertext:parametertext];
 }
 @end

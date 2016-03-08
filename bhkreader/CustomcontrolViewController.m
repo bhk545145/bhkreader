@@ -20,6 +20,7 @@
 @property(nonatomic,retain)UIButton *input;
 @property(nonatomic,retain)UITextView *blsdkdata;
 @property(nonatomic,retain)UITextField *status;
+@property(nonatomic,retain)UITextField *sdkparameter;
 @property (nonatomic,strong) BLNetwork *network;
 
 @end
@@ -61,12 +62,16 @@
     _blsdkdata.editable = NO;
     
     _status = [[UITextField alloc]init];
-    _status.frame = CGRectMake(30, 200, 100, 30);
+    _status.frame = CGRectMake(100, 200, 80, 30);
     _status.backgroundColor = [UIColor grayColor];
     
-    _apiid.text = @"72";
-    _command.text = @"sp2_control";
-    _mac.text = @"b4:43:0d:11:c1:d0";
+    _sdkparameter = [[UITextField alloc]init];
+    _sdkparameter.frame = CGRectMake(30, 200, 65, 30);
+    _sdkparameter.backgroundColor = [UIColor grayColor];
+    
+    _apiid.text = @"71";
+    _command.text = @"sp2_refresh";
+    _mac.text = @"b4:43:0d:95:be:ad";
     _apiid.delegate = self;
     _command.delegate = self;
     _mac.delegate = self;
@@ -78,6 +83,7 @@
     [self.view addSubview:_input];
     [self.view addSubview:_blsdkdata];
     [self.view addSubview:_status];
+    [self.view addSubview:_sdkparameter];
 }
 
 -(void)inputbtn:(UIButton *)sender{
@@ -85,15 +91,16 @@
     NSString *command = _command.text;
     NSString *mac = _mac.text;
     int status = [_status.text intValue];
-    NSString *data = _status.text;
+    NSString *parameter = _status.text;
     BLSDKTool *blsdktool = [[BLSDKTool alloc]init];
-    if ([_status.text isEqual:@""]) {
+    if ([_sdkparameter.text isEqual:@""]) {
         blsdktool = [BLSDKTool responseDatatoapiid:apiid command:command mac:mac];
-    }else if ([_status.text isEqual:@"0"] || [_status.text isEqual:@"1"]){
+    }else if ([_sdkparameter.text isEqual:@"status"]){
         blsdktool = [BLSDKTool responseDatatoapiid:apiid command:command mac:mac status:status];
-    }else{
-        //blsdktool = [BLSDKTool responseDatatoapiid:apiid command:command mac:mac data:data];
-        blsdktool = [BLSDKTool responseDatatoapiid:apiid command:command mac:mac];
+    }else if([_sdkparameter.text isEqual:@"data"]){
+        blsdktool = [BLSDKTool responseDatatoapiid:apiid command:command mac:mac data:parameter];
+    }else {
+        blsdktool = [BLSDKTool responseDatatoapiid:apiid command:command mac:mac sdkparameter:parameter parametertext:_sdkparameter.text];
     }
     
     NSData *jsonData = [NSJSONSerialization dataWithJSONObject:blsdktool.blsdkdata options:NSJSONWritingPrettyPrinted error:nil];
