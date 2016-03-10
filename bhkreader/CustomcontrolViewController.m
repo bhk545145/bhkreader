@@ -102,7 +102,6 @@
     }else {
         blsdktool = [BLSDKTool responseDatatoapiid:apiid command:command mac:mac sdkparameter:parameter parametertext:_sdkparameter.text];
     }
-    
     NSData *jsonData = [NSJSONSerialization dataWithJSONObject:blsdktool.blsdkdata options:NSJSONWritingPrettyPrinted error:nil];
     NSString *str =[[ NSString alloc] initWithData:jsonData encoding:NSUTF8StringEncoding];
     _blsdkdata.text = str;

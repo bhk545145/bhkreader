@@ -234,39 +234,6 @@
 			name = UIImage;
 			sourceTree = "<group>";
 		};
-		3A0685031C10739200591885 /* Customcontrol */ = {
-			isa = PBXGroup;
-			children = (
-				3A0685041C1073FF00591885 /* controller */,
-				3A0685061C10742300591885 /* view */,
-				3A0685051C10741C00591885 /* model */,
-			);
-			name = Customcontrol;
-			sourceTree = "<group>";
-		};
-		3A0685041C1073FF00591885 /* controller */ = {
-			isa = PBXGroup;
-			children = (
-				3A06850D1C1079FF00591885 /* CustomcontrolViewController.h */,
-				3A06850E1C1079FF00591885 /* CustomcontrolViewController.m */,
-			);
-			name = controller;
-			sourceTree = "<group>";
-		};
-		3A0685051C10741C00591885 /* model */ = {
-			isa = PBXGroup;
-			children = (
-			);
-			name = model;
-			sourceTree = "<group>";
-		};
-		3A0685061C10742300591885 /* view */ = {
-			isa = PBXGroup;
-			children = (
-			);
-			name = view;
-			sourceTree = "<group>";
-		};
 		3A0685131C1083B700591885 /* tool */ = {
 			isa = PBXGroup;
 			children = (
@@ -363,10 +330,12 @@
 		3A9DDFF51C11740C001FFDEE /* leftview */ = {
 			isa = PBXGroup;
 			children = (
-				3AC8185E1BE8917000D195F6 /* ViewController.h */,
-				3AC8185F1BE8917000D195F6 /* ViewController.m */,
 				3A06850A1C10766800591885 /* leftviewTableViewController.h */,
 				3A06850B1C10766800591885 /* leftviewTableViewController.m */,
+				3AC8185E1BE8917000D195F6 /* ViewController.h */,
+				3AC8185F1BE8917000D195F6 /* ViewController.m */,
+				3A06850D1C1079FF00591885 /* CustomcontrolViewController.h */,
+				3A06850E1C1079FF00591885 /* CustomcontrolViewController.m */,
 			);
 			name = leftview;
 			sourceTree = "<group>";
@@ -432,7 +401,6 @@
 				3AC8185C1BE8917000D195F6 /* AppDelegate.m */,
 				3A9DDFF51C11740C001FFDEE /* leftview */,
 				3A7B33921BE8E43F001D59AF /* Main */,
-				3A0685031C10739200591885 /* Customcontrol */,
 				3AC818611BE8917000D195F6 /* Main.storyboard */,
 				3AC818641BE8917000D195F6 /* Images.xcassets */,
 				3A9EF4051BE8D50400F21DD2 /* lib */,
