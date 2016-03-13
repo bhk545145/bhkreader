@@ -107,6 +107,12 @@
         datalab.lineBreakMode = NSLineBreakByTruncatingMiddle;
         datalab.numberOfLines = 0;
         [[NSNotificationCenter defaultCenter] addObserver:self selector:@selector(datalabcode:) name:@"datalab" object:nil];
+    }else if ([BLDeviceinfo.type isEqualToString:A1]){
+        NSLog(@"%@",_BLDeviceinfo.a1listInfo.temperature);
+        NSLog(@"%@",_BLDeviceinfo.a1listInfo.humidity);
+        NSLog(@"%d",_BLDeviceinfo.a1listInfo.light);
+        NSLog(@"%d",_BLDeviceinfo.a1listInfo.air);
+        NSLog(@"%d",_BLDeviceinfo.a1listInfo.noisy);
     }
 }
 
