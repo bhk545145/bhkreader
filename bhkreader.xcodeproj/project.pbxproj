@@ -11,6 +11,13 @@
 		02935ADA1C17273F00C855F2 /* bhkFMDB.m in Sources */ = {isa = PBXBuildFile; fileRef = 02935AD91C17273F00C855F2 /* bhkFMDB.m */; };
 		029CBF521C7750010012E442 /* Rm2data.m in Sources */ = {isa = PBXBuildFile; fileRef = 029CBF511C7750010012E442 /* Rm2data.m */; };
 		02CAEEC41C25367600603CF4 /* BLSDKTool.m in Sources */ = {isa = PBXBuildFile; fileRef = 02CAEEC31C25367600603CF4 /* BLSDKTool.m */; };
+		02D994741C96EB5C007D6E2F /* ASPopUpView.m in Sources */ = {isa = PBXBuildFile; fileRef = 02D994711C96EB5C007D6E2F /* ASPopUpView.m */; };
+		02D994751C96EB5C007D6E2F /* ASProgressPopUpView.m in Sources */ = {isa = PBXBuildFile; fileRef = 02D994731C96EB5C007D6E2F /* ASProgressPopUpView.m */; };
+		02D9947B1C971349007D6E2F /* tempprogressView.m in Sources */ = {isa = PBXBuildFile; fileRef = 02D9947A1C971349007D6E2F /* tempprogressView.m */; };
+		02D9947E1C971D7F007D6E2F /* humidityprogressView.m in Sources */ = {isa = PBXBuildFile; fileRef = 02D9947D1C971D7F007D6E2F /* humidityprogressView.m */; };
+		02D994811C972017007D6E2F /* lightprogressView.m in Sources */ = {isa = PBXBuildFile; fileRef = 02D994801C972017007D6E2F /* lightprogressView.m */; };
+		02D994841C972043007D6E2F /* airprogressView.m in Sources */ = {isa = PBXBuildFile; fileRef = 02D994831C972043007D6E2F /* airprogressView.m */; };
+		02D994871C972059007D6E2F /* noisyprogressView.m in Sources */ = {isa = PBXBuildFile; fileRef = 02D994861C972059007D6E2F /* noisyprogressView.m */; };
 		02F614981C26F9D90075F592 /* UIImage+MJ.m in Sources */ = {isa = PBXBuildFile; fileRef = 02F614971C26F9D90075F592 /* UIImage+MJ.m */; };
 		3A06850C1C10766800591885 /* leftviewTableViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 3A06850B1C10766800591885 /* leftviewTableViewController.m */; };
 		3A06850F1C1079FF00591885 /* CustomcontrolViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 3A06850E1C1079FF00591885 /* CustomcontrolViewController.m */; };
@@ -82,6 +89,20 @@
 		029CBF511C7750010012E442 /* Rm2data.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = Rm2data.m; sourceTree = "<group>"; };
 		02CAEEC21C25367600603CF4 /* BLSDKTool.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; name = BLSDKTool.h; path = lib/BLSDKTool.h; sourceTree = "<group>"; };
 		02CAEEC31C25367600603CF4 /* BLSDKTool.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; name = BLSDKTool.m; path = lib/BLSDKTool.m; sourceTree = "<group>"; };
+		02D994701C96EB5C007D6E2F /* ASPopUpView.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = ASPopUpView.h; sourceTree = "<group>"; };
+		02D994711C96EB5C007D6E2F /* ASPopUpView.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = ASPopUpView.m; sourceTree = "<group>"; };
+		02D994721C96EB5C007D6E2F /* ASProgressPopUpView.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = ASProgressPopUpView.h; sourceTree = "<group>"; };
+		02D994731C96EB5C007D6E2F /* ASProgressPopUpView.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = ASProgressPopUpView.m; sourceTree = "<group>"; };
+		02D994791C971349007D6E2F /* tempprogressView.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = tempprogressView.h; sourceTree = "<group>"; };
+		02D9947A1C971349007D6E2F /* tempprogressView.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = tempprogressView.m; sourceTree = "<group>"; };
+		02D9947C1C971D7F007D6E2F /* humidityprogressView.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = humidityprogressView.h; sourceTree = "<group>"; };
+		02D9947D1C971D7F007D6E2F /* humidityprogressView.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = humidityprogressView.m; sourceTree = "<group>"; };
+		02D9947F1C972017007D6E2F /* lightprogressView.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = lightprogressView.h; sourceTree = "<group>"; };
+		02D994801C972017007D6E2F /* lightprogressView.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = lightprogressView.m; sourceTree = "<group>"; };
+		02D994821C972043007D6E2F /* airprogressView.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = airprogressView.h; sourceTree = "<group>"; };
+		02D994831C972043007D6E2F /* airprogressView.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = airprogressView.m; sourceTree = "<group>"; };
+		02D994851C972059007D6E2F /* noisyprogressView.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = noisyprogressView.h; sourceTree = "<group>"; };
+		02D994861C972059007D6E2F /* noisyprogressView.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = noisyprogressView.m; sourceTree = "<group>"; };
 		02F614931C26B2010075F592 /* bhkCommon.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; name = bhkCommon.h; path = lib/bhkCommon.h; sourceTree = "<group>"; };
 		02F614961C26F9D90075F592 /* UIImage+MJ.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; name = "UIImage+MJ.h"; path = "lib/UIImage+MJ.h"; sourceTree = "<group>"; };
 		02F614971C26F9D90075F592 /* UIImage+MJ.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; name = "UIImage+MJ.m"; path = "lib/UIImage+MJ.m"; sourceTree = "<group>"; };
@@ -207,6 +228,18 @@
 /* End PBXFrameworksBuildPhase section */
 
 /* Begin PBXGroup section */
+		02D9946F1C96EB5C007D6E2F /* ASProgressPopUpView */ = {
+			isa = PBXGroup;
+			children = (
+				02D994701C96EB5C007D6E2F /* ASPopUpView.h */,
+				02D994711C96EB5C007D6E2F /* ASPopUpView.m */,
+				02D994721C96EB5C007D6E2F /* ASProgressPopUpView.h */,
+				02D994731C96EB5C007D6E2F /* ASProgressPopUpView.m */,
+			);
+			name = ASProgressPopUpView;
+			path = 3rd/ASProgressPopUpView;
+			sourceTree = "<group>";
+		};
 		02F614911C26B1310075F592 /* SDKTool */ = {
 			isa = PBXGroup;
 			children = (
@@ -286,6 +319,16 @@
 				3AC2CBB81C033CB40029B2D5 /* DeviceCell.m */,
 				3A148ED51C282DBB009CA1BB /* DetailspageimageView.h */,
 				3A148ED61C282DBB009CA1BB /* DetailspageimageView.m */,
+				02D994791C971349007D6E2F /* tempprogressView.h */,
+				02D9947A1C971349007D6E2F /* tempprogressView.m */,
+				02D9947C1C971D7F007D6E2F /* humidityprogressView.h */,
+				02D9947D1C971D7F007D6E2F /* humidityprogressView.m */,
+				02D9947F1C972017007D6E2F /* lightprogressView.h */,
+				02D994801C972017007D6E2F /* lightprogressView.m */,
+				02D994821C972043007D6E2F /* airprogressView.h */,
+				02D994831C972043007D6E2F /* airprogressView.m */,
+				02D994851C972059007D6E2F /* noisyprogressView.h */,
+				02D994861C972059007D6E2F /* noisyprogressView.m */,
 			);
 			name = view;
 			sourceTree = "<group>";
@@ -318,6 +361,7 @@
 		3A915E5F1BEB6134005375CE /* 3rd */ = {
 			isa = PBXGroup;
 			children = (
+				02D9946F1C96EB5C007D6E2F /* ASProgressPopUpView */,
 				3A9EF4141BE8DE0F00F21DD2 /* SWRevealViewController */,
 				3AC06D751C1AF5F900068164 /* FMDB */,
 				3A1EC3161C21933E00F826F4 /* MBProgressHUD */,
@@ -650,7 +694,9 @@
 			files = (
 				3ADAF44D1C231E5000F0CE80 /* UIScrollView+MJExtension.m in Sources */,
 				02935ADA1C17273F00C855F2 /* bhkFMDB.m in Sources */,
+				02D994811C972017007D6E2F /* lightprogressView.m in Sources */,
 				3A148ED71C282DBB009CA1BB /* DetailspageimageView.m in Sources */,
+				02D9947B1C971349007D6E2F /* tempprogressView.m in Sources */,
 				3ADAF43D1C231E5000F0CE80 /* MJRefreshAutoFooter.m in Sources */,
 				3AE2FEF91C085890009FBA2F /* Spbtn.m in Sources */,
 				3A06850C1C10766800591885 /* leftviewTableViewController.m in Sources */,
@@ -669,6 +715,7 @@
 				3ACE12811C241D0D008B0CBD /* A1listInfo.m in Sources */,
 				3ADAF44F1C231E5000F0CE80 /* UIView+MJExtension.m in Sources */,
 				3A2756771C4579AE002075D6 /* RmlistInfo.m in Sources */,
+				02D9947E1C971D7F007D6E2F /* humidityprogressView.m in Sources */,
 				3A06850F1C1079FF00591885 /* CustomcontrolViewController.m in Sources */,
 				3ADAF44A1C231E5000F0CE80 /* MJRefreshStateHeader.m in Sources */,
 				3ADAF4461C231E5000F0CE80 /* MJRefreshBackNormalFooter.m in Sources */,
@@ -680,7 +727,9 @@
 				3ADAF4441C231E5000F0CE80 /* MJRefreshAutoStateFooter.m in Sources */,
 				3A64FBAA1C2D2911000524D7 /* SplistInfo.m in Sources */,
 				02F614981C26F9D90075F592 /* UIImage+MJ.m in Sources */,
+				02D994751C96EB5C007D6E2F /* ASProgressPopUpView.m in Sources */,
 				3ADAF43E1C231E5000F0CE80 /* MJRefreshBackFooter.m in Sources */,
+				02D994841C972043007D6E2F /* airprogressView.m in Sources */,
 				3ADAF4481C231E5000F0CE80 /* MJRefreshGifHeader.m in Sources */,
 				3A915E5E1BEB6102005375CE /* BLDeviceInfo.m in Sources */,
 				3ADAF44C1C231E5000F0CE80 /* MJRefreshConst.m in Sources */,
@@ -691,9 +740,11 @@
 				3ADAF4471C231E5000F0CE80 /* MJRefreshBackStateFooter.m in Sources */,
 				3AC06D831C1AF60B00068164 /* FMDatabasePool.m in Sources */,
 				3ADAF4411C231E5000F0CE80 /* MJRefreshHeader.m in Sources */,
+				02D994741C96EB5C007D6E2F /* ASPopUpView.m in Sources */,
 				3A1EC31B1C219BA100F826F4 /* MBProgressHUD+MJ.m in Sources */,
 				3AC06D841C1AF60B00068164 /* FMDatabaseQueue.m in Sources */,
 				3AC2CBB91C033CB40029B2D5 /* DeviceCell.m in Sources */,
+				02D994871C972059007D6E2F /* noisyprogressView.m in Sources */,
 				3AC06D821C1AF60B00068164 /* FMDatabaseAdditions.m in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;

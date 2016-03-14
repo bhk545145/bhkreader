@@ -14,6 +14,11 @@
 #import "Rm2btn.h"
 #import "bhkFMDB.h"
 #import "Rm2data.h"
+#import "tempprogressView.h"
+#import "humidityprogressView.h"
+#import "lightprogressView.h"
+#import "airprogressView.h"
+#import "noisyprogressView.h"
 
 @interface DetailspageimageView()<UITextFieldDelegate>{
     bhkFMDB *bhkfmdb;
@@ -28,6 +33,11 @@
     Rm2btn *rm2sendbtn;
     Rm2data *rm2data;
     UILabel *datalab;
+    tempprogressView *_tempprogressView;
+    humidityprogressView *_humidityprogressView;
+    lightprogressView *_lightprogressView;
+    airprogressView *_airprogressView;
+    noisyprogressView *_noisyprogressView;
 }
 
 @end
@@ -76,6 +86,7 @@
         updatebtn = [Detailbtn buttonWithType:UIButtonTypeRoundedRect];
         updatebtn.frame = CGRectMake(200, 30, 60, 60);
         [topview addSubview:updatebtn];
+    //======RM======
         //rm2学习按钮
         rm2btn = [Rm2btn buttonWithType:UIButtonTypeRoundedRect];
         rm2btn.frame = CGRectMake(30, 100, 60, 60);
@@ -87,6 +98,22 @@
         //data数据框
         datalab = [[UILabel alloc]init];
         [topview addSubview:datalab];
+    //======A1=======
+        //temperature
+        _tempprogressView = [[tempprogressView alloc]init];
+        _tempprogressView.frame = CGRectMake(30, 130, 200, 1);
+        //humidity
+        _humidityprogressView = [[humidityprogressView alloc]init];
+        _humidityprogressView.frame = CGRectMake(30, 180, 200, 1);
+        //light
+        _lightprogressView = [[lightprogressView alloc]init];
+        _lightprogressView.frame = CGRectMake(30, 230, 200, 1);
+        //air
+        _airprogressView = [[airprogressView alloc]init];
+        _airprogressView.frame = CGRectMake(30, 280, 200, 1);
+        //noisy
+        _noisyprogressView = [[noisyprogressView alloc]init];
+        _noisyprogressView.frame = CGRectMake(30, 330, 200, 1);
     }
     return self;
 }
@@ -108,11 +135,16 @@
         datalab.numberOfLines = 0;
         [[NSNotificationCenter defaultCenter] addObserver:self selector:@selector(datalabcode:) name:@"datalab" object:nil];
     }else if ([BLDeviceinfo.type isEqualToString:A1]){
-        NSLog(@"%@",_BLDeviceinfo.a1listInfo.temperature);
-        NSLog(@"%@",_BLDeviceinfo.a1listInfo.humidity);
-        NSLog(@"%d",_BLDeviceinfo.a1listInfo.light);
-        NSLog(@"%d",_BLDeviceinfo.a1listInfo.air);
-        NSLog(@"%d",_BLDeviceinfo.a1listInfo.noisy);
+        [_tempprogressView totemperature:_BLDeviceinfo.a1listInfo.temperature];
+        [topview addSubview:_tempprogressView];
+        [_humidityprogressView tohumidity:_BLDeviceinfo.a1listInfo.humidity];
+        [topview addSubview:_humidityprogressView];
+        [_lightprogressView tolight:[NSString stringWithFormat:@"%d",_BLDeviceinfo.a1listInfo.light]];
+        [topview addSubview:_lightprogressView];
+        [_airprogressView toair:[NSString stringWithFormat:@"%d",_BLDeviceinfo.a1listInfo.air]];
+        [topview addSubview:_airprogressView];
+        [_noisyprogressView tonoisy:[NSString stringWithFormat:@"%d",_BLDeviceinfo.a1listInfo.noisy]];
+        [topview addSubview:_noisyprogressView];
     }
 }
 
@@ -161,6 +193,8 @@
         topview.frame = CGRectMake(50, 150, self.frame.size.width - 100, self.frame.size.height - 300);
     } completion:^(BOOL finished) {}];
 }
+
+
 
 - (void)dealloc{
     [[NSNotificationCenter defaultCenter]removeObserver:self name:@"datalab"  object:nil];
