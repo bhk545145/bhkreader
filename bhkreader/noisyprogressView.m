@@ -13,7 +13,7 @@
     ASProgressPopUpView *_noisyprogressView;
     NSString *_noisy;
 }
-
+@property(nonatomic,strong) UILabel *noisylab;
 @end
 @implementation noisyprogressView
 
@@ -33,6 +33,12 @@
         _noisyprogressView.popUpViewAnimatedColors = @[[UIColor redColor], [UIColor orangeColor], [UIColor greenColor]];
         [_noisyprogressView showPopUpViewAnimated:YES];
         _noisyprogressView.dataSource = self;
+        
+        _noisylab= [[UILabel alloc]init];
+        _noisylab.frame = CGRectMake(-30, -35, 50, 50);
+        [_noisyprogressView addSubview:_noisylab];
+        _noisylab.font = [UIFont fontWithName:@"Futura-CondensedExtraBold" size:16];
+        _noisylab.text = @"噪声";
     }
     return self;
 }
@@ -45,22 +51,23 @@
 - (NSString *)progressView:(ASProgressPopUpView *)progressView stringForProgress:(float)progress
 {
     NSString *s;
-    if(progress < [_noisy floatValue] / 100){
-        s = [NSString stringWithFormat:@"%0.1f°",progress * 100];
-    }else{
-        s = [NSString stringWithFormat:@"%0.1f°",[_noisy floatValue]];
+    if(progress < 0.5){
+        s = [NSString stringWithFormat:@"寂静"];
+    }else if(progress > 0.5 && progress < 1){
+        s = [NSString stringWithFormat:@"正常"];
+    }else if(progress == 1){
+        s = [NSString stringWithFormat:@"吵闹"];
     }
-    
     return s;
 }
 
 - (void)progress
 {
     float progress = _noisyprogressView.progress;
-    if (progress < [_noisy floatValue] / 100) {
+    if (progress < [_noisy floatValue] / 2) {
         progress += 0.005;
         _noisyprogressView.progress = progress;
-        [NSTimer scheduledTimerWithTimeInterval:0.05 target:self selector:@selector(progress) userInfo:nil repeats:NO];
+        [NSTimer scheduledTimerWithTimeInterval:0.03 target:self selector:@selector(progress) userInfo:nil repeats:NO];
     }
 }
 

@@ -13,7 +13,7 @@
     ASProgressPopUpView *_airprogressView;
     NSString *_air;
 }
-
+@property(nonatomic,strong) UILabel *airlab;
 @end
 @implementation airprogressView
 
@@ -33,6 +33,12 @@
         _airprogressView.popUpViewAnimatedColors = @[[UIColor redColor], [UIColor orangeColor], [UIColor greenColor]];
         [_airprogressView showPopUpViewAnimated:YES];
         _airprogressView.dataSource = self;
+        
+        _airlab = [[UILabel alloc]init];
+        _airlab.frame = CGRectMake(-30, -35, 50, 50);
+        [_airprogressView addSubview:_airlab];
+        _airlab.font = [UIFont fontWithName:@"Futura-CondensedExtraBold" size:16];
+        _airlab.text = @"空气";
     }
     return self;
 }
@@ -45,22 +51,25 @@
 - (NSString *)progressView:(ASProgressPopUpView *)progressView stringForProgress:(float)progress
 {
     NSString *s;
-    if(progress < [_air floatValue] / 100){
-        s = [NSString stringWithFormat:@"%0.1f°",progress * 100];
-    }else{
-        s = [NSString stringWithFormat:@"%0.1f°",[_air floatValue]];
+    if(progress < 0.33){
+        s = [NSString stringWithFormat:@"差"];
+    }else if(progress > 0.33 && progress < 0.66){
+        s = [NSString stringWithFormat:@"正常"];
+    }else if(progress > 0.66 && progress < 1){
+        s = [NSString stringWithFormat:@"良"];
+    }else if(progress == 1){
+        s = [NSString stringWithFormat:@"优"];
     }
-    
     return s;
 }
 
 - (void)progress
 {
     float progress = _airprogressView.progress;
-    if (progress < [_air floatValue] / 100) {
+    if (progress < 1 - [_air floatValue] / 3) {
         progress += 0.005;
         _airprogressView.progress = progress;
-        [NSTimer scheduledTimerWithTimeInterval:0.05 target:self selector:@selector(progress) userInfo:nil repeats:NO];
+        [NSTimer scheduledTimerWithTimeInterval:0.03 target:self selector:@selector(progress) userInfo:nil repeats:NO];
     }
 }
 

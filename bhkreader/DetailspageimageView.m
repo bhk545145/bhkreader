@@ -30,6 +30,8 @@
     Detailbtn *updatebtn;
     CGRect topviewframe;
     Rm2btn *rm2btn;
+    Rm2btn *rmplusIRbtn;
+    Rm2btn *rmplusRFbtn;
     Rm2btn *rm2sendbtn;
     Rm2data *rm2data;
     UILabel *datalab;
@@ -98,22 +100,30 @@
         //data数据框
         datalab = [[UILabel alloc]init];
         [topview addSubview:datalab];
+        //rmplusIR学习按钮
+        rmplusIRbtn = [Rm2btn buttonWithType:UIButtonTypeRoundedRect];
+        rmplusIRbtn.frame = CGRectMake(30, 100, 60, 60);
+        [topview addSubview:rmplusIRbtn];
+        //rmplusRF学习按钮
+        rmplusRFbtn = [Rm2btn buttonWithType:UIButtonTypeRoundedRect];
+        rmplusRFbtn.frame = CGRectMake(120, 100, 60, 60);
+        [topview addSubview:rmplusRFbtn];
     //======A1=======
         //temperature
         _tempprogressView = [[tempprogressView alloc]init];
-        _tempprogressView.frame = CGRectMake(30, 130, 200, 1);
+        _tempprogressView.frame = CGRectMake(50, 130, 200, 1);
         //humidity
         _humidityprogressView = [[humidityprogressView alloc]init];
-        _humidityprogressView.frame = CGRectMake(30, 180, 200, 1);
+        _humidityprogressView.frame = CGRectMake(50, 180, 200, 1);
         //light
         _lightprogressView = [[lightprogressView alloc]init];
-        _lightprogressView.frame = CGRectMake(30, 230, 200, 1);
+        _lightprogressView.frame = CGRectMake(50, 230, 200, 1);
         //air
         _airprogressView = [[airprogressView alloc]init];
-        _airprogressView.frame = CGRectMake(30, 280, 200, 1);
+        _airprogressView.frame = CGRectMake(50, 280, 200, 1);
         //noisy
         _noisyprogressView = [[noisyprogressView alloc]init];
-        _noisyprogressView.frame = CGRectMake(30, 330, 200, 1);
+        _noisyprogressView.frame = CGRectMake(50, 330, 200, 1);
     }
     return self;
 }
@@ -126,7 +136,7 @@
     [updatebtn setTitle:@"更新" forState:UIControlStateNormal];
     [updatebtn setTitleColor:[UIColor redColor] forState:UIControlStateNormal];
     [updatebtn addTarget:self action:@selector(upButtonClicked:) forControlEvents:UIControlEventTouchUpInside];
-    if ([BLDeviceinfo.type isEqualToString:RM] || [BLDeviceinfo.type isEqualToString:RM3mini] || [BLDeviceinfo.type isEqualToString:RMplus]) {
+    if ([BLDeviceinfo.type isEqualToString:RM] || [BLDeviceinfo.type isEqualToString:RM3mini]) {
         [rm2btn setBackgroundImage:@"rm2btn" forState:UIControlStateNormal mac:_BLDeviceinfo.mac];
         [rm2sendbtn setBackgroundImage:@"rm2sendbtn" forState:UIControlStateNormal mac:_BLDeviceinfo.mac];
         datalab.frame = CGRectMake(30, 150, 200, 200);
@@ -145,6 +155,10 @@
         [topview addSubview:_airprogressView];
         [_noisyprogressView tonoisy:[NSString stringWithFormat:@"%d",_BLDeviceinfo.a1listInfo.noisy]];
         [topview addSubview:_noisyprogressView];
+    }else if ([BLDeviceinfo.type isEqualToString:RMplus]){
+        [rm2btn setBackgroundImage:@"rmplusIRbtn" forState:UIControlStateNormal mac:_BLDeviceinfo.mac];
+        [rm2btn setBackgroundImage:@"rmplusRFbtn" forState:UIControlStateNormal mac:_BLDeviceinfo.mac];
+        [rm2sendbtn setBackgroundImage:@"rm2sendbtn" forState:UIControlStateNormal mac:_BLDeviceinfo.mac];
     }
 }
 
@@ -167,6 +181,11 @@
         [rm2btn removeFromSuperview];
         [rm2sendbtn removeFromSuperview];
         [datalab removeFromSuperview];
+        [_tempprogressView removeFromSuperview];
+        [_humidityprogressView removeFromSuperview];
+        [_lightprogressView removeFromSuperview];
+        [_airprogressView removeFromSuperview];
+        [_noisyprogressView removeFromSuperview];
     } completion:^(BOOL finished) {
         [topview removeFromSuperview];
         [backgroundView removeFromSuperview];

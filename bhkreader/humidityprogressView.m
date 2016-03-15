@@ -13,7 +13,7 @@
     ASProgressPopUpView *_humidityprogressView;
     NSString *_humidity;
 }
-
+@property(nonatomic,strong) UILabel *humiditylab;
 @end
 @implementation humidityprogressView
 
@@ -33,6 +33,12 @@
         _humidityprogressView.popUpViewAnimatedColors = @[[UIColor redColor], [UIColor orangeColor], [UIColor greenColor]];
         [_humidityprogressView showPopUpViewAnimated:YES];
         _humidityprogressView.dataSource = self;
+        
+        _humiditylab = [[UILabel alloc]init];
+        _humiditylab.frame = CGRectMake(-30, -35, 50, 50);
+        [_humidityprogressView addSubview:_humiditylab];
+        _humiditylab.font = [UIFont fontWithName:@"Futura-CondensedExtraBold" size:16];
+        _humiditylab.text = @"湿度";
     }
     return self;
 }
@@ -60,7 +66,7 @@
     if (progress < [_humidity floatValue] / 100) {
         progress += 0.005;
         _humidityprogressView.progress = progress;
-        [NSTimer scheduledTimerWithTimeInterval:0.05 target:self selector:@selector(progress) userInfo:nil repeats:NO];
+        [NSTimer scheduledTimerWithTimeInterval:0.03 target:self selector:@selector(progress) userInfo:nil repeats:NO];
     }
 }
 

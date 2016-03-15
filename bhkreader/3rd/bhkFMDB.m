@@ -89,7 +89,7 @@
 - (void)deleteWithinfo:(BLDeviceInfo *)info{
     if ([db open]) {
         BOOL result = [db executeUpdate:@"DELETE FROM device_info WHERE mac = ?;",info.mac];
-        NSLog(@"DELETE%d",result);
+        //NSLog(@"DELETE%d",result);
     }
     [db close];
 }

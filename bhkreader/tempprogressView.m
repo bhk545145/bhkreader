@@ -13,6 +13,7 @@
     ASProgressPopUpView *_tempprogressView;
     NSString *_temperature;
 }
+@property(nonatomic,strong) UILabel *templab;
 
 @end
 
@@ -27,13 +28,19 @@
     if (self) {
         [self drawRect:frame];
         _tempprogressView = [[ASProgressPopUpView alloc]init];
-        _tempprogressView.frame = CGRectMake(0, 0, 200, 60);
+        _tempprogressView.frame = CGRectMake(0, 0, 200, 0);
         [self addSubview:_tempprogressView];
         _tempprogressView.progress = 0.000;
         _tempprogressView.font = [UIFont fontWithName:@"Futura-CondensedExtraBold" size:16];
         _tempprogressView.popUpViewAnimatedColors = @[[UIColor redColor], [UIColor orangeColor], [UIColor greenColor]];
         [_tempprogressView showPopUpViewAnimated:YES];
         _tempprogressView.dataSource = self;
+        
+        _templab = [[UILabel alloc]init];
+        _templab.frame = CGRectMake(-30, -35, 50, 50);
+        [_tempprogressView addSubview:_templab];
+        _templab.font = [UIFont fontWithName:@"Futura-CondensedExtraBold" size:16];
+        _templab.text = @"温度";
     }
     return self;
 }
@@ -61,7 +68,7 @@
     if (progress < [_temperature floatValue] / 40) {
         progress += 0.005;
         _tempprogressView.progress = progress;
-        [NSTimer scheduledTimerWithTimeInterval:0.05 target:self selector:@selector(progress) userInfo:nil repeats:NO];
+        [NSTimer scheduledTimerWithTimeInterval:0.03 target:self selector:@selector(progress) userInfo:nil repeats:NO];
     }
 }
 @end

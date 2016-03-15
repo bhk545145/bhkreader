@@ -31,7 +31,7 @@
     Spbtn *_Spbtn;
 }
 
-@property (nonatomic, strong) NSMutableArray *deviceArray;
+@property (nonatomic,strong) NSMutableArray *deviceArray;
 @property (nonatomic,strong) BLNetwork *network;
 @property (nonatomic,strong) NSTimer *timer;
 
@@ -422,4 +422,7 @@ return locaIP;
     return a1list;
 }
 
+- (void)dealloc{
+   
+}
 @end
