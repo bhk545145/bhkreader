@@ -92,22 +92,25 @@
         //rm2学习按钮
         rm2btn = [Rm2btn buttonWithType:UIButtonTypeRoundedRect];
         rm2btn.frame = CGRectMake(30, 100, 60, 60);
-        [topview addSubview:rm2btn];
+
         //rm2发射按钮
         rm2sendbtn = [Rm2btn buttonWithType:UIButtonTypeRoundedRect];
         rm2sendbtn.frame = CGRectMake(180, 100, 60, 60);
         [topview addSubview:rm2sendbtn];
         //data数据框
         datalab = [[UILabel alloc]init];
+        datalab.frame = CGRectMake(30, 150, 200, 200);
+        datalab.lineBreakMode = NSLineBreakByTruncatingMiddle;
+        datalab.numberOfLines = 0;
         [topview addSubview:datalab];
         //rmplusIR学习按钮
         rmplusIRbtn = [Rm2btn buttonWithType:UIButtonTypeRoundedRect];
         rmplusIRbtn.frame = CGRectMake(30, 100, 60, 60);
-        [topview addSubview:rmplusIRbtn];
+        
         //rmplusRF学习按钮
         rmplusRFbtn = [Rm2btn buttonWithType:UIButtonTypeRoundedRect];
         rmplusRFbtn.frame = CGRectMake(120, 100, 60, 60);
-        [topview addSubview:rmplusRFbtn];
+        
     //======A1=======
         //temperature
         _tempprogressView = [[tempprogressView alloc]init];
@@ -137,12 +140,10 @@
     [updatebtn setTitleColor:[UIColor redColor] forState:UIControlStateNormal];
     [updatebtn addTarget:self action:@selector(upButtonClicked:) forControlEvents:UIControlEventTouchUpInside];
     if ([BLDeviceinfo.type isEqualToString:RM] || [BLDeviceinfo.type isEqualToString:RM3mini]) {
+        [topview addSubview:rm2btn];
         [rm2btn setBackgroundImage:@"rm2btn" forState:UIControlStateNormal mac:_BLDeviceinfo.mac];
         [rm2sendbtn setBackgroundImage:@"rm2sendbtn" forState:UIControlStateNormal mac:_BLDeviceinfo.mac];
-        datalab.frame = CGRectMake(30, 150, 200, 200);
         datalab.text = [rm2data codesetmac:_BLDeviceinfo.mac];
-        datalab.lineBreakMode = NSLineBreakByTruncatingMiddle;
-        datalab.numberOfLines = 0;
         [[NSNotificationCenter defaultCenter] addObserver:self selector:@selector(datalabcode:) name:@"datalab" object:nil];
     }else if ([BLDeviceinfo.type isEqualToString:A1]){
         [_tempprogressView totemperature:_BLDeviceinfo.a1listInfo.temperature];
@@ -156,8 +157,10 @@
         [_noisyprogressView tonoisy:[NSString stringWithFormat:@"%d",_BLDeviceinfo.a1listInfo.noisy]];
         [topview addSubview:_noisyprogressView];
     }else if ([BLDeviceinfo.type isEqualToString:RMplus]){
-        [rm2btn setBackgroundImage:@"rmplusIRbtn" forState:UIControlStateNormal mac:_BLDeviceinfo.mac];
-        [rm2btn setBackgroundImage:@"rmplusRFbtn" forState:UIControlStateNormal mac:_BLDeviceinfo.mac];
+        [topview addSubview:rmplusIRbtn];
+        [topview addSubview:rmplusRFbtn];
+        [rmplusIRbtn setBackgroundImage:@"rmplusIRbtn" forState:UIControlStateNormal mac:_BLDeviceinfo.mac];
+        [rmplusRFbtn setBackgroundImage:@"rmplusRFbtn" forState:UIControlStateNormal mac:_BLDeviceinfo.mac];
         [rm2sendbtn setBackgroundImage:@"rm2sendbtn" forState:UIControlStateNormal mac:_BLDeviceinfo.mac];
     }
 }
@@ -179,6 +182,8 @@
         [updatebtn removeFromSuperview];
         [lockswitch removeFromSuperview];
         [rm2btn removeFromSuperview];
+        [rmplusIRbtn removeFromSuperview];
+        [rmplusRFbtn removeFromSuperview];
         [rm2sendbtn removeFromSuperview];
         [datalab removeFromSuperview];
         [_tempprogressView removeFromSuperview];

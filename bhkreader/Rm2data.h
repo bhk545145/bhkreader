@@ -13,5 +13,8 @@
 - (void)studysetmac:(NSString *)mac;
 - (NSString *)codesetmac:(NSString *)mac;
 - (void)sendsetmac:(NSString *)mac data:(NSString *)data;
+- (void)rmplussIRstudysetmac:(NSString *)mac;
+- (void)rmplussRFstudysetmac:(NSString *)mac;
+
 
 @end

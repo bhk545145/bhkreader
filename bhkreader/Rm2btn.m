@@ -46,9 +46,13 @@
     _image = image;
     [super setBackgroundImage:[UIImage imageNamed:image] forState:state];
     if ([image isEqualToString:@"rm2btn"]) {
-        [self setBackgroundImage:[UIImage imageNamed:@"rm2btn"] forState:state];
-    }else{
-        [self setBackgroundImage:[UIImage imageNamed:@"rm2sendbtn"] forState:state];
+        [self setBackgroundImage:[UIImage imageNamed:image] forState:state];
+    }else if([image isEqualToString:@"rm2sendbtn"]){
+        [self setBackgroundImage:[UIImage imageNamed:image] forState:state];
+    }else if([image isEqualToString:@"rmplusIRbtn"]){
+        [self setBackgroundImage:[UIImage imageNamed:image] forState:state];
+    }else if([image isEqualToString:@"rmplusRFbtn"]){
+        [self setBackgroundImage:[UIImage imageNamed:image] forState:state];
     }
     [self addTarget:self action:@selector(rm2ButtonClicked:) forControlEvents:UIControlEventTouchUpInside];
 }
@@ -61,10 +65,24 @@
         dispatch_async(networkQueue, ^{
             [rm2data studysetmac:_mac];
         });
-    }else{
+    }else if ([_image  isEqual:@"rm2sendbtn"]){
         dispatch_async(networkQueue, ^{
             NSString *data = [rm2data codesetmac:_mac];
             [rm2data sendsetmac:_mac data:data];
+        });
+    }else if ([_image  isEqual:@"rmplusIRbtn"]){
+        dispatch_async(dispatch_get_main_queue(), ^{
+            [MBProgressHUD showMessage:@"按键学习"];
+        });
+        dispatch_async(networkQueue, ^{
+            [rm2data rmplussIRstudysetmac:_mac];
+        });
+    }else if ([_image  isEqual:@"rmplusRFbtn"]){
+        dispatch_async(dispatch_get_main_queue(), ^{
+            [MBProgressHUD showMessage:@"扫频学习"];
+        });
+        dispatch_async(networkQueue, ^{
+            [rm2data rmplussRFstudysetmac: _mac];
         });
     }
 }
