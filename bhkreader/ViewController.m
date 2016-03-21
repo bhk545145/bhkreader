@@ -21,6 +21,7 @@
 @property (nonatomic,retain) UIButton *wifibtn;
 @property (nonatomic,retain) UITextField *wififield;
 @property (nonatomic,retain) UITextField *passwordfield;
+@property (nonatomic,retain) UITextField *dstfield;
 @property (nonatomic,retain) UIButton *configurebtn;
 @property (nonatomic,strong) BLNetwork *network;
 @property (nonatomic,strong) NSTimer *timer;
@@ -47,7 +48,7 @@
 - (void)drawRect {
     _wifibtn = [[UIButton alloc] init];
     _wifibtn.titleLabel.font = [UIFont systemFontOfSize: 20];
-    _wifibtn.frame = CGRectMake(40, 200, 100, 60);
+    _wifibtn.frame = CGRectMake(40, 250, 100, 60);
     [_wifibtn addTarget:self action:@selector(btnClick1:) forControlEvents:UIControlEventTouchUpInside];
     [_wifibtn setTitle:@"获取WiFi" forState:UIControlStateNormal];
     [_wifibtn setTitleColor:[UIColor greenColor] forState:UIControlStateNormal];
@@ -55,7 +56,7 @@
     
     _configurebtn = [[UIButton alloc] init];
     _configurebtn.titleLabel.font = [UIFont systemFontOfSize: 20];
-    _configurebtn.frame = CGRectMake(140, 200, 100, 60);
+    _configurebtn.frame = CGRectMake(140, 250, 100, 60);
     [_configurebtn addTarget:self action:@selector(configButtonClicked:) forControlEvents:UIControlEventTouchUpInside];
     [_configurebtn setTitle:@"一键配置" forState:UIControlStateNormal];
     [_configurebtn setTitle:@"取消配置" forState:UIControlStateSelected];
@@ -73,11 +74,18 @@
     _passwordfield.backgroundColor = [UIColor grayColor];
     _passwordfield.font = [UIFont systemFontOfSize:20];
     _passwordfield.delegate = self;
+    
+    _dstfield = [[UITextField alloc] init];
+    _dstfield.frame = CGRectMake(50, 200, 180, 30);
+    _dstfield.backgroundColor = [UIColor grayColor];
+    _dstfield.font = [UIFont systemFontOfSize:20];
+    _dstfield.delegate = self;
 
     [self.view addSubview:_wifibtn];
     [self.view addSubview:_configurebtn];
     [self.view addSubview:_wififield];
     [self.view addSubview:_passwordfield];
+    [self.view addSubview:_dstfield];
 }
 
 - (BOOL)textFieldShouldReturn:(UITextField *)textField{
@@ -89,6 +97,7 @@
     getCurrentWiFiSSID *ssid = [[getCurrentWiFiSSID alloc]init];
     _wififield.text = [ssid getCurrentWiFiSSID];
     _passwordfield.text = [bhkfmdb getwifi:_wififield.text];
+    _dstfield.text = @"192.168.1.1";
 }
 
 - (void)configButtonClicked:(UIButton *)button
@@ -108,7 +117,8 @@
 - (void)startConfig:(UIButton *)sender{
     NSString *wifi = _wififield.text;
     NSString *password = _passwordfield.text;
-    UIView *progressview = [[UIView alloc]initWithFrame:CGRectMake(60, 270, 200, 100)];
+    NSString *dst = _dstfield.text;
+    UIView *progressview = [[UIView alloc]initWithFrame:CGRectMake(60, 320, 200, 100)];
     [self.view addSubview:progressview];
     [MBProgressHUD showMessage:@"正在配置中....." toView:progressview];
     dispatch_async(dispatch_get_global_queue(DISPATCH_QUEUE_PRIORITY_DEFAULT, 0), ^{
@@ -117,10 +127,11 @@
         [dic setObject:@"easyconfig" forKey:@"command"];
         [dic setObject:wifi forKey:@"ssid"];
         [dic setObject:password forKey:@"password"];
+        [dic setObject:dst forKey:@"dst"];
         NSError *error;
         NSData *requestData = [NSJSONSerialization dataWithJSONObject:dic options:NSJSONWritingPrettyPrinted error: &error];
         NSData *responseData = [_network requestDispatch:requestData];
-        //NSLog(@"%@", [responseData objectFromJSONData]);
+        NSLog(@"%@", [responseData objectFromJSONData]);
         dispatch_async(dispatch_get_main_queue(), ^{
             [_configurebtn setSelected:NO];
             // 移除HUD
