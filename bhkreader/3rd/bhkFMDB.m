@@ -48,7 +48,7 @@
         FMResultSet *resultSet = [db executeQuery:@"SELECT * FROM to_configure where wifi = ?;",wifi];
         // 2.遍历结果
         while ([resultSet next]) {
-            wifi = [resultSet stringForColumn:@"wifi"];
+            [resultSet stringForColumn:@"wifi"];
             password = [resultSet stringForColumn:@"password"];
         }
         [db close];
@@ -88,8 +88,7 @@
 //删除设备
 - (void)deleteWithinfo:(BLDeviceInfo *)info{
     if ([db open]) {
-        BOOL result = [db executeUpdate:@"DELETE FROM device_info WHERE mac = ?;",info.mac];
-        //NSLog(@"DELETE%d",result);
+        [db executeUpdate:@"DELETE FROM device_info WHERE mac = ?;",info.mac];
     }
     [db close];
 }

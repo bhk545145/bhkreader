@@ -47,7 +47,7 @@
     networkQueue = dispatch_queue_create("BroadLinkNetworkQueue", DISPATCH_QUEUE_CONCURRENT);
     queue = dispatch_get_global_queue(DISPATCH_QUEUE_PRIORITY_DEFAULT, 0);
     /*Init network library*/
-    _network = [[BLNetwork alloc] init];
+    _network = [BLNetwork sharedBLNetwork];
     _deviceArray = [[NSMutableArray alloc] init];
     bhkfmdb = [[bhkFMDB alloc]init];
     _Spbtn = [[Spbtn alloc]init];

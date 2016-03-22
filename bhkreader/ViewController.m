@@ -159,8 +159,7 @@
         [dic setObject:@"cancel_easyconfig" forKey:@"command"];
         NSError *error;
         NSData *requestData = [NSJSONSerialization dataWithJSONObject:dic options:NSJSONWritingPrettyPrinted error: &error];
-        NSData *responseData = [_network requestDispatch:requestData];
-        //NSLog(@"%@", [responseData objectFromJSONData]);
+        [_network requestDispatch:requestData];
         [_configurebtn setSelected:NO];
 }
 @end
