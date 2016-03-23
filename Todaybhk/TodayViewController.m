@@ -11,7 +11,7 @@
 #import <SystemConfiguration/CaptiveNetwork.h>
 
 @interface TodayViewController () <NCWidgetProviding>{
-    UILabel *_Wifi;
+
 }
 
 @end
@@ -20,8 +20,7 @@
 
 - (void)viewDidLoad {
     [super viewDidLoad];
-    self.preferredContentSize = CGSizeMake(0, 200);
-    
+    self.Wifi.text = [NSString stringWithFormat:@"当前连接的WiFi：%@",[self getCurrentWiFiSSID]];
 }
 
 - (void)didReceiveMemoryWarning {
@@ -30,12 +29,13 @@
 }
 
 - (void)widgetPerformUpdateWithCompletionHandler:(void (^)(NCUpdateResult))completionHandler {
-    _Wifi = [[UILabel alloc]init];
-    [self.view addSubview:_Wifi];
-    _Wifi.frame = CGRectMake(0, 0, 80, 80);
-    _Wifi.text = [NSString stringWithFormat:@"当前连接的WiFi：%@",[self getCurrentWiFiSSID]];
 
     completionHandler(NCUpdateResultNewData);
+}
+
+- (UIEdgeInsets)widgetMarginInsetsForProposedMarginInsets:(UIEdgeInsets)defaultMarginInsets
+{
+    return UIEdgeInsetsZero;
 }
 
 - (NSString *)getCurrentWiFiSSID
