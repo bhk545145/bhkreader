@@ -10,7 +10,9 @@
 #import <NotificationCenter/NotificationCenter.h>
 #import <SystemConfiguration/CaptiveNetwork.h>
 
-@interface TodayViewController () <NCWidgetProviding>
+@interface TodayViewController () <NCWidgetProviding>{
+    UILabel *_Wifi;
+}
 
 @end
 
@@ -18,7 +20,8 @@
 
 - (void)viewDidLoad {
     [super viewDidLoad];
-    self.Wifi.text = [NSString stringWithFormat:@"当前连接的WiFi：%@",[self getCurrentWiFiSSID]];
+    self.preferredContentSize = CGSizeMake(0, 200);
+    
 }
 
 - (void)didReceiveMemoryWarning {
@@ -27,11 +30,10 @@
 }
 
 - (void)widgetPerformUpdateWithCompletionHandler:(void (^)(NCUpdateResult))completionHandler {
-    // Perform any setup necessary in order to update the view.
-    
-    // If an error is encountered, use NCUpdateResultFailed
-    // If there's no update required, use NCUpdateResultNoData
-    // If there's an update, use NCUpdateResultNewData
+    _Wifi = [[UILabel alloc]init];
+    [self.view addSubview:_Wifi];
+    _Wifi.frame = CGRectMake(0, 0, 80, 80);
+    _Wifi.text = [NSString stringWithFormat:@"当前连接的WiFi：%@",[self getCurrentWiFiSSID]];
 
     completionHandler(NCUpdateResultNewData);
 }

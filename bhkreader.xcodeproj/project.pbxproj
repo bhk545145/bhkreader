@@ -1104,6 +1104,7 @@
 				0273B25D1CA26FE200071F69 /* Release */,
 			);
 			defaultConfigurationIsVisible = 0;
+			defaultConfigurationName = Release;
 		};
 		3AC8184F1BE8917000D195F6 /* Build configuration list for PBXProject "bhkreader" */ = {
 			isa = XCConfigurationList;

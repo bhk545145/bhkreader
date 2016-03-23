@@ -10,5 +10,5 @@
 
 @interface TodayViewController : UIViewController
 
-@property (weak, nonatomic) IBOutlet UILabel *Wifi;
+
 @end
