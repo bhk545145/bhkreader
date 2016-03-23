@@ -7,6 +7,10 @@
 	objects = {
 
 /* Begin PBXBuildFile section */
+		0273B24F1CA26FE100071F69 /* NotificationCenter.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 0273B2221CA2563900071F69 /* NotificationCenter.framework */; };
+		0273B2551CA26FE100071F69 /* TodayViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 0273B2541CA26FE100071F69 /* TodayViewController.m */; };
+		0273B2571CA26FE100071F69 /* MainInterface.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 0273B2561CA26FE100071F69 /* MainInterface.storyboard */; };
+		0273B25A1CA26FE100071F69 /* Todaybhk.appex in Embed App Extensions */ = {isa = PBXBuildFile; fileRef = 0273B24E1CA26FE100071F69 /* Todaybhk.appex */; settings = {ATTRIBUTES = (RemoveHeadersOnCopy, ); }; };
 		02910B901C1DD2E4001833C7 /* libsqlite3.dylib in Frameworks */ = {isa = PBXBuildFile; fileRef = 02910B8F1C1DD2E4001833C7 /* libsqlite3.dylib */; };
 		02935ADA1C17273F00C855F2 /* bhkFMDB.m in Sources */ = {isa = PBXBuildFile; fileRef = 02935AD91C17273F00C855F2 /* bhkFMDB.m */; };
 		029CBF521C7750010012E442 /* Rm2data.m in Sources */ = {isa = PBXBuildFile; fileRef = 029CBF511C7750010012E442 /* Rm2data.m */; };
@@ -72,6 +76,13 @@
 /* End PBXBuildFile section */
 
 /* Begin PBXContainerItemProxy section */
+		0273B2581CA26FE100071F69 /* PBXContainerItemProxy */ = {
+			isa = PBXContainerItemProxy;
+			containerPortal = 3AC8184C1BE8917000D195F6 /* Project object */;
+			proxyType = 1;
+			remoteGlobalIDString = 0273B24D1CA26FE100071F69;
+			remoteInfo = Todaybhk;
+		};
 		3AC8186E1BE8917000D195F6 /* PBXContainerItemProxy */ = {
 			isa = PBXContainerItemProxy;
 			containerPortal = 3AC8184C1BE8917000D195F6 /* Project object */;
@@ -81,7 +92,27 @@
 		};
 /* End PBXContainerItemProxy section */
 
+/* Begin PBXCopyFilesBuildPhase section */
+		0273B2321CA2563900071F69 /* Embed App Extensions */ = {
+			isa = PBXCopyFilesBuildPhase;
+			buildActionMask = 2147483647;
+			dstPath = "";
+			dstSubfolderSpec = 13;
+			files = (
+				0273B25A1CA26FE100071F69 /* Todaybhk.appex in Embed App Extensions */,
+			);
+			name = "Embed App Extensions";
+			runOnlyForDeploymentPostprocessing = 0;
+		};
+/* End PBXCopyFilesBuildPhase section */
+
 /* Begin PBXFileReference section */
+		0273B2221CA2563900071F69 /* NotificationCenter.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = NotificationCenter.framework; path = System/Library/Frameworks/NotificationCenter.framework; sourceTree = SDKROOT; };
+		0273B24E1CA26FE100071F69 /* Todaybhk.appex */ = {isa = PBXFileReference; explicitFileType = "wrapper.app-extension"; includeInIndex = 0; path = Todaybhk.appex; sourceTree = BUILT_PRODUCTS_DIR; };
+		0273B2521CA26FE100071F69 /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
+		0273B2531CA26FE100071F69 /* TodayViewController.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = TodayViewController.h; sourceTree = "<group>"; };
+		0273B2541CA26FE100071F69 /* TodayViewController.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = TodayViewController.m; sourceTree = "<group>"; };
+		0273B2561CA26FE100071F69 /* MainInterface.storyboard */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; path = MainInterface.storyboard; sourceTree = "<group>"; };
 		02910B8F1C1DD2E4001833C7 /* libsqlite3.dylib */ = {isa = PBXFileReference; lastKnownFileType = "compiled.mach-o.dylib"; name = libsqlite3.dylib; path = ../libsqlite3.dylib; sourceTree = "<group>"; };
 		02935AD81C17273F00C855F2 /* bhkFMDB.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; name = bhkFMDB.h; path = 3rd/bhkFMDB.h; sourceTree = "<group>"; };
 		02935AD91C17273F00C855F2 /* bhkFMDB.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; name = bhkFMDB.m; path = 3rd/bhkFMDB.m; sourceTree = "<group>"; };
@@ -208,6 +239,14 @@
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
+		0273B24B1CA26FE100071F69 /* Frameworks */ = {
+			isa = PBXFrameworksBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+				0273B24F1CA26FE100071F69 /* NotificationCenter.framework in Frameworks */,
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+		};
 		3AC818511BE8917000D195F6 /* Frameworks */ = {
 			isa = PBXFrameworksBuildPhase;
 			buildActionMask = 2147483647;
@@ -228,6 +267,33 @@
 /* End PBXFrameworksBuildPhase section */
 
 /* Begin PBXGroup section */
+		0273B2211CA2563900071F69 /* Frameworks */ = {
+			isa = PBXGroup;
+			children = (
+				0273B2221CA2563900071F69 /* NotificationCenter.framework */,
+			);
+			name = Frameworks;
+			sourceTree = "<group>";
+		};
+		0273B2501CA26FE100071F69 /* Todaybhk */ = {
+			isa = PBXGroup;
+			children = (
+				0273B2531CA26FE100071F69 /* TodayViewController.h */,
+				0273B2541CA26FE100071F69 /* TodayViewController.m */,
+				0273B2561CA26FE100071F69 /* MainInterface.storyboard */,
+				0273B2511CA26FE100071F69 /* Supporting Files */,
+			);
+			path = Todaybhk;
+			sourceTree = "<group>";
+		};
+		0273B2511CA26FE100071F69 /* Supporting Files */ = {
+			isa = PBXGroup;
+			children = (
+				0273B2521CA26FE100071F69 /* Info.plist */,
+			);
+			name = "Supporting Files";
+			sourceTree = "<group>";
+		};
 		02D9946F1C96EB5C007D6E2F /* ASProgressPopUpView */ = {
 			isa = PBXGroup;
 			children = (
@@ -425,6 +491,8 @@
 			children = (
 				3AC818561BE8917000D195F6 /* bhkreader */,
 				3AC818701BE8917000D195F6 /* bhkreaderTests */,
+				0273B2501CA26FE100071F69 /* Todaybhk */,
+				0273B2211CA2563900071F69 /* Frameworks */,
 				3AC818551BE8917000D195F6 /* Products */,
 			);
 			sourceTree = "<group>";
@@ -434,6 +502,7 @@
 			children = (
 				3AC818541BE8917000D195F6 /* bhkreader.app */,
 				3AC8186D1BE8917000D195F6 /* bhkreaderTests.xctest */,
+				0273B24E1CA26FE100071F69 /* Todaybhk.appex */,
 			);
 			name = Products;
 			sourceTree = "<group>";
@@ -445,9 +514,9 @@
 				3AC8185C1BE8917000D195F6 /* AppDelegate.m */,
 				3A9DDFF51C11740C001FFDEE /* leftview */,
 				3A7B33921BE8E43F001D59AF /* Main */,
+				3A9EF4051BE8D50400F21DD2 /* lib */,
 				3AC818611BE8917000D195F6 /* Main.storyboard */,
 				3AC818641BE8917000D195F6 /* Images.xcassets */,
-				3A9EF4051BE8D50400F21DD2 /* lib */,
 				3AC818571BE8917000D195F6 /* Supporting Files */,
 			);
 			path = bhkreader;
@@ -594,6 +663,23 @@
 /* End PBXGroup section */
 
 /* Begin PBXNativeTarget section */
+		0273B24D1CA26FE100071F69 /* Todaybhk */ = {
+			isa = PBXNativeTarget;
+			buildConfigurationList = 0273B25B1CA26FE200071F69 /* Build configuration list for PBXNativeTarget "Todaybhk" */;
+			buildPhases = (
+				0273B24A1CA26FE100071F69 /* Sources */,
+				0273B24B1CA26FE100071F69 /* Frameworks */,
+				0273B24C1CA26FE100071F69 /* Resources */,
+			);
+			buildRules = (
+			);
+			dependencies = (
+			);
+			name = Todaybhk;
+			productName = Todaybhk;
+			productReference = 0273B24E1CA26FE100071F69 /* Todaybhk.appex */;
+			productType = "com.apple.product-type.app-extension";
+		};
 		3AC818531BE8917000D195F6 /* bhkreader */ = {
 			isa = PBXNativeTarget;
 			buildConfigurationList = 3AC818771BE8917000D195F6 /* Build configuration list for PBXNativeTarget "bhkreader" */;
@@ -601,10 +687,12 @@
 				3AC818501BE8917000D195F6 /* Sources */,
 				3AC818511BE8917000D195F6 /* Frameworks */,
 				3AC818521BE8917000D195F6 /* Resources */,
+				0273B2321CA2563900071F69 /* Embed App Extensions */,
 			);
 			buildRules = (
 			);
 			dependencies = (
+				0273B2591CA26FE100071F69 /* PBXTargetDependency */,
 			);
 			name = bhkreader;
 			productName = bhkreader;
@@ -638,6 +726,9 @@
 				LastUpgradeCheck = 0710;
 				ORGANIZATIONNAME = bai;
 				TargetAttributes = {
+					0273B24D1CA26FE100071F69 = {
+						CreatedOnToolsVersion = 6.4;
+					};
 					3AC818531BE8917000D195F6 = {
 						CreatedOnToolsVersion = 6.2;
 					};
@@ -662,11 +753,20 @@
 			targets = (
 				3AC818531BE8917000D195F6 /* bhkreader */,
 				3AC8186C1BE8917000D195F6 /* bhkreaderTests */,
+				0273B24D1CA26FE100071F69 /* Todaybhk */,
 			);
 		};
 /* End PBXProject section */
 
 /* Begin PBXResourcesBuildPhase section */
+		0273B24C1CA26FE100071F69 /* Resources */ = {
+			isa = PBXResourcesBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+				0273B2571CA26FE100071F69 /* MainInterface.storyboard in Resources */,
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+		};
 		3AC818521BE8917000D195F6 /* Resources */ = {
 			isa = PBXResourcesBuildPhase;
 			buildActionMask = 2147483647;
@@ -688,6 +788,14 @@
 /* End PBXResourcesBuildPhase section */
 
 /* Begin PBXSourcesBuildPhase section */
+		0273B24A1CA26FE100071F69 /* Sources */ = {
+			isa = PBXSourcesBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+				0273B2551CA26FE100071F69 /* TodayViewController.m in Sources */,
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+		};
 		3AC818501BE8917000D195F6 /* Sources */ = {
 			isa = PBXSourcesBuildPhase;
 			buildActionMask = 2147483647;
@@ -760,6 +868,11 @@
 /* End PBXSourcesBuildPhase section */
 
 /* Begin PBXTargetDependency section */
+		0273B2591CA26FE100071F69 /* PBXTargetDependency */ = {
+			isa = PBXTargetDependency;
+			target = 0273B24D1CA26FE100071F69 /* Todaybhk */;
+			targetProxy = 0273B2581CA26FE100071F69 /* PBXContainerItemProxy */;
+		};
 		3AC8186F1BE8917000D195F6 /* PBXTargetDependency */ = {
 			isa = PBXTargetDependency;
 			target = 3AC818531BE8917000D195F6 /* bhkreader */;
@@ -779,6 +892,40 @@
 /* End PBXVariantGroup section */
 
 /* Begin XCBuildConfiguration section */
+		0273B25C1CA26FE200071F69 /* Debug */ = {
+			isa = XCBuildConfiguration;
+			buildSettings = {
+				CLANG_WARN_DIRECT_OBJC_ISA_USAGE = YES_ERROR;
+				CODE_SIGN_IDENTITY = "iPhone Developer";
+				"CODE_SIGN_IDENTITY[sdk=iphoneos*]" = "iPhone Developer";
+				DEBUG_INFORMATION_FORMAT = "dwarf-with-dsym";
+				GCC_NO_COMMON_BLOCKS = YES;
+				GCC_PREPROCESSOR_DEFINITIONS = (
+					"DEBUG=1",
+					"$(inherited)",
+				);
+				INFOPLIST_FILE = Todaybhk/Info.plist;
+				LD_RUNPATH_SEARCH_PATHS = "$(inherited) @executable_path/Frameworks @executable_path/../../Frameworks";
+				PRODUCT_NAME = "$(TARGET_NAME)";
+				SKIP_INSTALL = YES;
+			};
+			name = Debug;
+		};
+		0273B25D1CA26FE200071F69 /* Release */ = {
+			isa = XCBuildConfiguration;
+			buildSettings = {
+				CLANG_WARN_DIRECT_OBJC_ISA_USAGE = YES_ERROR;
+				CODE_SIGN_IDENTITY = "iPhone Developer";
+				"CODE_SIGN_IDENTITY[sdk=iphoneos*]" = "iPhone Developer";
+				DEBUG_INFORMATION_FORMAT = "dwarf-with-dsym";
+				GCC_NO_COMMON_BLOCKS = YES;
+				INFOPLIST_FILE = Todaybhk/Info.plist;
+				LD_RUNPATH_SEARCH_PATHS = "$(inherited) @executable_path/Frameworks @executable_path/../../Frameworks";
+				PRODUCT_NAME = "$(TARGET_NAME)";
+				SKIP_INSTALL = YES;
+			};
+			name = Release;
+		};
 		3AC818751BE8917000D195F6 /* Debug */ = {
 			isa = XCBuildConfiguration;
 			buildSettings = {
@@ -950,6 +1097,14 @@
 /* End XCBuildConfiguration section */
 
 /* Begin XCConfigurationList section */
+		0273B25B1CA26FE200071F69 /* Build configuration list for PBXNativeTarget "Todaybhk" */ = {
+			isa = XCConfigurationList;
+			buildConfigurations = (
+				0273B25C1CA26FE200071F69 /* Debug */,
+				0273B25D1CA26FE200071F69 /* Release */,
+			);
+			defaultConfigurationIsVisible = 0;
+		};
 		3AC8184F1BE8917000D195F6 /* Build configuration list for PBXProject "bhkreader" */ = {
 			isa = XCConfigurationList;
 			buildConfigurations = (

@@ -2,12 +2,13 @@
   "images" : [
     {
       "idiom" : "universal",
-      "filename" : "SP2.jpg",
-      "scale" : "1x"
+      "scale" : "1x",
+      "filename" : "SP2.jpg"
     },
     {
       "idiom" : "universal",
-      "scale" : "2x"
+      "scale" : "2x",
+      "filename" : "SP2-1.jpg"
     },
     {
       "idiom" : "universal",

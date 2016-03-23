@@ -91,11 +91,11 @@
     //======RM======
         //rm2学习按钮
         rm2btn = [Rm2btn buttonWithType:UIButtonTypeRoundedRect];
-        rm2btn.frame = CGRectMake(30, 100, 60, 60);
+        rm2btn.frame = CGRectMake(30, 100, 59, 59);
 
         //rm2发射按钮
         rm2sendbtn = [Rm2btn buttonWithType:UIButtonTypeRoundedRect];
-        rm2sendbtn.frame = CGRectMake(180, 100, 60, 60);
+        rm2sendbtn.frame = CGRectMake(180, 100, 59, 59);
         [topview addSubview:rm2sendbtn];
         //data数据框
         datalab = [[UILabel alloc]init];
@@ -105,11 +105,11 @@
         [topview addSubview:datalab];
         //rmplusIR学习按钮
         rmplusIRbtn = [Rm2btn buttonWithType:UIButtonTypeRoundedRect];
-        rmplusIRbtn.frame = CGRectMake(30, 100, 60, 60);
+        rmplusIRbtn.frame = CGRectMake(30, 100, 59, 59);
         
         //rmplusRF学习按钮
         rmplusRFbtn = [Rm2btn buttonWithType:UIButtonTypeRoundedRect];
-        rmplusRFbtn.frame = CGRectMake(120, 100, 60, 60);
+        rmplusRFbtn.frame = CGRectMake(120, 100, 59, 59);
         
     //======A1=======
         //temperature
@@ -194,6 +194,7 @@
     } completion:^(BOOL finished) {
         [topview removeFromSuperview];
         [backgroundView removeFromSuperview];
+        [self removeFromSuperview];
     }];
 }
 //当用户按下return键或者按回车键，keyboard消失
