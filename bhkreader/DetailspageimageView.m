@@ -162,6 +162,8 @@
         [rmplusIRbtn setBackgroundImage:@"rmplusIRbtn" forState:UIControlStateNormal mac:_BLDeviceinfo.mac];
         [rmplusRFbtn setBackgroundImage:@"rmplusRFbtn" forState:UIControlStateNormal mac:_BLDeviceinfo.mac];
         [rm2sendbtn setBackgroundImage:@"rm2sendbtn" forState:UIControlStateNormal mac:_BLDeviceinfo.mac];
+        datalab.text = [rm2data codesetmac:_BLDeviceinfo.mac];
+        [[NSNotificationCenter defaultCenter] addObserver:self selector:@selector(datalabcode:) name:@"datalab" object:nil];
     }
 }
 

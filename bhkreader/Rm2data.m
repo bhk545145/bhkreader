@@ -33,7 +33,7 @@
     BLSDKTool *sdktool = [BLSDKTool responseDatatoapiid:132 command:@"rm2_study" mac:mac];
     if (sdktool.code == 0) {
             NSString *data = @"";
-            int time = 300;
+            int time = 1000;
             while ([data  isEqual: @""]) {
                 time = time - 1;
                 if (time < 0) {
@@ -61,7 +61,7 @@
     BLSDKTool *sdktool = [BLSDKTool responseDatatoapiid:137 command:@"rmpro_freq_scan_study" mac:mac];
     if (sdktool.code == 0) {
         NSString *data = @"";
-        int time = 3000;
+        int time = 1000;
         while ([data  isEqual: @""]) {
             time = time - 1;
             if (time < 0) {
@@ -94,10 +94,11 @@
 
 - (void)rmplussRFstatussetmac:(NSString *)mac{
     BLSDKTool *sdktool = [BLSDKTool responseDatatoapiid:136 command:@"rmpro_freq_scan_status" mac:mac];
-    int time = 300;
+    int time = 1000;
     while (sdktool.code == 0) {
-        BLSDKTool *sdktool = [BLSDKTool responseDatatoapiid:136 command:@"rmpro_freq_scan_status" mac:mac];
+        sdktool = [BLSDKTool responseDatatoapiid:136 command:@"rmpro_freq_scan_status" mac:mac];
         time = time - 1;
+        NSLog(@"%d",sdktool.code);
         if (time < 0) {
             dispatch_async(dispatch_get_main_queue(), ^{
                 [MBProgressHUD hideHUD];
@@ -106,20 +107,19 @@
             [self rmplusscancelstudysetmac:mac];
             break;
         }
-        if (sdktool.code == 1) {
-            dispatch_async(dispatch_get_main_queue(), ^{
-                [MBProgressHUD hideHUD];
-            });
-            [self rmplussIRstudysetmac:mac];
-            break;
-        }else if (sdktool.code == 4){
-            dispatch_async(dispatch_get_main_queue(), ^{
-                [MBProgressHUD hideHUD];
-                [MBProgressHUD showError:@"扫频失败"];
-            });
-            [self rmplusscancelstudysetmac:mac];
-            break;
-        }
+    }
+    sdktool = [BLSDKTool responseDatatoapiid:136 command:@"rmpro_freq_scan_status" mac:mac];
+    if (sdktool.code == 1) {
+        dispatch_async(dispatch_get_main_queue(), ^{
+            [MBProgressHUD hideHUD];
+        });
+        [self rmplussIRstudysetmac:mac];
+    }else if (sdktool.code == 4){
+        dispatch_async(dispatch_get_main_queue(), ^{
+            [MBProgressHUD hideHUD];
+            [MBProgressHUD showError:@"扫频失败"];
+        });
+        [self rmplusscancelstudysetmac:mac];
     }
 }
 

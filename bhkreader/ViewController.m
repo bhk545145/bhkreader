@@ -97,7 +97,7 @@
     getCurrentWiFiSSID *ssid = [[getCurrentWiFiSSID alloc]init];
     _wififield.text = [ssid getCurrentWiFiSSID];
     _passwordfield.text = [bhkfmdb getwifi:_wififield.text];
-    _dstfield.text = @"192.168.1.1";
+    _dstfield.text = @"192.168.11.1";
 }
 
 - (void)configButtonClicked:(UIButton *)button
@@ -120,7 +120,7 @@
     NSString *dst = _dstfield.text;
     UIView *progressview = [[UIView alloc]initWithFrame:CGRectMake(60, 320, 200, 100)];
     [self.view addSubview:progressview];
-    [MBProgressHUD showMessage:@"正在配置中....." toView:progressview];
+    MBProgressHUD *hud = [MBProgressHUD showMessage:@"正在配置中....." toView:progressview];
     dispatch_async(dispatch_get_global_queue(DISPATCH_QUEUE_PRIORITY_DEFAULT, 0), ^{
         NSMutableDictionary *dic = [[NSMutableDictionary alloc] init];
         [dic setObject:[NSNumber numberWithInt:10000] forKey:@"api_id"];
@@ -131,14 +131,11 @@
         NSError *error;
         NSData *requestData = [NSJSONSerialization dataWithJSONObject:dic options:NSJSONWritingPrettyPrinted error: &error];
         NSData *responseData = [_network requestDispatch:requestData];
-        NSLog(@"%@", [responseData objectFromJSONData]);
+        //NSLog(@"%@", [responseData objectFromJSONData]);
         dispatch_async(dispatch_get_main_queue(), ^{
             [_configurebtn setSelected:NO];
             // 移除HUD
-            [MBProgressHUD hideHUD];
-            [progressview removeFromSuperview];
-            UIView *progressview = [[UIView alloc]initWithFrame:CGRectMake(60, 270, 200, 100)];
-            [self.view addSubview:progressview];
+            [hud hide:YES];
             if([[[responseData objectFromJSONData] objectForKey:@"code"] intValue] == 0){
                 [MBProgressHUD showSuccess:@"配置成功" toView:progressview];
             }else if ([[[responseData objectFromJSONData] objectForKey:@"code"] intValue] == 1){

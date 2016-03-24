@@ -12,6 +12,7 @@
 #import "bhkCommon.h"
 #import "UIImage+MJ.h"
 #import "SplistInfo.h"
+#import "UIImageView+WebCache.h"
 
 #define kCellBorder 10
 #define kimageW 40

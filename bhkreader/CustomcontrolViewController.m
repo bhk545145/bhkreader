@@ -69,9 +69,9 @@
     _sdkparameter.frame = CGRectMake(30, 200, 65, 30);
     _sdkparameter.backgroundColor = [UIColor grayColor];
     
-    _apiid.text = @"71";
-    _command.text = @"sp2_refresh";
-    _mac.text = @"b4:43:0d:95:be:ad";
+    _apiid.text = @"82";
+    _command.text = @"sp3_refresh";
+    _mac.text = @"b4:43:0d:c3:7a:af";
     _apiid.delegate = self;
     _command.delegate = self;
     _mac.delegate = self;
