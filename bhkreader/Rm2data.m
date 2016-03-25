@@ -33,7 +33,7 @@
     BLSDKTool *sdktool = [BLSDKTool responseDatatoapiid:132 command:@"rm2_study" mac:mac];
     if (sdktool.code == 0) {
             NSString *data = @"";
-            int time = 1000;
+            int time = 300;
             while ([data  isEqual: @""]) {
                 time = time - 1;
                 if (time < 0) {
@@ -61,7 +61,7 @@
     BLSDKTool *sdktool = [BLSDKTool responseDatatoapiid:137 command:@"rmpro_freq_scan_study" mac:mac];
     if (sdktool.code == 0) {
         NSString *data = @"";
-        int time = 1000;
+        int time = 300;
         while ([data  isEqual: @""]) {
             time = time - 1;
             if (time < 0) {
@@ -94,11 +94,10 @@
 
 - (void)rmplussRFstatussetmac:(NSString *)mac{
     BLSDKTool *sdktool = [BLSDKTool responseDatatoapiid:136 command:@"rmpro_freq_scan_status" mac:mac];
-    int time = 1000;
+    int time = 300;
     while (sdktool.code == 0) {
         sdktool = [BLSDKTool responseDatatoapiid:136 command:@"rmpro_freq_scan_status" mac:mac];
         time = time - 1;
-        NSLog(@"%d",sdktool.code);
         if (time < 0) {
             dispatch_async(dispatch_get_main_queue(), ^{
                 [MBProgressHUD hideHUD];
@@ -107,20 +106,21 @@
             [self rmplusscancelstudysetmac:mac];
             break;
         }
+        if (sdktool.code == 1) {
+            dispatch_async(dispatch_get_main_queue(), ^{
+                [MBProgressHUD hideHUD];
+                [MBProgressHUD showSuccess:@"确认频点后学习"];
+            });
+            [self rmplussIRstudysetmac:mac];
+        }else if (sdktool.code == 4){
+            dispatch_async(dispatch_get_main_queue(), ^{
+                [MBProgressHUD hideHUD];
+                [MBProgressHUD showError:@"扫频失败"];
+            });
+            [self rmplusscancelstudysetmac:mac];
+        }
     }
-    sdktool = [BLSDKTool responseDatatoapiid:136 command:@"rmpro_freq_scan_status" mac:mac];
-    if (sdktool.code == 1) {
-        dispatch_async(dispatch_get_main_queue(), ^{
-            [MBProgressHUD hideHUD];
-        });
-        [self rmplussIRstudysetmac:mac];
-    }else if (sdktool.code == 4){
-        dispatch_async(dispatch_get_main_queue(), ^{
-            [MBProgressHUD hideHUD];
-            [MBProgressHUD showError:@"扫频失败"];
-        });
-        [self rmplusscancelstudysetmac:mac];
-    }
+    
 }
 
 - (void)rmplusscancelstudysetmac:(NSString *)mac{
