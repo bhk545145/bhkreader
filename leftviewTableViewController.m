@@ -24,6 +24,7 @@
     [super viewDidLoad];
     self.title = @"工具";
     _array1 = @[@"一键配置",@"自定义"];
+    [self setExtraCellLineHidden:self.tableView];
 }
 
 - (void)didReceiveMemoryWarning {
@@ -59,7 +60,14 @@
     }
 }
 
-
+/*该方法仅为了解决UITableView多余的分割线*/
+- (void)setExtraCellLineHidden:(UITableView *)tableView
+{
+    UIView *view = [UIView new];
+    view.backgroundColor = [UIColor clearColor];
+    [tableView setTableFooterView:view];
+    [tableView setTableHeaderView:view];
+}
 
 
 @end
