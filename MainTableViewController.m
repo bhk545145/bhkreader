@@ -28,18 +28,25 @@
     dispatch_queue_t queue;
     int cellhight;
     bhkFMDB *bhkfmdb;
-    Spbtn *_Spbtn;
 }
 
 @property (nonatomic,strong) NSMutableArray *deviceArray;
 @property (nonatomic,strong) BLNetwork *network;
 @property (nonatomic,strong) NSTimer *timer;
+@property (nonatomic,strong) Spbtn *Spbtn;
 
 
 
 @end
 
 @implementation MainTableViewController
+
+-(void)dealloc{
+    [self setDeviceArray:nil];
+    [self setNetwork:nil];
+    [self setTimer:nil];
+    [self setSpbtn:nil];
+}
 
 - (void)viewDidLoad {
     [super viewDidLoad];
@@ -75,7 +82,6 @@
 }
 
 
-
 - (void)startTimer{
     //每1秒刷新一次
     self.timer = [NSTimer scheduledTimerWithTimeInterval:5 target:self selector:@selector(refreshDeviceList) userInfo:nil repeats:YES];
@@ -97,6 +103,7 @@
 }
 
 - (void)viewWillAppear:(BOOL)animated{
+    [super viewWillAppear:animated];
     //网络初始化
     [self networkInit];
 }
@@ -422,7 +429,4 @@ return locaIP;
     return a1list;
 }
 
-- (void)dealloc{
-   
-}
 @end

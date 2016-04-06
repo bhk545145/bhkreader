@@ -17,7 +17,7 @@
 #define kCellBorder 10
 #define kimageW 40
 #define kimageH 40
-@interface DeviceCell(){
+@interface DeviceCell()<SpbtnDelegate>{
     UIImageView *_backimage;
     UIImageView *_deviceimage;
     UILabel *_mac;
@@ -69,6 +69,7 @@
         _status = [[UILabel alloc]init];
         [self.contentView addSubview:_status];
         _spbtn = [[Spbtn alloc]init];
+        _spbtn.delegate = self;
         [self.contentView addSubview:_spbtn];
         _rmtemperature = [[UILabel alloc]init];
         [self.contentView addSubview:_rmtemperature];
@@ -86,7 +87,9 @@
     return self;
 }
 
-
+-(void)DoSometing{
+    NSLog(@"按钮被点击了");
+}
 -(void)setBLDeviceinfo:(BLDeviceInfo *)BLDeviceinfo{
     _BLDeviceinfo = BLDeviceinfo;
 //设置数据

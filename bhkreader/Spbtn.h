@@ -7,9 +7,12 @@
 //
 
 #import <UIKit/UIKit.h>
+@protocol  SpbtnDelegate <NSObject>
+-(void)DoSometing;
+@end
 
 @interface Spbtn : UIButton
-
+@property(assign,nonatomic) id<SpbtnDelegate> delegate;
 - (void)setTitle:(NSString *)title forState:(UIControlState)state mac:(NSString *)mac;
 - (NSDictionary *)Sprefresh:(NSString *)mac apiid:(int)apiid;
 @end

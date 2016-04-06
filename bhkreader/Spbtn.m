@@ -52,6 +52,7 @@
 //操作SP开关
 - (void)stateButtonClicked:(UIButton *)button
 {
+    [self.delegate DoSometing];
     int status = !button.isSelected;
     if ([button.titleLabel.text isEqualToString:@"ON"]) {
         status = 0;
@@ -84,6 +85,7 @@
             //TODO;
         }
     });
+    
 }
 //获取SP开关状态
 - (NSDictionary *)Sprefresh:(NSString *)mac apiid:(int)apiid{
