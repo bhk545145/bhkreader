@@ -8,7 +8,7 @@
 
 #import <UIKit/UIKit.h>
 @protocol  SpbtnDelegate <NSObject>
--(void)DoSometing;
+-(void)DoSometing:(UIButton *)button;
 @end
 
 @interface Spbtn : UIButton

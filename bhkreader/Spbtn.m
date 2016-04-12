@@ -52,7 +52,7 @@
 //操作SP开关
 - (void)stateButtonClicked:(UIButton *)button
 {
-    [self.delegate DoSometing];
+    [self.delegate DoSometing:button];
     int status = !button.isSelected;
     if ([button.titleLabel.text isEqualToString:@"ON"]) {
         status = 0;

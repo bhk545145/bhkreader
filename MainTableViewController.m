@@ -333,7 +333,7 @@
     NSData *requestData = [NSJSONSerialization dataWithJSONObject:dic options:NSJSONWritingPrettyPrinted error: &error];
     dispatch_async(networkQueue, ^{
     NSData *responseData = [_network requestDispatch:requestData];
-    //NSLog(@"线程%d",[[[responseData objectFromJSONData] objectForKey:@"code"]intValue]);
+    //NSLog(@"%d",[[[responseData objectFromJSONData] objectForKey:@"code"]intValue]);
     if ([[[responseData objectFromJSONData] objectForKey:@"code"] intValue] == 0)
     {
         dispatch_async(dispatch_get_main_queue(), ^{

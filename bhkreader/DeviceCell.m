@@ -87,8 +87,12 @@
     return self;
 }
 
--(void)DoSometing{
-    NSLog(@"按钮被点击了");
+-(void)DoSometing:(UIButton *)button{
+    if ([button.titleLabel.text isEqual: @"ON"]) {
+        _type.textColor = [UIColor redColor];
+    }else{
+        _type.textColor = [UIColor blackColor];
+    }
 }
 -(void)setBLDeviceinfo:(BLDeviceInfo *)BLDeviceinfo{
     _BLDeviceinfo = BLDeviceinfo;
