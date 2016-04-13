@@ -4,10 +4,15 @@
 <dict>
 	<key>SchemeUserState</key>
 	<dict>
-		<key>Todaybhk.xcscheme</key>
+		<key>123.xcscheme</key>
 		<dict>
 			<key>orderHint</key>
 			<integer>2</integer>
+		</dict>
+		<key>Todaybhk.xcscheme</key>
+		<dict>
+			<key>orderHint</key>
+			<integer>1</integer>
 		</dict>
 		<key>bhkreader.xcscheme</key>
 		<dict>
@@ -28,6 +33,11 @@
 			<true/>
 		</dict>
 		<key>0273B24D1CA26FE100071F69</key>
+		<dict>
+			<key>primary</key>
+			<true/>
+		</dict>
+		<key>02F56BD21CBEA211005E80E9</key>
 		<dict>
 			<key>primary</key>
 			<true/>
