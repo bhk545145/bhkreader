@@ -7,6 +7,7 @@
 	objects = {
 
 /* Begin PBXBuildFile section */
+		020361621CC1E2C50092A5D7 /* Todaybhk.appex in Embed App Extensions */ = {isa = PBXBuildFile; fileRef = 0273B24E1CA26FE100071F69 /* Todaybhk.appex */; settings = {ATTRIBUTES = (RemoveHeadersOnCopy, ); }; };
 		022F9EF91CA41BD500153FAF /* MKAnnotationView+WebCache.m in Sources */ = {isa = PBXBuildFile; fileRef = 022F9ED91CA41BD500153FAF /* MKAnnotationView+WebCache.m */; };
 		022F9EFA1CA41BD500153FAF /* NSData+ImageContentType.m in Sources */ = {isa = PBXBuildFile; fileRef = 022F9EDB1CA41BD500153FAF /* NSData+ImageContentType.m */; };
 		022F9EFB1CA41BD500153FAF /* SDImageCache.m in Sources */ = {isa = PBXBuildFile; fileRef = 022F9EDD1CA41BD500153FAF /* SDImageCache.m */; };
@@ -26,7 +27,6 @@
 		0273B24F1CA26FE100071F69 /* NotificationCenter.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 0273B2221CA2563900071F69 /* NotificationCenter.framework */; };
 		0273B2551CA26FE100071F69 /* TodayViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 0273B2541CA26FE100071F69 /* TodayViewController.m */; };
 		0273B2571CA26FE100071F69 /* MainInterface.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 0273B2561CA26FE100071F69 /* MainInterface.storyboard */; };
-		0273B25A1CA26FE100071F69 /* Todaybhk.appex in Embed App Extensions */ = {isa = PBXBuildFile; fileRef = 0273B24E1CA26FE100071F69 /* Todaybhk.appex */; settings = {ATTRIBUTES = (RemoveHeadersOnCopy, ); }; };
 		02910B901C1DD2E4001833C7 /* libsqlite3.dylib in Frameworks */ = {isa = PBXBuildFile; fileRef = 02910B8F1C1DD2E4001833C7 /* libsqlite3.dylib */; };
 		02935ADA1C17273F00C855F2 /* bhkFMDB.m in Sources */ = {isa = PBXBuildFile; fileRef = 02935AD91C17273F00C855F2 /* bhkFMDB.m */; };
 		029CBF521C7750010012E442 /* Rm2data.m in Sources */ = {isa = PBXBuildFile; fileRef = 029CBF511C7750010012E442 /* Rm2data.m */; };
@@ -92,7 +92,7 @@
 /* End PBXBuildFile section */
 
 /* Begin PBXContainerItemProxy section */
-		0273B2581CA26FE100071F69 /* PBXContainerItemProxy */ = {
+		020361631CC1E2C50092A5D7 /* PBXContainerItemProxy */ = {
 			isa = PBXContainerItemProxy;
 			containerPortal = 3AC8184C1BE8917000D195F6 /* Project object */;
 			proxyType = 1;
@@ -109,13 +109,13 @@
 /* End PBXContainerItemProxy section */
 
 /* Begin PBXCopyFilesBuildPhase section */
-		0273B2321CA2563900071F69 /* Embed App Extensions */ = {
+		020361651CC1E2C50092A5D7 /* Embed App Extensions */ = {
 			isa = PBXCopyFilesBuildPhase;
 			buildActionMask = 2147483647;
 			dstPath = "";
 			dstSubfolderSpec = 13;
 			files = (
-				0273B25A1CA26FE100071F69 /* Todaybhk.appex in Embed App Extensions */,
+				020361621CC1E2C50092A5D7 /* Todaybhk.appex in Embed App Extensions */,
 			);
 			name = "Embed App Extensions";
 			runOnlyForDeploymentPostprocessing = 0;
@@ -778,12 +778,12 @@
 				3AC818501BE8917000D195F6 /* Sources */,
 				3AC818511BE8917000D195F6 /* Frameworks */,
 				3AC818521BE8917000D195F6 /* Resources */,
-				0273B2321CA2563900071F69 /* Embed App Extensions */,
+				020361651CC1E2C50092A5D7 /* Embed App Extensions */,
 			);
 			buildRules = (
 			);
 			dependencies = (
-				0273B2591CA26FE100071F69 /* PBXTargetDependency */,
+				020361641CC1E2C50092A5D7 /* PBXTargetDependency */,
 			);
 			name = bhkreader;
 			productName = bhkreader;
@@ -986,10 +986,10 @@
 /* End PBXSourcesBuildPhase section */
 
 /* Begin PBXTargetDependency section */
-		0273B2591CA26FE100071F69 /* PBXTargetDependency */ = {
+		020361641CC1E2C50092A5D7 /* PBXTargetDependency */ = {
 			isa = PBXTargetDependency;
 			target = 0273B24D1CA26FE100071F69 /* Todaybhk */;
-			targetProxy = 0273B2581CA26FE100071F69 /* PBXContainerItemProxy */;
+			targetProxy = 020361631CC1E2C50092A5D7 /* PBXContainerItemProxy */;
 		};
 		3AC8186F1BE8917000D195F6 /* PBXTargetDependency */ = {
 			isa = PBXTargetDependency;
@@ -1024,6 +1024,7 @@
 				);
 				INFOPLIST_FILE = Todaybhk/Info.plist;
 				LD_RUNPATH_SEARCH_PATHS = "$(inherited) @executable_path/Frameworks @executable_path/../../Frameworks";
+				PRODUCT_BUNDLE_IDENTIFIER = cn.com.broadlink.bhk.Todaybhk;
 				PRODUCT_NAME = "$(TARGET_NAME)";
 				SKIP_INSTALL = YES;
 			};
@@ -1039,6 +1040,7 @@
 				GCC_NO_COMMON_BLOCKS = YES;
 				INFOPLIST_FILE = Todaybhk/Info.plist;
 				LD_RUNPATH_SEARCH_PATHS = "$(inherited) @executable_path/Frameworks @executable_path/../../Frameworks";
+				PRODUCT_BUNDLE_IDENTIFIER = cn.com.broadlink.bhk.Todaybhk;
 				PRODUCT_NAME = "$(TARGET_NAME)";
 				SKIP_INSTALL = YES;
 			};
@@ -1154,7 +1156,7 @@
 					"$(PROJECT_DIR)/trunk/e-Control/3rd/zBar",
 					"$(PROJECT_DIR)/trunk/e-Control/library",
 				);
-				PRODUCT_BUNDLE_IDENTIFIER = "baihk.$(PRODUCT_NAME:rfc1034identifier)";
+				PRODUCT_BUNDLE_IDENTIFIER = cn.com.broadlink.bhk;
 				PRODUCT_NAME = "$(TARGET_NAME)";
 				PROVISIONING_PROFILE = "";
 				RUN_CLANG_STATIC_ANALYZER = YES;
@@ -1189,7 +1191,7 @@
 					"$(PROJECT_DIR)/trunk/e-Control/3rd/zBar",
 					"$(PROJECT_DIR)/trunk/e-Control/library",
 				);
-				PRODUCT_BUNDLE_IDENTIFIER = "baihk.$(PRODUCT_NAME:rfc1034identifier)";
+				PRODUCT_BUNDLE_IDENTIFIER = cn.com.broadlink.bhk;
 				PRODUCT_NAME = "$(TARGET_NAME)";
 				PROVISIONING_PROFILE = "";
 				RUN_CLANG_STATIC_ANALYZER = YES;

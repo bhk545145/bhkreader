@@ -131,11 +131,12 @@
         NSError *error;
         NSData *requestData = [NSJSONSerialization dataWithJSONObject:dic options:NSJSONWritingPrettyPrinted error: &error];
         NSData *responseData = [_network requestDispatch:requestData];
-        //NSLog(@"%@", [responseData objectFromJSONData]);
+        NSLog(@"%@", [responseData objectFromJSONData]);
         dispatch_async(dispatch_get_main_queue(), ^{
             [_configurebtn setSelected:NO];
             // 移除HUD
             [hud hide:YES];
+            NSLog(@"%@",[responseData objectFromJSONData]);
             if([[[responseData objectFromJSONData] objectForKey:@"code"] intValue] == 0){
                 [MBProgressHUD showSuccess:@"配置成功" toView:progressview];
             }else if ([[[responseData objectFromJSONData] objectForKey:@"code"] intValue] == 1){
