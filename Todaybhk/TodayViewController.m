@@ -20,7 +20,7 @@
 
 - (void)viewDidLoad {
     [super viewDidLoad];
-    self.Wifi.text = [NSString stringWithFormat:@"当前连接的WiFi：%@",[self getCurrentWiFiSSID]];
+    self.Wifi.text = [NSString stringWithFormat:@"%@",[self getCurrentWiFiSSID]];
 }
 
 - (void)didReceiveMemoryWarning {

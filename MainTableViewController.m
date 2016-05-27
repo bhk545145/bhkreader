@@ -79,6 +79,7 @@
     _siderbarBtn.action = @selector(revealToggle:);
     [self.view addGestureRecognizer:self.revealViewController.panGestureRecognizer];
     [self.view addGestureRecognizer:self.revealViewController.tapGestureRecognizer];
+
 }
 
 
@@ -274,7 +275,7 @@
 //获取局域网设备信息
 - (void)listRefresh
 {
-
+    [self version];
     NSMutableDictionary *dic = [[NSMutableDictionary alloc] init];
     [dic setObject:[NSNumber numberWithInt:11] forKey:@"api_id"];
     [dic setObject:@"probe_list" forKey:@"command"];
@@ -347,6 +348,28 @@
     }
     });
 }
+
+- (void)version{
+    NSMutableDictionary *dic = [[NSMutableDictionary alloc] init];
+    [dic setObject:[NSNumber numberWithInt:2] forKey:@"api_id"];
+    [dic setObject:@"SDK_version" forKey:@"command"];
+    NSError *error;
+    NSData *requestData = [NSJSONSerialization dataWithJSONObject:dic options:NSJSONWritingPrettyPrinted error: &error];
+    dispatch_async(networkQueue, ^{
+        NSData *responseData = [_network requestDispatch:requestData];
+        NSLog(@"%d",[[[responseData objectFromJSONData] objectForKey:@"code"]intValue]);
+        if ([[[responseData objectFromJSONData] objectForKey:@"code"] intValue] == 0)
+        {
+            NSLog(@"%@",[responseData objectFromJSONData]);
+        }
+        else
+        {
+            NSLog(@"Init failed!");
+        }
+    });
+}
+
+
 //查询数据库的设备信息
 - (void)getFMDBDeviceinfo{
     dispatch_async(networkQueue, ^{
