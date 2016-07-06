@@ -42,6 +42,8 @@
         dispatch_async(dispatch_get_main_queue(), ^{
         if ([[[responseData objectFromJSONData] objectForKey:@"code"] intValue] == 0) {
             [MBProgressHUD showSuccess:@"保存成功"];
+        }else{
+            NSLog(@"%@",[responseData objectFromJSONData]);
         }
         });
     });

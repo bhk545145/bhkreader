@@ -93,6 +93,7 @@
     BLSDKTool *blsdktool = [BLSDKTool responseDatatoapiid:apiid command:@"sp2_refresh" mac:mac];
     if (blsdktool.code == 0)
     {
+        NSLog(@"%d %@",blsdktool.code,blsdktool.msg);
         int spstate = blsdktool.status;
         NSString *name = blsdktool.name;
         int lock = blsdktool.lock;

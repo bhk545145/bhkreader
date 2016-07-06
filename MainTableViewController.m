@@ -344,7 +344,7 @@
     }
     else
     {
-        NSLog(@"Init failed!");
+        NSLog(@"%@Init failed!",[responseData objectFromJSONData]);
     }
     });
 }
