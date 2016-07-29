@@ -13,6 +13,7 @@
 #define S1 @"10018"
 #define RMplus @"10026"
 #define RM3mini  @"10039"
+#define SP3  @"10035"
 //0,10000,10035,10014,10115,
 /** 表格的边框宽度 */
 #define IWStatusTableBorder 5

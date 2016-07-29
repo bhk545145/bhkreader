@@ -128,7 +128,7 @@
 - (UITableViewCell *)tableView:(UITableView *)tableView cellForRowAtIndexPath:(NSIndexPath *)indexPath {
     BLDeviceInfo *info = _deviceArray[indexPath.row];
     NSString *SimleTableIdentifier = @"";
-    if ([info.type isEqualToString:SPmini] || [info.type isEqualToString:SP2]){
+    if ([info.type isEqualToString:SPmini] || [info.type isEqualToString:SP2] || [info.type isEqualToString:SP3]){
         SimleTableIdentifier = [NSString stringWithFormat:@"CellSP"];
     }else if([info.type isEqualToString:SPminiv2]){
         SimleTableIdentifier = [NSString stringWithFormat:@"CellSP30"];
@@ -209,7 +209,7 @@
             info.name = info.splistInfo.name;
             info.lock = info.splistInfo.lock;
         }
-    }else if([info.type isEqualToString:SPminiv2]){
+    }else if([info.type isEqualToString:SPminiv2] || [info.type isEqualToString:SP3]){
         info.splistInfo = [SplistInfo DeviceinfoWithDict:[_Spbtn Sprefresh:info.mac apiid:82]];
         if (info.splistInfo.name != NULL) {
             info.spstate = info.splistInfo.status;

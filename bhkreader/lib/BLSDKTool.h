@@ -27,7 +27,7 @@
 
 
 
-
++ (id)sptaskapid:(int)apiid command:(NSString *)command mac:(NSString *)mac;
 + (id)responseDatatoapiid:(int)apiid command:(NSString *)command mac:(NSString *)mac;
 + (id)responseDatatoapiid:(int)apiid command:(NSString *)command mac:(NSString *)mac status:(int)status;
 + (id)responseDatatoapiid:(int)apiid command:(NSString *)command mac:(NSString *)mac data:(NSString *)data;

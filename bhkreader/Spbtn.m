@@ -60,7 +60,9 @@
         status = 1;
     }
     dispatch_async(networkQueue, ^{
+        //BLSDKTool *blsdktool = [BLSDKTool sptaskapid:84 command:@"sp3_task" mac:_mac];
         BLSDKTool *blsdktool = [BLSDKTool responseDatatoapiid:72 command:@"sp2_control" mac:_mac status:status];
+        
         //NSLog(@"%d",blsdktool.code);
         if (blsdktool.code == 0)
         {
