@@ -330,6 +330,7 @@
     [dic setObject:@"network_init" forKey:@"command"];
     [dic setObject:license forKey:@"license"];
     [dic setObject:type_license forKey:@"type_license"];
+
     NSError *error;
     NSData *requestData = [NSJSONSerialization dataWithJSONObject:dic options:NSJSONWritingPrettyPrinted error: &error];
     dispatch_async(networkQueue, ^{

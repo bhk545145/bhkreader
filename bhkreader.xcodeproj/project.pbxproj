@@ -30,6 +30,7 @@
 		02910B901C1DD2E4001833C7 /* libsqlite3.dylib in Frameworks */ = {isa = PBXBuildFile; fileRef = 02910B8F1C1DD2E4001833C7 /* libsqlite3.dylib */; };
 		02935ADA1C17273F00C855F2 /* bhkFMDB.m in Sources */ = {isa = PBXBuildFile; fileRef = 02935AD91C17273F00C855F2 /* bhkFMDB.m */; };
 		029CBF521C7750010012E442 /* Rm2data.m in Sources */ = {isa = PBXBuildFile; fileRef = 029CBF511C7750010012E442 /* Rm2data.m */; };
+		029CD84D1D93E1A600EE9138 /* TodayViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 0273B2541CA26FE100071F69 /* TodayViewController.m */; };
 		02CAEEC41C25367600603CF4 /* BLSDKTool.m in Sources */ = {isa = PBXBuildFile; fileRef = 02CAEEC31C25367600603CF4 /* BLSDKTool.m */; };
 		02D994741C96EB5C007D6E2F /* ASPopUpView.m in Sources */ = {isa = PBXBuildFile; fileRef = 02D994711C96EB5C007D6E2F /* ASPopUpView.m */; };
 		02D994751C96EB5C007D6E2F /* ASProgressPopUpView.m in Sources */ = {isa = PBXBuildFile; fileRef = 02D994731C96EB5C007D6E2F /* ASProgressPopUpView.m */; };
@@ -784,11 +785,13 @@
 				TargetAttributes = {
 					0273B24D1CA26FE100071F69 = {
 						CreatedOnToolsVersion = 6.4;
-						DevelopmentTeam = 9D35334XSL;
+						DevelopmentTeam = 5YQ85Q9UV8;
+						ProvisioningStyle = Manual;
 					};
 					3AC818531BE8917000D195F6 = {
 						CreatedOnToolsVersion = 6.2;
-						DevelopmentTeam = 9D35334XSL;
+						DevelopmentTeam = 5YQ85Q9UV8;
+						ProvisioningStyle = Manual;
 					};
 				};
 			};
@@ -871,6 +874,7 @@
 				3A9EF40D1BE8DCDE00F21DD2 /* MainTableViewController.m in Sources */,
 				3AC818601BE8917000D195F6 /* ViewController.m in Sources */,
 				3A64FBAD1C2D4EC8000524D7 /* Detailbtn.m in Sources */,
+				029CD84D1D93E1A600EE9138 /* TodayViewController.m in Sources */,
 				022F9F031CA41BD500153FAF /* UIImage+GIF.m in Sources */,
 				3AC06D851C1AF60B00068164 /* FMResultSet.m in Sources */,
 				3ADAF43F1C231E5000F0CE80 /* MJRefreshComponent.m in Sources */,
@@ -959,7 +963,7 @@
 				CODE_SIGN_IDENTITY = "iPhone Developer";
 				"CODE_SIGN_IDENTITY[sdk=iphoneos*]" = "iPhone Developer";
 				DEBUG_INFORMATION_FORMAT = "dwarf-with-dsym";
-				DEVELOPMENT_TEAM = 9D35334XSL;
+				DEVELOPMENT_TEAM = 5YQ85Q9UV8;
 				GCC_NO_COMMON_BLOCKS = YES;
 				GCC_PREPROCESSOR_DEFINITIONS = (
 					"DEBUG=1",
@@ -969,6 +973,8 @@
 				LD_RUNPATH_SEARCH_PATHS = "$(inherited) @executable_path/Frameworks @executable_path/../../Frameworks";
 				PRODUCT_BUNDLE_IDENTIFIER = cn.com.broadlink.bhk.Todaybhk;
 				PRODUCT_NAME = "$(TARGET_NAME)";
+				PROVISIONING_PROFILE = "1268ad35-3562-4355-ae6e-6fcb6b695c32";
+				PROVISIONING_PROFILE_SPECIFIER = ios2_econtrol_development;
 				SKIP_INSTALL = YES;
 			};
 			name = Debug;
@@ -980,12 +986,14 @@
 				CODE_SIGN_IDENTITY = "iPhone Developer";
 				"CODE_SIGN_IDENTITY[sdk=iphoneos*]" = "iPhone Developer";
 				DEBUG_INFORMATION_FORMAT = "dwarf-with-dsym";
-				DEVELOPMENT_TEAM = 9D35334XSL;
+				DEVELOPMENT_TEAM = 5YQ85Q9UV8;
 				GCC_NO_COMMON_BLOCKS = YES;
 				INFOPLIST_FILE = Todaybhk/Info.plist;
 				LD_RUNPATH_SEARCH_PATHS = "$(inherited) @executable_path/Frameworks @executable_path/../../Frameworks";
 				PRODUCT_BUNDLE_IDENTIFIER = cn.com.broadlink.bhk.Todaybhk;
 				PRODUCT_NAME = "$(TARGET_NAME)";
+				PROVISIONING_PROFILE = "1268ad35-3562-4355-ae6e-6fcb6b695c32";
+				PROVISIONING_PROFILE_SPECIFIER = ios2_econtrol_development;
 				SKIP_INSTALL = YES;
 			};
 			name = Release;
@@ -1081,13 +1089,13 @@
 				ASSETCATALOG_COMPILER_LAUNCHIMAGE_NAME = LaunchImage;
 				CODE_SIGN_IDENTITY = "iPhone Developer";
 				"CODE_SIGN_IDENTITY[sdk=iphoneos*]" = "iPhone Developer";
-				DEVELOPMENT_TEAM = 9D35334XSL;
+				DEVELOPMENT_TEAM = 5YQ85Q9UV8;
 				FRAMEWORK_SEARCH_PATHS = (
 					"$(inherited)",
 					"$(PROJECT_DIR)/trunk",
 				);
 				INFOPLIST_FILE = bhkreader/Info.plist;
-				IPHONEOS_DEPLOYMENT_TARGET = 10.0;
+				IPHONEOS_DEPLOYMENT_TARGET = 9.0;
 				LD_RUNPATH_SEARCH_PATHS = "$(inherited) @executable_path/Frameworks";
 				LIBRARY_SEARCH_PATHS = (
 					"$(inherited)",
@@ -1103,7 +1111,8 @@
 				);
 				PRODUCT_BUNDLE_IDENTIFIER = cn.com.broadlink.bhk;
 				PRODUCT_NAME = "$(TARGET_NAME)";
-				PROVISIONING_PROFILE = "";
+				PROVISIONING_PROFILE = "1268ad35-3562-4355-ae6e-6fcb6b695c32";
+				PROVISIONING_PROFILE_SPECIFIER = ios2_econtrol_development;
 				RUN_CLANG_STATIC_ANALYZER = YES;
 				TARGETED_DEVICE_FAMILY = 1;
 				VALID_ARCHS = "armv7 arm64 armv7s";
@@ -1117,13 +1126,13 @@
 				ASSETCATALOG_COMPILER_LAUNCHIMAGE_NAME = LaunchImage;
 				CODE_SIGN_IDENTITY = "iPhone Developer";
 				"CODE_SIGN_IDENTITY[sdk=iphoneos*]" = "iPhone Developer";
-				DEVELOPMENT_TEAM = 9D35334XSL;
+				DEVELOPMENT_TEAM = 5YQ85Q9UV8;
 				FRAMEWORK_SEARCH_PATHS = (
 					"$(inherited)",
 					"$(PROJECT_DIR)/trunk",
 				);
 				INFOPLIST_FILE = bhkreader/Info.plist;
-				IPHONEOS_DEPLOYMENT_TARGET = 10.0;
+				IPHONEOS_DEPLOYMENT_TARGET = 9.0;
 				LD_RUNPATH_SEARCH_PATHS = "$(inherited) @executable_path/Frameworks";
 				LIBRARY_SEARCH_PATHS = (
 					"$(inherited)",
@@ -1139,7 +1148,8 @@
 				);
 				PRODUCT_BUNDLE_IDENTIFIER = cn.com.broadlink.bhk;
 				PRODUCT_NAME = "$(TARGET_NAME)";
-				PROVISIONING_PROFILE = "";
+				PROVISIONING_PROFILE = "1268ad35-3562-4355-ae6e-6fcb6b695c32";
+				PROVISIONING_PROFILE_SPECIFIER = ios2_econtrol_development;
 				RUN_CLANG_STATIC_ANALYZER = YES;
 				TARGETED_DEVICE_FAMILY = 1;
 				VALID_ARCHS = "armv7 arm64 armv7s";
