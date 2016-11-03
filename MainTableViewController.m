@@ -209,7 +209,7 @@
             info.name = info.splistInfo.name;
             info.lock = info.splistInfo.lock;
         }
-    }else if([info.type isEqualToString:SPminiv2] || [info.type isEqualToString:SP3]){
+    }else if([info.type isEqualToString:SPminiv2] || [info.type isEqualToString:SP3]|| [info.type isEqualToString:SPmini3]){
         info.splistInfo = [SplistInfo DeviceinfoWithDict:[_Spbtn Sprefresh:info.mac apiid:82]];
         if (info.splistInfo.name != NULL) {
             info.spstate = info.splistInfo.status;
@@ -284,7 +284,7 @@
     dispatch_async(networkQueue, ^{
         NSMutableArray *array = [[NSMutableArray alloc] initWithArray:_deviceArray];
         NSData *responseData = [_network requestDispatch:requestData];
-        //NSLog(@"%@",[[responseData objectFromJSONData] objectForKey:@"list"]);
+        NSLog(@"%@",[responseData objectFromJSONData]);
         if ([[[responseData objectFromJSONData] objectForKey:@"code"] intValue] == 0)
         {
             int i;
@@ -330,12 +330,14 @@
     [dic setObject:@"network_init" forKey:@"command"];
     [dic setObject:license forKey:@"license"];
     [dic setObject:type_license forKey:@"type_license"];
+//    [dic setObject:@"1222main.broadlink.com.cn" forKey:@"main_udp_ser"];
+//    [dic setObject:@"1222backup.broadlink.com.cn" forKey:@"backup_udp_ser"];
 
     NSError *error;
     NSData *requestData = [NSJSONSerialization dataWithJSONObject:dic options:NSJSONWritingPrettyPrinted error: &error];
     dispatch_async(networkQueue, ^{
     NSData *responseData = [_network requestDispatch:requestData];
-    //NSLog(@"%d",[[[responseData objectFromJSONData] objectForKey:@"code"]intValue]);
+    NSLog(@"network_init %@",[responseData objectFromJSONData]);
     if ([[[responseData objectFromJSONData] objectForKey:@"code"] intValue] == 0)
     {
         dispatch_async(dispatch_get_main_queue(), ^{

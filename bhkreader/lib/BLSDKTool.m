@@ -62,6 +62,7 @@
         [dic setObject:command forKey:@"command"];
         [dic setObject:mac forKey:@"mac"];
         [dic setObject:[NSNumber numberWithInt:status] forKey:@"status"];
+//        [dic setObject:[NSNumber numberWithInt:0] forKey:@"mask"];
         NSError *error;
         NSData *requestData = [NSJSONSerialization dataWithJSONObject:dic options:NSJSONWritingPrettyPrinted error: &error];
         NSData *responseData = [self.network requestDispatch:requestData];
